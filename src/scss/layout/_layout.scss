@@ -1,0 +1,12 @@
+@use "../abstract" as *;
+
+body {
+    
+    @include size(M) {
+        padding: 0;
+    }
+
+    @include size(XL) {
+        padding: 0;
+    }
+}

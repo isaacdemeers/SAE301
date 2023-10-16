@@ -1,0 +1,15 @@
+{
+  "name": "exemple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "scss:w": "sass --watch src/scss/main.scss:dist/css/styles.css",
+    "scss:build": "sass --style=compressed src/scss/main.scss:dist/css/styles.css"
+  },
+  "keywords": [],
+  "author": "Isaac",
+  "license": "ISC"
+}

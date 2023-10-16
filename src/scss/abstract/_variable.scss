@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
+
+// colors
+$colors: (
+    neutral:(
+        50: #F3F4F5,
+        100: #E8E8EA,
+        200: #C5C7CB,
+        300: #A2A5AC,
+        400: #5C616D,
+        500: #161D2F,
+        600: #141A2A,
+        700: #0D111C,
+        800: #0A0D15,
+        900: #07090E,
+    ),
+    primary:(
+        400: #fe4647
+    )
+);
+
+
+// font-families
+$ff:(
+    Outfit: "'Outfit', sans-serif"
+);
+
+
+
+// font-size
+$fs: (
+    300: .81rem,
+    400: .93rem,
+    500: 1rem,
+    600: 1.125rem,
+    700: 1.5rem,
+    800: 2rem
+);
+
+
+// font-weights
+$fw: (
+    300: 300,
+    400: 400, 
+    500: 500,
+    600: 600,
+    700: 700,
+    800: 800, 
+);
+
+
+// size/spacing values
+$size: (
+    8: 8px,
+    16: 16px,
+    32: 32px,
+);
+
+
+:root {
+    // colors
+    @each $color, $shadeMap in $colors {
+        @each $shade, $value in $shadeMap {
+            --color-#{$color}-#{$shade}: #{$value};
+        }
+    }
+
+    // font-families
+    @each $key, $value in $ff {
+        --ff-#{$key}: #{$value};
+    }
+
+    // font-size
+    @each $key, $value in $fs {
+        --fs-#{$key}: #{$value};
+    }
+
+    // font-weights
+    @each $key, $value in $fw {
+        --fw-#{$key}: #{$value};
+    }
+
+    // size/spacing values
+    @each $key, $value in $size {
+        --size-#{$key}: #{$value};
+    }
+}
