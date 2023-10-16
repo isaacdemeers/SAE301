@@ -1,60 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500;1,700&family=Rakkas&display=swap');
 // colors
 $colors: (
     neutral:(
-        50: #F3F4F5,
-        100: #E8E8EA,
-        200: #C5C7CB,
-        300: #A2A5AC,
-        400: #5C616D,
-        500: #161D2F,
-        600: #141A2A,
-        700: #0D111C,
-        800: #0A0D15,
-        900: #07090E,
+        50: hsl(0 0 98%),
+        300: hsl(0 0 87%),
+        500: hsl(0 0 58%),
+        700: hsl(0 0 31%),
+        900: hsl(0 0 13%),
     ),
-    primary:(
-        400: #fe4647
-    )
+    red:(
+        50: hsl(6 100% 98%),
+        100: hsl(6 93% 88%),
+        200: hsl(6 89% 79%),
+        300: hsl(6 83% 69%),
+        400: hsl(6 78% 61%),
+        500: hsl(6 71% 54%),
+        600: hsl(6 68% 48%),
+        700: hsl(6 74% 41%),
+        800: hsl(6 79% 35%),
+        900: hsl(6 81% 29%),
+    ),
+    yellow:(
+        50: hsl(42 100% 98%),
+        100: hsl(44 93% 88%),
+        200: hsl(44 89% 79%),
+        300: hsl(44 83% 69%),
+        400: hsl(44 78% 61%),
+        500: hsl(44 71% 54%),
+        600: hsl(44 68% 48%),
+        700: hsl(44 74% 41%),
+        800: hsl(44 79% 35%),
+        900: hsl(44 81% 29%),
+    ),
+
 );
 
 
 // font-families
 $ff:(
-    Outfit: "'Outfit', sans-serif"
+    Montserrat: "'Montserrat', sans-serif",
+    Rakkas: "'Rakkas', serif"
 );
 
 
 
 // font-size
 $fs: (
-    300: .81rem,
-    400: .93rem,
-    500: 1rem,
-    600: 1.125rem,
-    700: 1.5rem,
-    800: 2rem
+    100: 0.5rem,
+    200: 0.688rem,
+    300: 1rem,
+    400: 1.438rem,
+    500: 2rem,
+    600: 2.812rem,
+    700: 4rem,
+    800: 5.625rem
+    900: 8rem,
 );
 
 
 // font-weights
 $fw: (
-    300: 300,
+    200: 200,
     400: 400, 
     500: 500,
-    600: 600,
     700: 700,
-    800: 800, 
 );
 
 
-// size/spacing values
-$size: (
-    8: 8px,
-    16: 16px,
-    32: 32px,
-);
+
 
 
 :root {
@@ -80,8 +93,4 @@ $size: (
         --fw-#{$key}: #{$value};
     }
 
-    // size/spacing values
-    @each $key, $value in $size {
-        --size-#{$key}: #{$value};
-    }
 }
