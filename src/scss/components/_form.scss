@@ -1,0 +1,55 @@
+@use "../abstract" as *;
+
+.login {
+    @include box();
+
+    // TEMPORAIRE
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // 
+
+    &__title {
+        @include boxTitle(--fs-500);
+        width: 100%;
+
+    }
+
+    &__line {
+        height: 2px;
+        width: 100%;
+        background-color: var(--color-neutral-300);
+    }
+
+    &__list {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__item {
+        width: inherit;
+    }
+
+    &__input {
+        border: 2px solid var(--color-red-500);
+        border-radius: 12px;
+        padding: .7rem;
+        width: 100%;
+    }
+
+    &__input::placeholder {
+        font-family: var(--ff-Montserrat);
+    }
+
+    &__noAccount {
+        color: var(--color-neutral-500);
+        font-family: var(--ff-Montserrat);
+        text-transform: capitalize;
+    }
+
+}

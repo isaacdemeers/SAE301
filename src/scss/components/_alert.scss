@@ -24,11 +24,7 @@
         }
     
         &__title {
-            font-size: var(--fs-300);
-            font-weight: var(--fw-600);
-            font-family: var(--ff-Rakkas);
-            color: var(--color-neutral-900);
-            text-transform: capitalize;
+            @include boxTitle(--fs-300);
         }
         &__buttons {
             height: fit-content;

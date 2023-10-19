@@ -1,3 +1,5 @@
+
+
 @mixin size ($breakpoint) { //the name of the mixin is devices
   
   @if $breakpoint == S {    
@@ -20,7 +22,6 @@
 }
 
 @mixin box($width: 50%, $padding: 3rem, $minWidth: 400px) {
-  position: relative;
   width: $width;
   height: fit-content;
   background-color: var(--color-neutral-100);
@@ -34,6 +35,14 @@
   gap: 2rem;
   min-width: $minWidth;
   transition: all 0.3s var(--anim);
+}
+
+@mixin boxTitle($fontSize) {
+  font-size: var($fontSize);
+  font-weight: var(--fw-600);
+  font-family: var(--ff-Rakkas);
+  color: var(--color-neutral-900);
+  text-transform: capitalize;
 }
 
   

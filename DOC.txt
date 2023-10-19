@@ -14,6 +14,13 @@ $padding = valeur du padding interieur de la boite. Default 3rem
 $minWidth = taille minimum en pixel de la boite quand on la réduit. Default 400px
 
 
+
+boxTitle -> boxTitle($fontSize)
+
+$fontSize = taille de la police du titre de la boite. Default --fs-500
+
+
+
 COMPOSANTS -------------------------------------------------------------------------------------------------------------------------------------
 
 
