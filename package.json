@@ -9,5 +9,8 @@
   },
   "keywords": [],
   "author": "Isaac",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.69.4"
+  }
 }
