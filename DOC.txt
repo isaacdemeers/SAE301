@@ -26,6 +26,7 @@ COMPOSANTS ---------------------------------------------------------------------
 
 banner -> <span class="banner"></span>
 
+- banner--visible = montre la baniere
 - banner--lowStock = le texte de la banner sera 'Presque épuisé'
 - banner--noStock = le texte de la banner sera 'Épuisé'
 

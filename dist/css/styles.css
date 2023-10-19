@@ -243,7 +243,7 @@ table {
 
 .banner {
   position: absolute;
-  display: block;
+  display: none;
   width: fit-content;
   padding: 0 1rem;
   height: 50px;
@@ -271,6 +271,9 @@ table {
   font-family: var(--ff-Rakkas);
   font-size: var(--fs-400);
   color: var(--color-yellow-300);
+}
+.banner--visible {
+  display: block;
 }
 .banner--noStock::after {
   content: "Épuisé";
