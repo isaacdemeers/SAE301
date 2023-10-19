@@ -1,0 +1,25 @@
+MIXINS ---------------------------------------------------------------------------------------------------------------------------------------
+
+
+size -> size($breakpoint)
+
+$breakpoint = valeur en 'S', 'M' et 'L' qui définie la taille du breakpoint. 'S' n'est jamais utilisé car il est egal à la version mobile.
+
+
+
+box -> box($width: 50%, $padding: 3rem, $minWidth: 400px)
+
+$width = taille de la boite. Default 50%
+$padding = valeur du padding interieur de la boite. Default 3rem
+$minWidth = taille minimum en pixel de la boite quand on la réduit. Default 400px
+
+
+COMPOSANTS -------------------------------------------------------------------------------------------------------------------------------------
+
+
+banner -> <span class="banner"></span>
+
+Le modifier peut prendre deux valeur differentes.
+
+- banner--lowStock = le texte de la banner sera 'Presque épuisé'
+- banner--noStock = le texte de la banner sera 'Épuisé'

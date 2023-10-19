@@ -14,22 +14,7 @@
     justify-content: center;
 
     &__alertBox {
-        position: relative;
-        width: 50%;
-        height: fit-content;
-        background-color: var(--color-neutral-100);
-        display: flex;
-        padding: 3rem;
-
-        align-items: center;
-        justify-content: space-evenly;
-        flex-direction: column;
-        border-radius: 20px;
-        box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
-        gap: 2rem;
-        min-width: 400px;
-        transition: all 0.3s var(--anim);
-        
+        @include box();
 
         &__close {
             position: absolute;

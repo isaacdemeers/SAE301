@@ -40,7 +40,7 @@
     }
     &--lowStock {
       &::after {
-        content: "Indisponible";
+        content: "Presque épuisé";
       }
     }
 }
