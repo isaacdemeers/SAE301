@@ -1,13 +1,19 @@
 @mixin size ($breakpoint) { //the name of the mixin is devices
   
-    @if $breakpoint == M {    
-    @media only screen and (min-width: 550px) {
+  @if $breakpoint == S {    
+    @media only screen and (min-width: 393px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == M {
+    @media only screen and (min-width: 834px) {
       @content;
     }
   }
  
-  @if $breakpoint == XL {
-    @media only screen and (min-width: 1000px) {
+  @if $breakpoint == L {
+    @media only screen and (min-width: 1212px) {
       @content;
     }
   }

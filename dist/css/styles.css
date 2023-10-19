@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,700;1,200;1,400;1,500;1,700&family=Rakkas&display=swap");
 /* Box sizing rules */
 *,
@@ -89,7 +90,9 @@ table {
 }
 
 :root {
-  --color-neutral-50: hsl(0, 0%, 98%);
+  --anim: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --color-neutral-100: hsl(0, 0%, 98%);
+  --color-neutral-200: hsl(0, 0%, 94%);
   --color-neutral-300: hsl(0, 0%, 87%);
   --color-neutral-500: hsl(0, 0%, 58%);
   --color-neutral-700: hsl(0, 0%, 31%);
@@ -131,6 +134,34 @@ table {
   --fw-700: 700;
 }
 
+.button {
+  width: 100%;
+  height: 2rem;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-Montserrat);
+  font-weight: var(--fw-400);
+  border: none;
+  padding: 1.5rem;
+  max-width: 50%;
+  cursor: pointer;
+  transition: transform 0.3s var(--anim);
+}
+.button--confirm {
+  background-color: var(--color-red-500);
+  color: var(--color-neutral-100);
+}
+.button--cancel {
+  background-color: var(--color-neutral-100);
+  border: 1px solid var(--color-red-500);
+  color: var(--color-neutral-900);
+}
+.button:hover {
+  transform: scale(1.03);
+}
+
 .alert {
   position: absolute;
   top: 0;
@@ -146,44 +177,104 @@ table {
 .alert__alertBox {
   position: relative;
   width: 50%;
-  height: 50%;
-  background-color: white;
-  padding: 4rem;
+  height: fit-content;
+  background-color: var(--color-neutral-100);
   display: flex;
+  padding: 3rem;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
   border-radius: 20px;
   box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
+  gap: 2rem;
+  min-width: 400px;
+  transition: all 0.3s var(--anim);
 }
 .alert__alertBox__close {
   position: absolute;
-  top: 2rem;
-  right: 2rem;
+  top: 1.5rem;
+  right: 1.5rem;
   cursor: pointer;
 }
 .alert__alertBox__title {
-  font-size: var(--fs-700);
-  font-weight: var(--fw-700);
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
   font-family: var(--ff-Rakkas);
-  color: var(--color-primary-500);
+  color: var(--color-neutral-900);
   text-transform: capitalize;
-  margin-bottom: 1rem;
 }
-.alert__alertBox__content {
-  font-size: var(--fs-400);
-  font-weight: var(--fw-400);
-  font-family: var(--ff-Montserrat);
-  color: var(--color-primary-500);
-  margin-bottom: 1rem;
+.alert__alertBox__buttons {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 2rem;
 }
-
-@media only screen and (min-width: 550px) {
-  body {
-    padding: 0;
+@media only screen and (min-width: 834px) {
+  .alert__alertBox {
+    padding: 3rem;
+  }
+  .alert__alertBox__title {
+    font-size: var(--fs-400);
+  }
+  .alert__alertBox__close {
+    top: 1.5rem;
+    right: 1.5rem;
   }
 }
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1212px) {
+  .alert__alertBox {
+    padding: 4rem;
+  }
+  .alert__alertBox__title {
+    font-size: var(--fs-500);
+  }
+  .alert__alertBox__close {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+
+.banner {
+  position: absolute;
+  display: block;
+  width: fit-content;
+  padding: 0 1rem;
+  height: 50px;
+  line-height: 50px;
+  margin-left: -15px;
+  margin-right: -10px;
+  background: var(--color-red-500);
+  top: 40%;
+  left: 0;
+  border-radius: 12px;
+  box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.56);
+}
+.banner::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  bottom: -10px;
+  left: 0;
+  border-top: 19px solid var(--color-red-800);
+  border-left: 15px solid transparent;
+  z-index: -1;
+}
+.banner::after {
+  font-family: var(--ff-Rakkas);
+  font-size: var(--fs-400);
+  color: var(--color-yellow-300);
+}
+.banner--noStock::after {
+  content: "Épuisé";
+}
+.banner--lowStock::after {
+  content: "Indisponible";
+}
+
+@media only screen and (min-width: 834px) {
   body {
     padding: 0;
   }

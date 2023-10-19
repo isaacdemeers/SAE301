@@ -1,0 +1,47 @@
+
+.banner {
+    position: absolute;
+    display: block;
+    width: fit-content;
+    padding: 0 1rem;
+    height: 50px;
+    line-height: 50px;
+    margin-left: -15px;
+    margin-right: -10px;
+    background: var(--color-red-500);
+    top: 40%;
+    left: 0;
+    border-radius: 12px;
+    box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.56);
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 0;
+      width: 0;
+      bottom: -10px;
+      left: 0;
+      border-top: 19px solid var(--color-red-800);
+      border-left: 15px solid transparent;
+      z-index: -1;
+    }
+
+    &::after {
+      font-family: var(--ff-Rakkas);
+      font-size: var(--fs-400);
+      color: var(--color-yellow-300);
+    }
+
+
+    &--noStock {
+      &::after {
+        content: "Épuisé";
+      }
+    }
+    &--lowStock {
+      &::after {
+        content: "Indisponible";
+      }
+    }
+}
+  

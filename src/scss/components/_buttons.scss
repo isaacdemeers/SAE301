@@ -1,0 +1,31 @@
+.button {
+    width: 100%;
+    height: 2rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--ff-Montserrat);
+    font-weight: var(--fw-400);
+    border: none;
+    padding: 1.5rem;
+    max-width: 50%;
+    cursor: pointer;
+    transition: transform 0.3s var(--anim);
+
+
+    &--confirm {
+        background-color: var(--color-red-500);
+        color: var(--color-neutral-100);
+    }
+    
+    &--cancel {
+        background-color: var(--color-neutral-100);
+        border: 1px solid var(--color-red-500);
+        color: var(--color-neutral-900);
+    }
+
+    &:hover {
+        transform: scale(1.03) ;
+    }
+}

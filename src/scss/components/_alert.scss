@@ -1,3 +1,6 @@
+@use "../abstract" as *;
+
+
 .alert {
     position: absolute;
     top: 0;
@@ -13,40 +16,69 @@
     &__alertBox {
         position: relative;
         width: 50%;
-        height: 50%;
-        background-color: white;
-        padding: 4rem;
+        height: fit-content;
+        background-color: var(--color-neutral-100);
         display: flex;
+        padding: 3rem;
+
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         flex-direction: column;
         border-radius: 20px;
-        box-shadow: 0 1rem 1rem -.8rem rgba(0, 0, 0, 0.4);
+        box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
+        gap: 2rem;
+        min-width: 400px;
+        transition: all 0.3s var(--anim);
+        
 
         &__close {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
+            top: 1.5rem;
+            right: 1.5rem;
             cursor: pointer;
         }
-
+    
         &__title {
-            font-size: var(--fs-700);
-            font-weight: var(--fw-700);
+            font-size: var(--fs-300);
+            font-weight: var(--fw-600);
             font-family: var(--ff-Rakkas);
-            color: var(--color-primary-500);
+            color: var(--color-neutral-900);
             text-transform: capitalize;
-            margin-bottom: 1rem;
         }
-        &__content {
-            font-size: var(--fs-400);
-            font-weight: var(--fw-400);
-            font-family: var(--ff-Montserrat);
-            color: var(--color-primary-500);
-            margin-bottom: 1rem;
+        &__buttons {
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+            gap: 2rem;
         }
+
+        @include size(M) {
+            padding: 3rem;
+            &__title {
+                font-size: var(--fs-400);
+            }
+            &__close {
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+
+        }
+    
+        @include size(L) {
+            padding: 4rem;
+            &__title {
+                font-size: var(--fs-500);
+            }
+            &__close {
+                top: 2rem;
+                right: 2rem;
+            }
+
+        }
+
+        
     }
 
-
-    
 }

@@ -2,7 +2,9 @@
 // colors
 $colors: (
     "neutral":(
-        50: hsl(0deg 0% 98%),
+        100: hsl(0deg 0% 98%),
+        200: hsl(0, 0%, 94%),
+
         300: hsl(0deg 0% 87%),
         500: hsl(0deg 0% 58%),
         700: hsl(0deg 0% 31%),
@@ -71,6 +73,7 @@ $fw: (
 
 
 :root {
+    --anim: cubic-bezier(0.34, 1.56, 0.64, 1);
     // colors
     @each $color, $shadeMap in $colors {
         @each $shade, $value in $shadeMap {
