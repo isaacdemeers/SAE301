@@ -17,9 +17,32 @@
     }
 
     &__line {
+        position: relative;
         height: 2px;
         width: 100%;
         background-color: var(--color-neutral-300);
+        margin-bottom: 1rem;
+
+        
+    }
+
+    &__line::after {
+        content: '';
+        position: absolute;
+
+        width: 100%;
+        margin-top: 1rem;
+        color: var(--color-red-500);
+        font-family: var(--ff-Montserrat);
+    }
+
+    &--errorLogin .login__line::after {
+        content: 'Mot de passe ou nom d’utilisateur incorrect'; 
+        
+    }
+    &--errorSingup .login__line::after {
+        content: 'Addresse mail déja utilisée'; 
+        
     }
 
     &__list {
@@ -33,6 +56,10 @@
 
     &__item {
         width: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
     }
 
     &__input {
@@ -50,6 +77,8 @@
         color: var(--color-neutral-500);
         font-family: var(--ff-Montserrat);
         text-transform: capitalize;
+        font-size: var(--fs-200);
+        margin-bottom: 1rem;
     }
 
 }

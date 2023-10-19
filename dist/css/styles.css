@@ -145,7 +145,6 @@ table {
   font-weight: var(--fw-400);
   border: none;
   padding: 1.5rem;
-  max-width: 50%;
   cursor: pointer;
   transition: transform 0.3s var(--anim);
 }
@@ -174,6 +173,12 @@ table {
   align-items: center;
   justify-content: center;
 }
+.alert--onlyConfirm .button--cancel {
+  display: none;
+}
+.alert--onlyCancel .button--confirm {
+  display: none;
+}
 .alert__alertBox {
   width: 50%;
   height: fit-content;
@@ -188,6 +193,7 @@ table {
   gap: 2rem;
   min-width: 400px;
   transition: all 0.3s var(--anim);
+  position: relative;
 }
 .alert__alertBox__close {
   position: absolute;
@@ -315,9 +321,25 @@ table {
   width: 100%;
 }
 .login__line {
+  position: relative;
   height: 2px;
   width: 100%;
   background-color: var(--color-neutral-300);
+  margin-bottom: 1rem;
+}
+.login__line::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  margin-top: 1rem;
+  color: var(--color-red-500);
+  font-family: var(--ff-Montserrat);
+}
+.login--errorLogin .login__line::after {
+  content: "Mot de passe ou nom d’utilisateur incorrect";
+}
+.login--errorSingup .login__line::after {
+  content: "Addresse mail déja utilisée";
 }
 .login__list {
   width: 100%;
@@ -329,6 +351,10 @@ table {
 }
 .login__item {
   width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 .login__input {
   border: 2px solid var(--color-red-500);
@@ -343,6 +369,8 @@ table {
   color: var(--color-neutral-500);
   font-family: var(--ff-Montserrat);
   text-transform: capitalize;
+  font-size: var(--fs-200);
+  margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 834px) {

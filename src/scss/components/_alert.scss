@@ -13,8 +13,17 @@
     align-items: center;
     justify-content: center;
 
+    &--onlyConfirm .button--cancel {
+        display: none;
+    }
+
+    &--onlyCancel .button--confirm {
+        display: none;
+    }
+
     &__alertBox {
         @include box();
+        position: relative;
 
         &__close {
             position: absolute;

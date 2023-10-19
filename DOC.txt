@@ -26,7 +26,19 @@ COMPOSANTS ---------------------------------------------------------------------
 
 banner -> <span class="banner"></span>
 
-Le modifier peut prendre deux valeur differentes.
-
 - banner--lowStock = le texte de la banner sera 'Presque épuisé'
 - banner--noStock = le texte de la banner sera 'Épuisé'
+
+
+
+form -> <form class="login" action="post">
+
+- login--errorLogin = ajoute le message d'erreur 'Mot de passe ou nom d’utilisateur incorrect' sur le form 
+- login--errorSingup = ajoute le message d'erreur 'Addresse mail déja utilisée' sur le form 
+
+
+
+alert -> <div class="alert">
+
+- alert--onlyConfirm = ne montre que le bouton pour confirmer
+- alert--onlyCancel = ne montre que le bouton pour annuler
