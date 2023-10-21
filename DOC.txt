@@ -7,11 +7,9 @@ $breakpoint = valeur en 'S', 'M' et 'L' qui définie la taille du breakpoint. 'S
 
 
 
-box -> box($width: 50%, $padding: 3rem, $minWidth: 400px)
+box -> box()
 
-$width = taille de la boite. Default 50%
-$padding = valeur du padding interieur de la boite. Default 3rem
-$minWidth = taille minimum en pixel de la boite quand on la réduit. Default 400px
+Creer une boite générique
 
 
 
