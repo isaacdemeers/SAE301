@@ -41,3 +41,9 @@ alert -> <div class="alert">
 
 - alert--onlyConfirm = ne montre que le bouton pour confirmer
 - alert--onlyCancel = ne montre que le bouton pour annuler
+
+
+Bouton Valider Cart
+
+cart__validate les la classe pour styliser le bouton de validation du panier quand le panier contient des produits
+cart__validate--disabled la classe pour styliser le bouton de validation du panier quand le panier est vide
