@@ -7,11 +7,7 @@
   >
 
   <figure class="orderHandler__preview">
-    <img
-      class="orderHandler__preview__img"
-      src="./assets/img/meal.png"
-      alt="preview"
-    />
+    <img class="orderHandler__preview__img" src="{{mealImage}}" alt="preview" />
   </figure>
 
   <figcaption class="orderHandler__infos">
@@ -19,7 +15,7 @@
       >chevron_left</i
     >
     <h2 class="orderHandler__infos__title orderHandler__infos__title--center">
-      Winner Burger Deal
+      {{mealName}}
     </h2>
     <ul class="orderHandler__statut">
       <span class="orderHandler__statut__line"></span>
