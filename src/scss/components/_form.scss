@@ -2,6 +2,8 @@
 
 .login {
     @include box();
+    padding: 3rem;
+
 
     // TEMPORAIRE
     position: absolute;

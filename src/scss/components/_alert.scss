@@ -24,6 +24,8 @@
     &__alertBox {
         @include box();
         position: relative;
+        padding: 3rem;
+
 
         &__close {
             position: absolute;

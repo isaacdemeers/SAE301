@@ -9,7 +9,7 @@
   }
 
   @if $breakpoint == M {
-    @media only screen and (min-width: 450px) {
+    @media only screen and (min-width: 550px) {
       @content;
     }
   }
@@ -26,7 +26,6 @@
   height: fit-content;
   background-color: var(--color-neutral-100);
   display: flex;
-  padding: $padding;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
@@ -34,27 +33,26 @@
   box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
   gap: 2rem;
   transition: all 0.3s var(--anim);
-    background-color: rebeccapurple;
+  overflow: hidden;
 
 
 
   @include size(M) {
-    width: $width;
-  height: fit-content;
-    background-color: red;
+    width: 80vw;
+    max-width: 500px;
 
 
 
   }
 
 @include size(L) {
-    background-color: black;
-
+    width: 50vw;
+    min-width: 800px;
 
   }
 }
 
-@mixin boxTitle($fontSize) {
+@mixin boxTitle($fontSize: --fs-500) {
   font-size: var($fontSize);
   font-weight: var(--fw-600);
   font-family: var(--ff-Rakkas);

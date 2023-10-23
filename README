@@ -1,0 +1,5 @@
+Importer la base (minimaliste) SAE301 dans votre serveur de base de données.
+
+Modifier les informations de connexion à la base dans api/class/Controller.php
+
+Héberger l'application pour tester (WAMP/MAMP par exemple, ou  mmi.unilim.fr (derrière le VPN)
