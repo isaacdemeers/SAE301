@@ -3,26 +3,26 @@
 @mixin size ($breakpoint) { //the name of the mixin is devices
   
   @if $breakpoint == S {    
-    @media only screen and (min-width: 393px) {
+    @media only screen and (min-width: 450px) {
       @content;
     }
   }
 
   @if $breakpoint == M {
-    @media only screen and (min-width: 834px) {
+    @media only screen and (min-width: 450px) {
       @content;
     }
   }
  
   @if $breakpoint == L {
-    @media only screen and (min-width: 1212px) {
+    @media only screen and (min-width: 1000px) {
       @content;
     }
   }
 }
 
-@mixin box($width: 50%, $padding: 3rem, $minWidth: 400px) {
-  width: $width;
+@mixin box() {
+  width: 95vw;
   height: fit-content;
   background-color: var(--color-neutral-100);
   display: flex;
@@ -33,8 +33,25 @@
   border-radius: 20px;
   box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
   gap: 2rem;
-  min-width: $minWidth;
   transition: all 0.3s var(--anim);
+    background-color: rebeccapurple;
+
+
+
+  @include size(M) {
+    width: $width;
+  height: fit-content;
+    background-color: red;
+
+
+
+  }
+
+@include size(L) {
+    background-color: black;
+
+
+  }
 }
 
 @mixin boxTitle($fontSize) {
