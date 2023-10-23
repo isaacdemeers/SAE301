@@ -1,0 +1,121 @@
+@use "../abstract" as *;
+
+.navbar {
+  width: auto;
+  &__list {
+    // Utilisation de BEM pour le bloc 'list'
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 12px 11px 0px rgba(0, 0, 0, 0.1);
+    @include size(L) {
+      justify-content: space-between;
+      gap: 4rem;
+    }
+  }
+  &__item {
+    // Utilisation de BEM pour les éléments 'item'
+    display: flex;
+    width: 8rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    @include size(L) {
+      width: auto;
+    }
+    &:first-child {
+      justify-content: left;
+      @include size(L) {
+        width: 0;
+        position: absolute;
+      }
+    }
+    &:nth-child(3) {
+      position: absolute;
+      @include size(L) {
+        position: static;
+      }
+    }
+  }
+  &__sublist {
+    // Utilisation de BEM pour la sous-liste 'sublist'
+    width: auto;
+    display: flex; // Masquer par défaut
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    box-shadow: none;
+    &--large {
+      display: none;
+      @include size(L) {
+        display: flex;
+        gap: 4rem;
+        white-space: nowrap;
+      }
+    }
+  }
+  &__subitem {
+    // Utilisation de BEM pour les éléments de sous-liste 'subitem'
+    width: auto;
+    p {
+      font-size: var(--fs-200);
+      font-weight: var(--fw-500);
+      font-family: var(--ff-Montserrat);
+      @include size(L) {
+        font-size: var(--fs-300);
+      }
+    }
+  }
+}
+
+.menu-button {
+  @include size(L) {
+    display: none;
+  }
+}
+
+.burger__bg {
+  position: fixed;
+  top: 0;
+  left: -100%; // Commencez par positionner la div en dehors de la vue à gauche
+  width: 100%;
+  height: 100%;
+  background: white; // Arrière-plan semi-transparent en blanc
+  z-index: 999; // Pour s'assurer que la div s'affiche au-dessus de tout le reste
+  transition: left 0.3s ease; // Ajoutez une transition pour animer l'ouverture depuis la gauche
+  display: flex;
+  align-items: center; /* Ajoutez cette ligne pour centrer verticalement */
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%; /* Ajoutez cette ligne pour occuper toute la largeur de la div */
+    display: flex;
+    flex-direction: column; /* Ajoutez cette ligne pour afficher les éléments verticalement */
+    align-items: center; /* Ajoutez cette ligne pour centrer horizontalement */
+
+    li {
+      margin: 1rem 0;
+
+      a {
+        text-decoration: none;
+        color: var(--neutral-100);
+        font-size: var(--fs-500);
+        font-family: var(--ff-Montserrat);
+      }
+    }
+  }
+
+  &--active {
+    left: 0; // Lorsque la classe active est appliquée, déplacez la div depuis la gauche
+  }
+}
+
+.menu-button {
+  z-index: 10000;
+}
