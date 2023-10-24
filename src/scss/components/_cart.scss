@@ -1,121 +1,121 @@
 @use "../abstract" as *;
 
-.cart{
-    background-color: var(--color-neutral-100);
-    border: 1px solid var(--color-neutral-500);
-    border-radius: 1em;
-    font-family: var(--ff-Montserrat);
+.cart {
+  background-color: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-500);
+  border-radius: 1em;
+  font-family: var(--ff-Montserrat);
 
-    &__container{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-        padding: 2em;
-        border-bottom: 1px solid var(--color-neutral-500);
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 2em;
+    border-bottom: 1px solid var(--color-neutral-500);
+  }
+
+  &__title {
+    font-size: var(--fs-500);
+    font-family: var(--ff-Rakkas);
+    font-weight: var(--fw-700);
+  }
+
+  &__prices {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-300);
+  }
+
+  &__validate {
+    background-color: var(--color-red-400);
+    color: var(--color-neutral-100);
+    text-decoration: none;
+    border-radius: 0.5em;
+    width: 100%;
+    text-align: center;
+    padding: 0.8em;
+
+    &:hover {
+      background-color: var(--color-red-600);
     }
 
-    &__title{
-        font-size: var(--fs-500);
-        font-family: var(--ff-Rakkas);
-        font-weight: var(--fw-700);
+    &--disabled {
+      background-color: none;
+      color: var(--color-neutral-500);
+      border: 1px solid var(--color-neutral-500);
+      text-decoration: none;
+      border-radius: 0.5em;
+      width: 100%;
+      text-align: center;
+      padding: 0.8em;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    gap: 3.5em;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    &--titlecontainer {
+      display: flex;
+      gap: 0.5em;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    &__prices{
+    &--title {
+      font-size: var(--fs-400);
+    }
+
+    &--modify {
+      color: var(--color-neutral-900);
+    }
+
+    &--counter {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+
+      &-btn {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        font-size: var(--fs-300);
-    }
-
-    &__validate{
         background-color: var(--color-red-400);
-        color: var(--color-neutral-100);
-        text-decoration: none;
-        border-radius: .5em;
-        width: 100%;
-        text-align: center;
-        padding: .8em;
+        border-radius: 100%;
+        width: 2em;
+        height: 2em;
 
-        &:hover{
-            background-color: var(--color-red-600);
+        &:hover {
+          background-color: var(--color-red-600);
         }
-
-        &--disabled{
-            background-color: none;
-            color: var(--color-neutral-500);
-            border: 1px solid var(--color-neutral-500);
-            text-decoration: none;
-            border-radius: .5em;
-            width: 100%;
-            text-align: center;
-            padding: .8em;
-        }
+      }
+    }
+    &--container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    &__items{
-        display: flex;
-        flex-direction: column;
-        padding: 2em;
-        gap: 3.5em;
+    &--price {
+      font-size: var(--fs-350);
     }
+  }
 
-    &__item{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 
-        &--titlecontainer{
-            display: flex;
-            gap: .5em;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        &--title{
-            font-size: var(--fs-400);
-        }
-
-        &--modify{
-            color: var(--color-neutral-900);
-        }
-
-        &--counter{
-            display: flex;
-            align-items: center;
-            gap: .8em;
-
-            &-btn{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background-color: var(--color-red-400);
-                border-radius: 100%;
-                width: 2em;
-                height: 2em;
-
-                &:hover{
-                    background-color: var(--color-red-600);
-                }
-            }
-        }
-        &--container{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        &--price{
-            font-size: var(--fs-350);
-        }
+    &--title {
+      font-size: var(--fs-400);
     }
-
-    &__empty{
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-
-        &--title{
-            font-size: var(--fs-400);
-        }
-    }
+  }
 }
