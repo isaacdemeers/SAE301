@@ -78,7 +78,6 @@ class ProductRepository extends EntityRepository {
 
     public function delete($id){
         // Not implemented ! TODO when needed !
-        
         return false;
     }
 
