@@ -12,6 +12,11 @@ class Product implements JsonSerializable {
     private int $id; // id du produit
     private string $name; // nom du produit
     private int $idcategory; // id de la catégorie du produit
+    private string $price; // prix du produit
+    private int $stock; // stock du produit
+    private string $picture; // nom du fichier image du produit
+    private string $description; // description du produit
+    private string $option; // option du produit
 
     public function __construct(int $id){
         $this->id = $id;
@@ -48,7 +53,7 @@ class Product implements JsonSerializable {
      *  
      */
     public function JsonSerialize(): mixed{
-        return ["id" => $this->id, "name" => $this->name, "category" => $this->idcategory];
+        return ["id" => $this->id, "name" => $this->name, "category" => $this->idcategory, "price" => $this->price, "stock" => $this->stock, "picture" => $this->picture, "description" => $this->description, "option" => $this->option];
     }
 
     /**
@@ -99,4 +104,103 @@ class Product implements JsonSerializable {
         $this->id = $id;
         return $this;
     }
+
+    /**
+     * Get the value of price
+     */
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set the value of price
+     *
+     * @return  self
+     */
+    public function setPrice(string $price): self
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    /**
+     * Get the value of stock
+     */
+    public function getStock(): int
+    {
+        return $this->stock;
+    }
+
+    /**
+     * Set the value of stock
+     *
+     * @return  self
+     */
+    public function setStock(int $stock): self
+    {
+        $this->stock = $stock;
+        return $this;
+    }
+
+    /**
+     * Get the value of picture
+     */
+    public function getPicture(): string
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set the value of picture
+     *
+     * @return  self
+     */
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+        return $this;
+    }
+
+    /**
+     * Get the value of description
+     */
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get the value of option
+     */
+    public function getOption(): string
+    {
+        return $this->option;
+    }
+
+    /**
+     * Set the value of option
+     *
+     * @return  self
+     */
+    public function setOption(string $option): self
+    {
+        $this->option = $option;
+        return $this;
+    }
+
+
+
+
 }

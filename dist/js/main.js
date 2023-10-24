@@ -4,6 +4,6 @@ let product = new ProductCollection();
 
 await product.loadProducts();
 
-//console.log(product.);
+console.log(product.getProducts());
 
 window.p = product;

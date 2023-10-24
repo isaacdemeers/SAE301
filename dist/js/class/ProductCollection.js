@@ -1,3 +1,5 @@
+import { Product } from "./Product.js";
+
 export class ProductCollection {
   #products;
 
@@ -7,26 +9,23 @@ export class ProductCollection {
 
   async loadProducts() {
     let response = await getRequest("http://localhost:8888/api/products");
-    console.log(response);
 
-    if (response.status === "ok") {
-      response.data.forEach((product) => {
-        this.addProduct(
-          new Product(
-            product.id,
-            product.name,
-            product.category,
-            product.price,
-            product.description,
-            product.image,
-            product.stock,
-            product.options
-          )
-        );
-      });
-    } else {
-      console.log(response.message);
-    }
+    response.forEach((product) => {
+      this.addProduct(
+        new Product(
+          product.id,
+          product.name,
+          product.category,
+          product.price,
+          product.description,
+          product.image,
+          product.stock,
+          product.options
+        )
+      );
+    });
+
+    return this.#products;
   }
 
   getProducts() {
