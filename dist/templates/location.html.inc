@@ -1,5 +1,9 @@
 <article class="mainBanner">
-  <img class="mainBanner__logo" src="./assets/logo.png" alt="Pepe Chicken" />
+  <img
+    class="mainBanner__logo"
+    src="./assets/img/logo.png"
+    alt="Pepe Chicken"
+  />
   <section class="mainBanner__section">
     <h2 class="mainBanner__title">Pepe Chicken Limoges</h2>
     <ul class="mainBanner__ul">
