@@ -12,11 +12,11 @@ class Product implements JsonSerializable {
     private int $id; // id du produit
     private string $name; // nom du produit
     private int $idcategory; // id de la catégorie du produit
-    private string $price = ""; // prix du produit
+    private float $price = 0; // prix du produit
     private int $stock = 0; // stock du produit
     private string $picture = ""; // nom du fichier image du produit
     private string $description = ""; // description du produit
-    private string $option = ""; // option du produit
+    private int $option = 0; // option du produit
 
     public function __construct(int $id){
         $this->id = $id;
@@ -120,6 +120,8 @@ class Product implements JsonSerializable {
      */
     public function setPrice(string $price): self
     {
+        $price = str_replace(",", ".", $price);
+        $price = floatval($price);
         $this->price = $price;
         return $this;
     }
@@ -184,7 +186,7 @@ class Product implements JsonSerializable {
     /**
      * Get the value of option
      */
-    public function getOption(): string
+    public function getOption(): int
     {
         return $this->option;
     }
@@ -194,7 +196,7 @@ class Product implements JsonSerializable {
      *
      * @return  self
      */
-    public function setOption(string $option): self
+    public function setOption(int $option): self
     {
         $this->option = $option;
         return $this;

@@ -60,10 +60,11 @@ class ProductRepository extends EntityRepository {
             $p->setName($obj->name);
             $p->setIdcategory($obj->category);
             $p->setPrice($obj->price);
-            
+            $p->setStock($obj->stock);
+            $p->setPicture($obj->image);
+            $p->setDescription($obj->description);
+            $p->setOption($obj->option);
 
-           
-       
             array_push($res, $p);
         }
        

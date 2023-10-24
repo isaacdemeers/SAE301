@@ -20,7 +20,7 @@ export class ProductCollection {
           product.description,
           product.image,
           product.stock,
-          product.options
+          product.option
         )
       );
     });
@@ -50,25 +50,7 @@ export class ProductCollection {
     );
   }
 
-  getProductByPrice(price) {
-    return this.#products.filter((product) => product.getPrice() === price);
-  }
-
-  getProductByDescription(description) {
-    return this.#products.filter(
-      (product) => product.getDescription() === description
-    );
-  }
-
-  getProductByImage(image) {
-    return this.#products.filter((product) => product.getImage() === image);
-  }
-
   getProductByStock(stock) {
     return this.#products.filter((product) => product.getStock() === stock);
-  }
-
-  getProductByOptions(options) {
-    return this.#products.filter((product) => product.getOptions() === options);
   }
 }

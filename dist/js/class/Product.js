@@ -6,9 +6,9 @@ export class Product {
   #description;
   #image;
   #stock;
-  #options;
+  #option;
 
-  constructor(id, name, category, price, description, image, stock, options) {
+  constructor(id, name, category, price, description, image, stock, option) {
     this.#id = id;
     this.#name = name;
     this.#category = category;
@@ -16,7 +16,7 @@ export class Product {
     this.#description = description;
     this.#image = image;
     this.#stock = stock;
-    this.#options = options;
+    this.#option = option;
   }
 
   getId() {
@@ -48,6 +48,6 @@ export class Product {
   }
 
   getOptions() {
-    return this.#options;
+    return this.#option;
   }
 }
