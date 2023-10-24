@@ -2,7 +2,7 @@
   <ul class="footer__container">
     <li class="footer__container-item">
       <img
-        src="./assets/logo-footer.png"
+        src="./assets/img/logo-footer.png"
         alt="Logo PEPE CHICKEN"
         class="footer__logo"
       />

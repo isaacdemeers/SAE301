@@ -2,6 +2,12 @@
 
 .navbar {
   width: auto;
+  &__icon {
+    fill: var(--color-neutral-900);
+  }
+  &__text {
+    color: var(--color-neutral-900);
+  }
   &__list {
     // Utilisation de BEM pour le bloc 'list'
     display: flex;
