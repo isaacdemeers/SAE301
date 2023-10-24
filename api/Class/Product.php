@@ -12,11 +12,11 @@ class Product implements JsonSerializable {
     private int $id; // id du produit
     private string $name; // nom du produit
     private int $idcategory; // id de la catégorie du produit
-    private string $price; // prix du produit
-    private int $stock; // stock du produit
-    private string $picture; // nom du fichier image du produit
-    private string $description; // description du produit
-    private string $option; // option du produit
+    private string $price = ""; // prix du produit
+    private int $stock = 0; // stock du produit
+    private string $picture = ""; // nom du fichier image du produit
+    private string $description = ""; // description du produit
+    private string $option = ""; // option du produit
 
     public function __construct(int $id){
         $this->id = $id;
@@ -53,7 +53,7 @@ class Product implements JsonSerializable {
      *  
      */
     public function JsonSerialize(): mixed{
-        return ["id" => $this->id, "name" => $this->name, "category" => $this->idcategory, "price" => $this->price, "stock" => $this->stock, "picture" => $this->picture, "description" => $this->description, "option" => $this->option];
+        return ["id" => $this->id, "name" => $this->name, "category" => $this->idcategory, "price" => $this->price, "stock" => $this->stock, "image" => $this->picture, "description" => $this->description, "option" => $this->option];
     }
 
     /**
