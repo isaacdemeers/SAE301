@@ -1,0 +1,260 @@
+@use "../abstract" as *;
+
+
+.backoffice {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-neutral-100);
+
+    &__section {
+        width: 90%;
+    }
+
+    @include size(M) {
+        
+        &__section {
+            width: 60%;
+        }
+    }
+
+    @include size(L) {
+        &__section {
+            width: 40%;
+        }
+
+    }
+
+    &__cards {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;
+        flex-wrap: wrap;
+    }
+
+    &__card {
+        
+        width: 45%;
+        aspect-ratio:  1 / 1;
+        background-color: var(--color-neutral-900);
+        border-radius: 20px;
+        transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
+
+        &__link {
+            width: 100%;
+            height: 100%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none
+
+        }
+
+        &__title {
+            font-size: var(--fs-200);
+            color: var(--color-neutral-100);
+            font-family: var(--ff-Montserrat);
+            width: 100%;
+            text-align: center;
+
+            @include size(M) {
+        
+                font-size: var(--fs-300);
+
+            }
+        
+            @include size(L) {
+                font-size: var(--fs-400);
+
+        
+            }
+        }
+    }
+    &__card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.bo {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+    
+    
+
+    &__list {
+        width: 100%;
+        overflow-x: scroll;
+        height: fit-content;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+
+        border-radius: 20px;
+    }
+
+    &__filters {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 100%;
+
+        padding: 0 2rem;
+        gap: 1rem;
+        height: 4rem;
+        background-color: var(--color-neutral-200);
+        border-radius: 12px;
+        box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
+
+        &__label {
+            font-family: var(--ff-Montserrat);
+            font-size: var(--fs-300);
+            color: var(--color-neutral-900);
+            
+        }
+
+        &__input {
+            padding: .3rem .6rem;
+            border-radius: 12px;
+            border: none;
+        }
+    }
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 4rem;
+        background-color: var(--color-neutral-200);
+        border-radius: 12px;
+        box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.4);
+
+        &__cat {
+            width: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--fs-100);
+            font-family: var(--ff-Montserrat);
+            color: var(--color-neutral-900);
+            text-transform: uppercase;
+        }
+
+
+    }
+
+    &__items {
+        width: 100%;
+        height: 21.5rem;
+        overflow: scroll;
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 4rem;
+        background-color: var(--color-neutral-300);
+        border-radius: 12px;
+        transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        margin: .3rem 0;
+
+        &__cat {
+            width: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--fs-100);
+            font-family: var(--ff-Montserrat);
+            color: var(--color-neutral-900);
+            text-transform: lowercase;
+
+
+            &--del {
+                cursor: pointer;
+                color: var(--color-red-500);
+            } 
+        }
+    }
+
+    // pour tout les enfant paire
+    &__item:nth-child(even) {
+        background-color: var(--color-neutral-200);
+    }
+
+    
+
+    @include size(M) {
+        
+        &__list {
+            width: 80%;
+        }
+
+        &__item {
+            &__cat {
+                font-size: var(--fs-200);
+            }
+        }
+
+        &__head {
+            &__cat {
+                font-size: var(--fs-200);
+            }
+        }
+
+        &__filters {
+            width: fit-content;
+        }
+
+
+    }
+
+    @include size(L) {
+        &__list {
+            width: 80%;
+        }
+
+        &__item {
+            &__cat {
+                font-size: var(--fs-300);
+            }
+        }
+
+        &__head {
+            &__cat {
+                font-size: var(--fs-300);
+            }
+        }
+
+        &__filters {
+            width: fit-content;
+        }
+
+    }
+}
