@@ -49,7 +49,7 @@ cart__validate les la classe pour styliser le bouton de validation du panier qua
 cart__validate--disabled la classe pour styliser le bouton de validation du panier quand le panier est vide
 
 
+input checkout
 
-orderHandler -> <li class="orderHandler__content__item">
-
-- orderHandler__content__item--selected = bordure rouge autour de l'item
+pay__selector--item si l'item n'est pas selectionné
+pay__selector--item--selected si l'item est selectionné

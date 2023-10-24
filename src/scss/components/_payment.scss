@@ -1,0 +1,150 @@
+.pay{
+
+    font-family: var(--ff-Montserrat);
+    padding: 2em;
+    background-color: var(--color-neutral-100);
+    border: 1px solid var(--color-neutral-300);
+    border-radius: 1em;
+
+    &__error{
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        border-radius: .5em;
+        color: var(--color-neutral-100);
+        background-color: var(--color-red-700);
+        text-decoration: none;
+        margin-bottom: 1.5em;
+
+        display: none;
+        //cache le message d'erreur si on n'en as pas besoin.
+    }
+
+    &__banner{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        border-bottom: 1px solid var(--color-neutral-500);
+        padding: .5em 0;
+
+        &--title{
+            font-family: var(--ff-Rakkas);
+            font-size: var(--fs-500);
+
+        }
+        &--desc{
+
+        }
+
+    }
+
+    &__selector{
+        padding:.5em 0;
+            
+            &--title{
+                font-family: var(--ff-Rakkas);
+                font-size: var(--fs-400); 
+                padding-bottom: .2em;
+            }
+            &--items{
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+    
+            }
+
+            &--item{
+                display: flex;
+                gap: .5em;
+                padding: .5em 1em;
+                border-radius: .5em;
+                align-items: center;
+                border: 1.5px solid var(--color-neutral-300);
+
+                &--selected{
+                    display: flex;
+                    gap: .5em;
+                    padding: .5em 1em;
+                    border-radius: .5em;
+                    align-items: center;
+                    border: 3px solid var(--color-red-500);
+                }
+
+                &-img{
+
+                }
+
+                &-title{
+
+                }
+            }
+    }
+
+    &__coupon{
+
+
+        &--title{
+            font-family: var(--ff-Rakkas);
+            font-size: var(--fs-400); 
+            padding-bottom: .2em;
+        }
+
+        &--container{
+            display: flex;
+            justify-content: space-between;
+            border-radius: .5em;
+            border: 1.5px solid var(--color-red-400);
+            align-items: center;
+            font-size: var(--fs-300);
+            overflow: hidden;
+        }
+
+        &--input{
+            display: flex;
+            gap: .5em;
+            padding: .5em 1em;
+            border-radius: .5em;
+            align-items: center;
+            border: none;
+            background-color: var(--color-neutral-100);
+        }
+
+        &--input:focus{
+            outline: none;
+        }
+
+        &--validate{
+            color: var(--color-neutral-100);
+            background-color: var(--color-red-400);
+            text-decoration: none;
+            font-size: var(--fs-300);
+            padding: .5em 1em;
+        }
+    }
+
+    &__accept{
+        display: flex;
+        gap: .5em;
+        align-items: center;
+        padding: .5em 0;
+
+        &--check{
+            accent-color: var(--color-red-400);
+        }
+
+        &--desc{
+            font-size: var(--fs-300);
+        }
+    }
+
+    &__validate{
+        display: flex;
+        justify-content: center;
+        padding: 1em;
+        border-radius: .5em;
+        color: var(--color-neutral-100);
+        background-color: var(--color-red-400);
+        text-decoration: none;
+    }
+
+}
