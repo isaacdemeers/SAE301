@@ -50,11 +50,20 @@
                 color: var(--color-neutral-900);
 
             }
+
             &--items{
                 display: flex;
                 flex-direction: column;
                 gap: 1em;
     
+            }
+
+            &--checkbox{
+                visibility: hidden;
+            }
+
+            &--checkbox:checked + .pay__selector--item{
+                border: 1.5px solid var(--color-red-500);
             }
 
             &--item{
@@ -65,6 +74,7 @@
                 align-items: center;
                 border: 1.5px solid var(--color-neutral-300);
                 color: var(--color-neutral-900);
+
 
 
                 &--selected{
@@ -156,6 +166,9 @@
         color: var(--color-neutral-100);
         background-color: var(--color-red-400);
         text-decoration: none;
+        border: none;
+        width: 100%;
+        font-size: var(--fs-300);
     }
 
 }
