@@ -241,6 +241,7 @@ table {
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 1;
 }
 .alert--onlyConfirm .button--cancel {
   display: none;
