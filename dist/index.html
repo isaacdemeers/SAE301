@@ -1,189 +1,95 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="icon" type="image/x-icon" href="#" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
-    />
-    <!-- EXEMPLE : <i class="material-icons">home</i> -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-    <!-- EXEMPLE : <div class="aniview-v4" data-av-animation="animate__fadeIn"></div> -->
-  </head>
 
-  <body>
-    <span class="banner"></span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Base</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="#" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- EXEMPLE : <i class="material-icons">home</i> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <!-- EXEMPLE : <div class="aniview-v4" data-av-animation="animate__fadeIn"></div> -->
+</head>
 
-    <!-- <section class="orderHandler">
-    <i class="orderHandler__icons orderHandler__icons--close material-icons">close</i>
-    <i class="orderHandler__icons orderHandler__icons--favorite material-icons">favorite</i>
+<body>
+  <span class="banner"></span>
 
-    <figure class="orderHandler__preview">
-      <img class="orderHandler__preview__img" src="./assets/img/meal.png" alt="preview">
-    </figure>
-
-    <figcaption class="orderHandler__infos">
-      <h2 class="orderHandler__infos__title">Winner Burger Deal</h2>
-      <h3 class="orderHandler__infos__price">15.99€</h3>
-      <p class="orderHandler__infos__description">Choisis ton burger Pepe préféré, un accompagnement, une sauce et une boisson.</p>
-      <button class="button button--confirm orderHandler__button">Continuer</button>
-    </figcaption>
-    
-
-  </section> -->
-
-    <section class="orderHandler">
-      <i class="orderHandler__icons orderHandler__icons--close material-icons"
-        >close</i
-      >
-      <i
-        class="orderHandler__icons orderHandler__icons--favorite material-icons"
-        >favorite</i
-      >
-
-      <figure class="orderHandler__preview">
-        <img
-          class="orderHandler__preview__img"
-          src="./assets/img/meal.png"
-          alt="preview"
-        />
-      </figure>
-
-      <figcaption class="orderHandler__infos">
-        <i class="orderHandler__icons orderHandler__icons--back material-icons"
-          >chevron_left</i
-        >
-        <h2
-          class="orderHandler__infos__title orderHandler__infos__title--center"
-        >
-          Winner Burger Deal
-        </h2>
-        <ul class="orderHandler__statut">
-          <span class="orderHandler__statut__line"></span>
-          <span
-            class="orderHandler__statut__line orderHandler__statut__line--red"
-          ></span>
-
-          <li
-            class="orderHandler__statut__item orderHandler__statut__item--active"
-          >
-            <span class="orderHandler__statut__dot"></span>
-            <p class="orderHandler__statut__text">Plat</p>
-          </li>
-
-          <li
-            class="orderHandler__statut__item orderHandler__statut__item--active"
-          >
-            <span class="orderHandler__statut__dot"></span>
-            <p class="orderHandler__statut__text">Sauce</p>
-          </li>
-
-          <li class="orderHandler__statut__item">
-            <span class="orderHandler__statut__dot"></span>
-            <p class="orderHandler__statut__text">accompagnement</p>
-          </li>
-
-          <li class="orderHandler__statut__item">
-            <span class="orderHandler__statut__dot"></span>
-            <p class="orderHandler__statut__text">Boisson</p>
-          </li>
-        </ul>
-
-        <section class="orderHandler__content">
-          <ul class="orderHandler__content__list">
-            <li class="orderHandler__content__item">
-              <figure class="orderHandler__content__preview">
-                <img
-                  class="orderHandler__content__img"
-                  src="./assets/img/burger.png"
-                  alt="preview"
-                />
-              </figure>
-              <figcaption class="orderHandler__content__name">
-                <p class="orderHandler__content__text">Pepe Burger 🍔</p>
-              </figcaption>
-            </li>
-            <li class="orderHandler__content__item">
-              <figure class="orderHandler__content__preview">
-                <img
-                  class="orderHandler__content__img"
-                  src="./assets/img/burger.png"
-                  alt="preview"
-                />
-              </figure>
-              <figcaption class="orderHandler__content__name">
-                <p class="orderHandler__content__text">Pepe Burger 🍔</p>
-              </figcaption>
-            </li>
-            <li class="orderHandler__content__item">
-              <figure class="orderHandler__content__preview">
-                <img
-                  class="orderHandler__content__img"
-                  src="./assets/img/burger.png"
-                  alt="preview"
-                />
-              </figure>
-              <figcaption class="orderHandler__content__name">
-                <p class="orderHandler__content__text">Pepe Burger 🍔</p>
-              </figcaption>
-            </li>
-            <li class="orderHandler__content__item">
-              <figure class="orderHandler__content__preview">
-                <img
-                  class="orderHandler__content__img"
-                  src="./assets/img/burger.png"
-                  alt="preview"
-                />
-              </figure>
-              <figcaption class="orderHandler__content__name">
-                <p class="orderHandler__content__text">Pepe Burger 🍔</p>
-              </figcaption>
-            </li>
-            <li
-              class="orderHandler__content__item orderHandler__content__item--selected"
-            >
-              <figure class="orderHandler__content__preview">
-                <img
-                  class="orderHandler__content__img"
-                  src="./assets/img/burger.png"
-                  alt="preview"
-                />
-              </figure>
-              <figcaption class="orderHandler__content__name">
-                <p class="orderHandler__content__text">Pepe Burger 🍔</p>
-              </figcaption>
-            </li>
-          </ul>
-        </section>
-
-        <button class="button button--confirm orderHandler__button">
-          Continuer
-        </button>
-      </figcaption>
+  <article class="pay">
+    <section class="pay__error">
+      <h4>Erreur de Payment</h4>
     </section>
 
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus vitae
-    suscipit dicta, sint id pariatur amet non, quisquam itaque dolorum rem
-    explicabo quia perferendis odio numquam velit eaque illum at. Lorem ipsum
-    dolor, sit amet consectetur adipisicing elit. Pariatur suscipit soluta
-    consequatur id excepturi commodi sequi! Impedit esse sint libero quae eaque
-    odit facilis alias! Rem expedita ex distinctio ut? Lorem ipsum dolor sit
-    amet consectetur adipisicing elit. Dolores commodi iste, ad corrupti quod id
-    iusto sed? Eligendi asperiores, quam mollitia facere illo, optio pariatur,
-    doloremque ipsa magnam consectetur provident.
+    <section class="pay__banner">
+      <h1 class="pay__banner--title">Pepe Chicken Limoges</h1>
+      <p class="pay__banner--desc">Click and Collect</p>
+    </section>
 
-    <script type="text/javascript" src="./js/vanilla-tilt-min.js"></script>
-    <script src="./js/api-queries.js"></script>
-  </body>
+    <section class="pay__selector">
+      <h2 class="pay__selector--title">
+        Options Click and Collect
+      </h2>
+      <ul class="pay__selector--items">
+        <li class="pay__selector--item--selected">
+          <img class="pay__selector--item-img" src="./assets/img/Lightning.svg" alt="">
+          <h3 class="pay__selector--item-title">Priorité</h3>
+        </li>
+        <li class="pay__selector--item">
+          <img class="pay__selector--item-img" src="./assets/img/Cart.svg" alt="">
+          <h3 class="pay__selector--item-title">Standart</h3>
+        </li>
+        <li class="pay__selector--item">
+          <img class="pay__selector--item-img" src="./assets/img/Calendar.svg" alt="">
+          <h3 class="pay__selector--item-title">Programmer</h3>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pay__selector">
+      <h2 class="pay__selector--title">
+        Moyen de Paiment
+      </h2>
+      <ul class="pay__selector--items">
+        <li class="pay__selector--item">
+          <img class="pay__selector--item-img" src="./assets/img/Carte Banquaire.svg" alt="">
+          <h3 class="pay__selector--item-title">Carte Bancaire</h3>
+        </li>
+        <li class="pay__selector--item">
+          <img class="pay__selector--item-img" src="./assets/img/Espece.svg" alt="">
+          <h3 class="pay__selector--item-title">Espéce à la Reception</h3>
+        </li>
+        <li class="pay__selector--item">
+          <img class="pay__selector--item-img" src="./assets/img/PayPal.svg" alt="">
+          <h3 class="pay__selector--item-title">PayPal</h3>
+        </li>
+      </ul>
+    </section>
+
+    <section class="pay__coupon">
+      <h2 class="pay__coupon--title">
+        Coupon
+      </h2>
+      <section class="pay__coupon--container">
+        <input class="pay__coupon--input" type="text" placeholder="Coupon">
+        <a class="pay__coupon--validate" href="">Validate</a>
+      </section>
+    </section>
+
+
+    <section class="pay__accept">
+      <input class="pay__accept--check" type="checkbox" id="checkbox" checked="checked">
+      <label for="checkbox">Je reconnais avoir pris connaissance et accepté les CGV Click & Collect et Livraison de Pepe
+        Chicken.</label>
+    </section>
+
+    <a class="pay__validate" href="">Pay 59,99€</a>
+  </article>
+
+  <script type="text/javascript" src="./js/vanilla-tilt-min.js"></script>
+  <script src="./js/api-queries.js"></script>
+</body>
+
 </html>
