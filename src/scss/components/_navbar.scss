@@ -12,9 +12,9 @@
     // Utilisation de BEM pour le bloc 'list'
     display: flex;
     width: auto;
+    padding: 1em 10em;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     box-shadow: 0px 12px 11px 0px rgba(0, 0, 0, 0.1);
     @include size(L) {
       justify-content: space-between;
