@@ -41,10 +41,6 @@ class ProductRepository extends EntityRepository {
         $p->setName($answer->name);
         $p->setIdcategory($answer->category);
 
-        $p->setStock($obj->stock);
-        $p->setPicture($obj->image);
-        $p->setDescription($obj->description);
-        $p->setOption($obj->option);
 
         return $p;
     }
