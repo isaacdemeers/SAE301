@@ -77,13 +77,24 @@ class ProductRepository extends EntityRepository {
     }
 
     public function delete($id){
-        // Not implemented ! TODO when needed !
-        return false;
+        
+        $requete = $this->cnx->prepare("delete from Product where id=:id");
+        $requete->bindParam(':id', $id);
+        $answer = $requete->execute(); 
+        return $answer;
     }
 
     public function update($product){
-        // Not implemented ! TODO when needed !
-        return false;
+        
+        $requete = $this->cnx->prepare("update Product set name=:name, category=:idcategory where id=:id");
+        $name = $product->getName();
+        $idcat = $product->getIdcategory();
+        $id = $product->getId();
+        $requete->bindParam(':name', $name );
+        $requete->bindParam(':idcategory', $idcat);
+        $requete->bindParam(':id', $id);
+        $answer = $requete->execute();
+        return $answer;
     }
 
    

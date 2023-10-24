@@ -24,8 +24,8 @@ let getRequest = async function (uri) {
   };
 
   let response = await fetch(uri, options); // exécution (asynchrone) de la requête et attente de la réponse
-  let $obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
-  return $obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
+  let obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
+  return obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
 };
 
 /**
@@ -54,8 +54,8 @@ let postRequest = async function (uri, data) {
   };
 
   let response = await fetch(uri, options); // exécution (asynchrone) de la requête et attente de la réponse
-  let $obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
-  return $obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
+  let obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
+  return obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
 };
 
 /**
@@ -69,7 +69,13 @@ let postRequest = async function (uri, data) {
  *  La fonction retourne true ou false selon le succès de l'opération
  */
 let deleteRequest = async function (uri) {
-  // Pas implémenté. TODO if needed.
+  let options = {
+    method: "DELETE",
+  };
+
+  let response = await fetch(uri, options); // exécution (asynchrone) de la requête et attente de la réponse
+  let obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
+  return obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
 };
 
 /**
@@ -84,5 +90,55 @@ let deleteRequest = async function (uri) {
  *  La fonction retourne true ou false selon le succès de l'opération
  */
 let patchRequest = async function (uri, data) {
-  // Pas implémenté. TODO if needed.
+  // encodage des données au format JSON (à vous de bien transmettre ce que le serveur attend)
+  let json = JSON.stringify(data);
+
+  // Défition des options de la requêtes
+  let options = {
+    method: "PATCH",
+    headers: { "Content-type": "application/json;charset=utf-8" }, // on précise que la requête contient du json
+    body: json, // le json est placé dans le corps de la requête
+  };
+
+  let response = await fetch(uri, options); // exécution (asynchrone) de la requête et attente de la réponse
+  let obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
+  return obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
 };
+
+class Product {
+  #id;
+  #name;
+  #category;
+  #price;
+
+  constructor(id, name, category, price) {
+    this.#id = id;
+    this.#name = name;
+    this.#category = category;
+    this.#price = price;
+  }
+
+  getId() {
+    return this.#id;
+  }
+}
+
+class ProductCollection {
+  #products;
+
+  constructor() {
+    this.#products = [];
+  }
+
+  addProduct(product) {
+    if (product instanceof Product === true) this.#products.push(product);
+  }
+
+  getProducts() {
+    return this.#products;
+  }
+
+  getProductById(id) {
+    return this.#products.find((product) => product.getId() === id);
+  }
+}
