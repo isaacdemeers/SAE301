@@ -48,6 +48,7 @@ Bouton Valider Cart
 cart__validate les la classe pour styliser le bouton de validation du panier quand le panier contient des produits
 cart__validate--disabled la classe pour styliser le bouton de validation du panier quand le panier est vide
 
+
 input checkout
 
 pay__selector--item si l'item n'est pas selectionné

@@ -72,7 +72,7 @@
     <h2 class="pay__coupon--title">Coupon</h2>
     <section class="pay__coupon--container">
       <input class="pay__coupon--input" type="text" placeholder="Coupon" />
-      <a class="pay__coupon--validate" href="">Validate</a>
+      <a class="pay__coupon--validate" href="">Valider</a>
     </section>
   </section>
 
