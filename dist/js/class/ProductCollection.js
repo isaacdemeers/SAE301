@@ -1,4 +1,4 @@
-class ProductCollection {
+export class ProductCollection {
   #products;
 
   constructor() {
@@ -7,6 +7,7 @@ class ProductCollection {
 
   async loadProducts() {
     let response = await getRequest("http://localhost:8888/api/products");
+    console.log(response);
 
     if (response.status === "ok") {
       response.data.forEach((product) => {

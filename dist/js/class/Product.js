@@ -1,4 +1,4 @@
-class Product {
+export class Product {
   #id;
   #name;
   #category;
