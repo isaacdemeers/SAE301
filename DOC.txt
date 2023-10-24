@@ -53,3 +53,9 @@ input checkout
 
 pay__selector--item si l'item n'est pas selectionné
 pay__selector--item--selected si l'item est selectionné
+
+
+
+theme
+
+--dark = couleur de fond sombre
