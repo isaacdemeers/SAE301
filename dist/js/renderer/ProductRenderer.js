@@ -1,6 +1,6 @@
 import { Product } from "../class/Product.js";
 
-const productTemplate = document.querySelector("#product-template").innerHTML;
+const productTemplate = document.querySelector("#ProductsTemplate").innerHTML;
 
 // data attend un tableau de Product
 let render = function (data) {
@@ -16,7 +16,10 @@ let render = function (data) {
     if (p instanceof Product) {
       html = productTemplate.replace("{{id}}", p.getId());
       html = html.replace("{{name}}", p.getName());
-      html = html.replace("{{category}}", p.getIdCategory());
+      html = html.replace("{{category}}", p.getCategory());
+      html = html.replaceAll("{{imgUrl}}", "./assets/img/" + p.getImage());
+      html = html.replace("{{price}}", p.getPrice() + " €");
+
       all += html;
     }
   }
