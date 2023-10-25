@@ -40,16 +40,17 @@ class ProductRepository extends EntityRepository {
         $p = new Product($answer->id);
         $p->setName($answer->name);
         $p->setIdcategory($answer->category);
-
-        $p->setStock($obj->stock);
-        $p->setPicture($obj->image);
-        $p->setDescription($obj->description);
-        $p->setOption($obj->option);
+        $p->setPrice($answer->price);
+        $p->setStock($answer->stock);
+        $p->setPicture($answer->image);
+        $p->setDescription($answer->description);
+        $p->setOption($answer->option);
 
         return $p;
     }
 
     public function findAll(): array {
+        
         $requete = $this->cnx->prepare("select * from Product");
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
@@ -109,6 +110,25 @@ class ProductRepository extends EntityRepository {
         return $answer;
     }
 
+
+    public function getOption($option) {
+        $requete = $this->cnx->prepare("select * from Options where id=:value"); // prepare la requête SQL
+        $requete->bindParam(':value', $option); // fait le lien entre le "tag" :value et la valeur de $id
+        $requete->execute(); // execute la requête
+        $answer = $requete->fetch(PDO::FETCH_OBJ);
+        
+        if ($answer==false) return null;
+
+        $options = [] ;
+
+        var_dump($answer);
+
+
+        
+        
+
+        return $answer;
+    }
    
     
 }

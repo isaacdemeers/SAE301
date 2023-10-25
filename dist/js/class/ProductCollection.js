@@ -1,14 +1,17 @@
 import { Product } from "./Product.js";
 
 export class ProductCollection {
+  #uri;
   #products;
 
   constructor() {
+    this.#uri = "";
     this.#products = [];
   }
 
-  async loadProducts() {
-    let response = await getRequest("http://localhost:8888/api/products");
+  async loadProducts(uri) {
+    let response = await getRequest(uri);
+    this.#uri = uri;
 
     response.forEach((product) => {
       this.addProduct(

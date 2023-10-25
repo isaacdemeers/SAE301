@@ -35,6 +35,10 @@ export class Product {
     return this.#price;
   }
 
+  setPrice(price) {
+    this.#price = parseFloat(price.toFixed(2));
+  }
+
   getDescription() {
     return this.#description;
   }
