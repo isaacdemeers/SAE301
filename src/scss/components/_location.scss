@@ -46,6 +46,7 @@
         color: var(--color-neutral-900);
         text-decoration: underline;
         width: fit-content;
+        cursor: pointer;
     }
 
     @include size(M) {
