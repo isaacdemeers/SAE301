@@ -7,27 +7,28 @@
   background-color: var(--color-neutral-100);
   color: var(--color-neutral-900);
   width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 2rem;
   @include size(M) {
-    width: 15rem;
-    height: 15rem;
+    width: 100%;
+    aspect-ratio: 1/1;
     background-color: transparent;
     justify-content: center;
     align-items: center;
-    border-radius: 2rem;
   }
 
   &__svg {
     display: none;
     position: absolute;
     @include size(M) {
-      background-color: var(--color-neutral-900);
+      background-color: var(--color-neutral-100);
       position: absolute;
       width: 2.5rem;
       height: 2.5rem;
       padding: 0.3rem;
       border-radius: 3rem;
       top: 1rem;
-      left: 11rem;
+      right: 1rem;
       display: flex;
       justify-content: center;
     }
@@ -144,13 +145,13 @@
       display: block;
       position: relative;
       input {
-        padding: 0.3rem 0.5rem;
+        padding: 0.4rem 0.8rem;
         font-family: var(--ff-Montserrat);
         font-size: var(--fs-300);
         background-color: var(--color-red-400);
         border: none;
         border-radius: 0.7rem;
-        color: var(--color-neutral-900);
+        color: var(--color-neutral-100);
       }
     }
   }
@@ -162,8 +163,8 @@
       position: absolute;
       object-fit: cover;
       z-index: -1;
-      width: 15rem;
-      height: 15rem;
+      width: 100%;
+      height: 100%;
       border-radius: 1.5rem;
     }
   }
