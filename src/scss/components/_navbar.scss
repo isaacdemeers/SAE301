@@ -27,6 +27,7 @@
     display: flex;
     text-align: center;
     width: 33%;
+    cursor: pointer;
     @include size(L) {
       width: auto;
     }
