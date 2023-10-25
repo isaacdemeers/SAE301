@@ -54,6 +54,9 @@ class ProductRepository extends EntityRepository {
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
+        if ($answer==false) return null; // may be false if the sql request failed (wrong $id value for example)
+
+
         $res = [];
         foreach($answer as $obj){
             $p = new Product($obj->id);
@@ -65,19 +68,33 @@ class ProductRepository extends EntityRepository {
             $p->setDescription($obj->description);
 
             $option = $obj->option;
-            $requete = $this->cnx->prepare("select * from Options where category=:value"); // prepare la requête SQL
-            $requete->bindParam(':value', $option); // fait le lien entre le "tag" :value et la valeur de $id
-            $requete->execute(); // execute la requête
-            $answer = $requete->fetch(PDO::FETCH_OBJ);
-            if ($answer==false) return null;
 
-            $p->setOption($answer);
+            $p->setOption($this->getOptions($option));
+
+            
 
             array_push($res, $p);
+
+            
         }
         
        
         return $res;
+    }
+
+    public function getOptions($idOptions) {
+        $requete = $this->cnx->prepare("select * from Options where category=:value"); 
+            $requete->bindParam(':value', $idOptions);
+            $requete->execute(); 
+            $answer = $requete->fetchAll(PDO::FETCH_OBJ);
+
+            if ($answer==true) {
+                $options = [];
+                foreach($answer as $obj){
+                    array_push($options, $obj);
+                } 
+            }
+            return $options;
     }
 
     public function save($product){

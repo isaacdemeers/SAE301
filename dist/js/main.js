@@ -1,11 +1,23 @@
 import { ProductCollection } from "./class/ProductCollection.js";
-import { getRequest } from "./api-queries.js";
+import { productRenderer } from "./renderer/ProductRenderer.js";
 
-let products = new ProductCollection();
-await products.loadProducts("http://localhost:8888/api/products");
-let product = products.getProductByStock(
-  Math.max(...products.getProducts().map((product) => product.getStock()))
-)[0];
-product.setPrice(product.getPrice() * 0.8);
+let M = {
+  productCollection: new ProductCollection(),
+};
 
-console.log(product);
+let V = {};
+
+V.render = function (data) {
+  document.querySelector("#Products").innerHTML = productRenderer(data);
+};
+
+let C = {};
+
+C.init = async function () {
+  console.log(
+    await M.productCollection.loadProducts("http://localhost:8888/api/products")
+  );
+  V.render(M.productCollection.getProducts());
+};
+
+C.init();
