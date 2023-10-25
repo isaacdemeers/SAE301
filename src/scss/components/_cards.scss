@@ -141,6 +141,7 @@
   &__button {
     display: none;
     position: absolute;
+    cursor: pointer;
     @include size(M) {
       display: block;
       position: relative;

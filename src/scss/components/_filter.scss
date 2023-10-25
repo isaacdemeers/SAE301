@@ -10,14 +10,33 @@
     width: 1.5rem;
     height: 1.5rem;
   }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 1rem;
+  }
   &__subitem {
     padding: 0.4rem;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
   }
   &__sublist {
     padding-left: 1rem;
   }
   &__item {
-    padding: 0.4rem;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
   &__item:nth-child(1) {
     font-size: var(--fs-300);
@@ -72,6 +91,7 @@
   color: var(--color-neutral-100);
   border: none;
   border-right: 1rem solid transparent;
+  cursor: pointer;
 }
 
 .filters__title {
