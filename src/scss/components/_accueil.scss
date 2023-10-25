@@ -42,11 +42,14 @@ body{
 
         @include size(M){
             display: block;
-            grid-area: 2 / 1 / 5 / 2;
+            position: sticky;
+            top: 9em;
         }
 
         @include size(L){
-            grid-area: 2 / 1 / 5 / 2;
+            display: block;
+            position: sticky;
+            top: 9em;
         }
     }
 
@@ -75,6 +78,8 @@ body{
 
         @include size(L){
             display: block;
+            position: sticky;
+            top: 9em;
             grid-area: 1 / 4 / 5 / 5;
         }
     }
