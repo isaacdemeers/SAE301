@@ -28,10 +28,17 @@ C.init = function () {
 };
 
 C.clickHandler = function (e) {
-  console.log(e.target);
-  if (e.target.classList.contains("filters__item")) {
+  if (e.target.classList.contains("filters__text")) {
     let type = e.target.dataset.type;
-    console.log(type);
+    let target = e.target;
+    if (target.classList.contains("filters__text--active")) {
+
+    } else {
+      V.render(M.productCollection.getProducts());
+    }
+
+    e.target.classList.add("filters__text--active");
+
   }
 };
 
