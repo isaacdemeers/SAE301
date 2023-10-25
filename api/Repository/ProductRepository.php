@@ -65,15 +65,20 @@ class ProductRepository extends EntityRepository {
             $p->setDescription($obj->description);
 
             $option = $obj->option;
-            $requete = $this->cnx->prepare("select * from Options where category=:value"); // prepare la requête SQL
-            $requete->bindParam(':value', $option); // fait le lien entre le "tag" :value et la valeur de $id
-            $requete->execute(); // execute la requête
-            $answer = $requete->fetch(PDO::FETCH_OBJ);
-            if ($answer==false) return null;
+            $requete = $this->cnx->prepare("select * from Options where category=:value"); 
+            $requete->bindParam(':value', $option);
+            $requete->execute(); 
+            $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
-            $p->setOption($answer);
-
-            array_push($res, $p);
+            if ($answer==true) {
+                $options = [];
+                foreach($answer as $obj){
+                    array_push($options, $obj);
+                } 
+                $p->setOption($options);
+                array_push($res, $p);
+            }
+            
         }
         
        
