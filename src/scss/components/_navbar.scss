@@ -1,9 +1,12 @@
 @use "../abstract" as *;
 
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-neutral-50);
   width: auto;
   border-bottom: 2px solid hsl(0deg 0% 98%);
-  ;
   &__icon {
     fill: var(--color-neutral-900);
   }
