@@ -1,4 +1,4 @@
-<div class="product">
+<article class="product">
   <div class="product__svg">
     <img src="./assets/img/Heart.svg" alt="" />
   </div>
@@ -24,4 +24,4 @@
     </li>
   </ul>
   <img class="product__bg" src="{{img__url}}" alt="" />
-</div>
+</article>
