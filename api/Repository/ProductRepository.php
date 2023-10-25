@@ -54,6 +54,9 @@ class ProductRepository extends EntityRepository {
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
+        if ($answer==false) return null; // may be false if the sql request failed (wrong $id value for example)
+
+
         $res = [];
         foreach($answer as $obj){
             $p = new Product($obj->id);
@@ -65,8 +68,23 @@ class ProductRepository extends EntityRepository {
             $p->setDescription($obj->description);
 
             $option = $obj->option;
-            $requete = $this->cnx->prepare("select * from Options where category=:value"); 
-            $requete->bindParam(':value', $option);
+
+            $p->setOption($this->getOptions($option));
+
+            
+
+            array_push($res, $p);
+
+            
+        }
+        
+       
+        return $res;
+    }
+
+    public function getOptions($idOptions) {
+        $requete = $this->cnx->prepare("select * from Options where category=:value"); 
+            $requete->bindParam(':value', $idOptions);
             $requete->execute(); 
             $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
@@ -75,14 +93,8 @@ class ProductRepository extends EntityRepository {
                 foreach($answer as $obj){
                     array_push($options, $obj);
                 } 
-                $p->setOption($options);
-                array_push($res, $p);
             }
-            
-        }
-        
-       
-        return $res;
+            return $options;
     }
 
     public function save($product){
