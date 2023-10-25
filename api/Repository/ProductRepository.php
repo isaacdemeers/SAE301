@@ -50,7 +50,6 @@ class ProductRepository extends EntityRepository {
     }
 
     public function findAll(): array {
-        
         $requete = $this->cnx->prepare("select * from Product");
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
@@ -64,10 +63,19 @@ class ProductRepository extends EntityRepository {
             $p->setStock($obj->stock);
             $p->setPicture($obj->image);
             $p->setDescription($obj->description);
-            $p->setOption($obj->option);
+
+            $option = $obj->option;
+            $requete = $this->cnx->prepare("select * from Options where category=:value"); // prepare la requête SQL
+            $requete->bindParam(':value', $option); // fait le lien entre le "tag" :value et la valeur de $id
+            $requete->execute(); // execute la requête
+            $answer = $requete->fetch(PDO::FETCH_OBJ);
+            if ($answer==false) return null;
+
+            $p->setOption($answer);
 
             array_push($res, $p);
         }
+        
        
         return $res;
     }
@@ -110,25 +118,6 @@ class ProductRepository extends EntityRepository {
         return $answer;
     }
 
-
-    public function getOption($option) {
-        $requete = $this->cnx->prepare("select * from Options where id=:value"); // prepare la requête SQL
-        $requete->bindParam(':value', $option); // fait le lien entre le "tag" :value et la valeur de $id
-        $requete->execute(); // execute la requête
-        $answer = $requete->fetch(PDO::FETCH_OBJ);
-        
-        if ($answer==false) return null;
-
-        $options = [] ;
-
-        var_dump($answer);
-
-
-        
-        
-
-        return $answer;
-    }
    
     
 }

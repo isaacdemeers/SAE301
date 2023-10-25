@@ -16,7 +16,7 @@ class Product implements JsonSerializable {
     private int $stock = 0; // stock du produit
     private string $picture = ""; // nom du fichier image du produit
     private string $description = ""; // description du produit
-    private int $option = 0; // option du produit
+    private string $option = ""; // option du produit
 
     public function __construct(int $id){
         $this->id = $id;
@@ -186,7 +186,7 @@ class Product implements JsonSerializable {
     /**
      * Get the value of option
      */
-    public function getOption(): int
+    public function getOption(): string
     {
         return $this->option;
     }
@@ -196,7 +196,7 @@ class Product implements JsonSerializable {
      *
      * @return  self
      */
-    public function setOption(int $option): self
+    public function setOption(string $option): self
     {
         $this->option = $option;
         return $this;

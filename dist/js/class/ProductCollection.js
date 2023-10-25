@@ -1,4 +1,5 @@
 import { Product } from "./Product.js";
+import { getRequest } from "../api-queries.js";
 
 export class ProductCollection {
   #uri;

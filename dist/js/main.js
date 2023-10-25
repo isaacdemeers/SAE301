@@ -1,4 +1,5 @@
 import { ProductCollection } from "./class/ProductCollection.js";
+import { getRequest } from "./api-queries.js";
 
 let products = new ProductCollection();
 await products.loadProducts("http://localhost:8888/api/products");

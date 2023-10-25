@@ -104,3 +104,5 @@ let patchRequest = async function (uri, data) {
   let obj = await response.json(); // extraction du json retourné par le serveur (opération asynchrone aussi)
   return obj; // et on retourne le tout (response.json() a déjà converti le json en objet Javscript)
 };
+
+export { getRequest, postRequest, deleteRequest, patchRequest };
