@@ -1,4 +1,4 @@
-<div class="filters">
+<aside class="filters">
   <div class="filters__header">
     <h2 class="filters__title">Filtres</h2>
   </div>
@@ -57,4 +57,4 @@
       </li>
     </ul>
   </div>
-</div>
+</aside>

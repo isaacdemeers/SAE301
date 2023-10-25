@@ -12,22 +12,21 @@
     // Utilisation de BEM pour le bloc 'list'
     display: flex;
     width: auto;
-    padding: 1em 10em;
     justify-content: space-between;
     align-items: center;
+    padding: 1em;
     box-shadow: 0px 12px 11px 0px rgba(0, 0, 0, 0.1);
     @include size(L) {
       justify-content: space-between;
       gap: 4rem;
+      padding: 1em 10em;
     }
   }
   &__item {
     // Utilisation de BEM pour les éléments 'item'
     display: flex;
-    width: 8rem;
-    align-items: center;
     text-align: center;
-    justify-content: center;
+    width: 33%;
     @include size(L) {
       width: auto;
     }
@@ -38,10 +37,23 @@
         position: absolute;
       }
     }
+
+    &:nth-child(2) {
+      justify-content: center;
+      @include size(L) {
+        justify-content: center;
+      }
+    }
     &:nth-child(3) {
       position: absolute;
       @include size(L) {
         position: static;
+      }
+    }
+
+    &:last-child{
+      justify-content: flex-end;
+      @include size(L) {
       }
     }
   }

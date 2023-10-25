@@ -15,7 +15,7 @@
     </li>
     <li class="navbar__item">
       <img
-        src="./assets/icon.png"
+        src="./assets/img/icon.png"
         alt="Logo Pepechicken"
         class="navbar__logo"
       />
@@ -40,17 +40,17 @@
       <ul class="navbar__sublist">
         <li class="navbar__subitem">
           <img
-            src="./assets/shopping_cart.svg"
+            src="./assets/img/shopping_cart.svg"
             alt="Panier"
             class="navbar__icon"
           />
         </li>
         <li class="navbar__subitem">
-          <p class="navbar__text">{{username}}</p>
+          <p class="navbar__text"></p>
         </li>
         <li class="navbar__subitem">
           <img
-            src="./assets/account_circle.svg"
+            src="./assets/img/account_circle.svg"
             alt="Compte"
             class="navbar__icon"
           />
