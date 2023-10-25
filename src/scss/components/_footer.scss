@@ -5,53 +5,74 @@
   flex-direction: column;
   text-align: center;
   background-color: var(--color-neutral-100);
-  padding: 4rem 6rem;
+  padding: 1em;
   align-items: center;
   font-family: var(--ff-Montserrat);
   font-size: var(--fs-300);
   color: var(--color-neutral-900);
-}
-
-.footer__menu {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
   @include size(M) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    padding: 2em 10em 0 10em;
   }
-}
 
-.footer__submenu {
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
-  text-align: left;
-  gap: 0.5rem;
-  &-item {
-    &:nth-child(1) {
-      font-weight: var(--fw-700);
-      font-size: var(--fs-350);
-      padding-bottom: 1rem;
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 2em;
+    width: 100%;
+    @include size(L) {
+      flex-direction: row;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    &-item{
+      display: flex;
+      justify-content: center;
+      @include size(L) {
+      flex-direction: flex-start;
+      }
     }
   }
-}
 
-.footer__copyright {
-  padding: 2rem 0rem;
-}
-
-.footer__container {
-  display: flex;
-  flex-direction: column;
-  @include size(M) {
-    flex-direction: row;
+  &__menu-item {
+    display: flex;
+    flex-direction: column;
+    @include size(M) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
-}
 
-.footer__logo {
-  padding-bottom: 4rem;
-  @include size(M) {
-    padding-right: 4rem;
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.5rem;
+    &-item {
+      text-align: center;
+      @include size(L) {
+        text-align: left;
+      }
+
+      &:nth-child(1) {
+        font-weight: var(--fw-700);
+        font-size: var(--fs-350);
+        padding-bottom: 0em;
+      }
+    }
+  }
+
+  &__copyright {
+    padding-top: 5em;
+    padding-bottom: 1em;
+    @include size(L) {
+      padding-top: 1em;
+    }
+  }
+
+  &__logo {
+    padding-bottom: 2rem;
+    @include size(L) {
+      max-width: 7em;
+    }
   }
 }

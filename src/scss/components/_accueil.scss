@@ -2,29 +2,51 @@
 
 .main{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-template-columns: repeat(1fr);
     gap: 1.5em;
-    margin: 2em 10em;
+    margin: 2em 1em;
+
+    @include size(L){
+        grid-template-columns: repeat(4, 1fr);
+        margin: 2em 10em;
+    }
 
 
     &__banner{
-        grid-area: 1 / 1 / 2 / 4;
+
+        grid-area: 1 / 1 / 2 / 2;
+
+        @include size(L){
+            grid-area: 1 / 1 / 2 / 4;
+        }
     }
 
     &__filters{
-        grid-area: 2 / 1 / 5 / 2;
+        display: none;
+
+        @include size(L){
+            display: block;
+            grid-area: 2 / 1 / 5 / 2;
+        }
     }
 
     &__products{
-        grid-area: 2 / 2 / 5 / 4 ;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1.5em;
+
+        @include size(L){
+            grid-template-columns: 1fr 1fr;
+            grid-area: 2 / 2 / 5 / 4 ;  
+        }
     }
 
     &__cart{
-        grid-area: 1 / 4 / 5 / 5;
+        display: none;
+
+        @include size(L){
+            display: block;
+            grid-area: 1 / 4 / 5 / 5;
+        }
     }
 }

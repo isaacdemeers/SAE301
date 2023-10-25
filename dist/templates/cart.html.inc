@@ -1,4 +1,4 @@
-<article class="cart">
+<aside class="cart">
   <section class="cart__container">
     <h3 class="cart__title">Votre panier</h3>
     <ul class="cart__prices">
@@ -54,4 +54,4 @@
       </section>
     </li>
   </ul>
-</article>
+</aside>
