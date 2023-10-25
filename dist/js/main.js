@@ -13,7 +13,7 @@ await M.productCollection.loadProducts("http://localhost:8888/api/products");
 let V = {};
 
 V.init = function () {
-  document.body.addEventListener("click", C.clickHandler);
+  document.querySelector('.main__filters').addEventListener("click", C.filterHandler);
 }
 ;
 V.render = function (data) {
@@ -30,31 +30,44 @@ C.init = function () {
   
 };
 
-C.clickHandler = function (e) {
-  if (e.target.classList.contains("filters__text")) {
-    let type = e.target.dataset.type;
-    let target = e.target;
-    let targetClass = e.target.classList[1];
+C.filterHandler = function (e) {
+  let target = e.target;
+    if (target.classList.contains("filters__checkbox") || target.classList.contains("filters__text")) {
+
+      if (target.parentElement.children[0].checked && target.classList.contains("filters__text")) {
+        target.parentElement.children[0].checked = false;
+      }
+      else if (!target.parentElement.children[0].checked && target.classList.contains("filters__text")) {
+        target.parentElement.children[0].checked = true;
+      }
+
+      let parentType = target.parentElement.dataset.type;
+
+      if (target.parentElement.children[0].checked) {
+        filters.push(parentType);
+      } else {
+        filters = filters.filter(item => item !== parentType);
+
+      }
+
+      console.log(filters); 
 
 
-    if (target.classList.contains("filters__text--active")) {
-      target.classList.remove("filters__text--active");
-      filters.pop(type);
+      if (filters.length != 0) {
+        V.render(M.productCollection.getProductsByCategory(filters));
+  
+      } else {
+        V.render(M.productCollection.getProducts());
+      }
 
-    } else {
-      target.classList.add("filters__text--active");
-      filters.push(type);
     }
 
-    if (filters.length != 0) {
-      V.render(M.productCollection.getProductsByCategory(filters));
 
-    } else {
-      V.render(M.productCollection.getProducts());
-    }
+    
 
-
-
+   if (target.classList.contains('filters__option')) {
+    let value = target.value;
+    console.log(value);
   }
 };
 

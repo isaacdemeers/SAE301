@@ -82,34 +82,38 @@
         <h2 class="filters__title">Filtres</h2>
       </div>
       <div class="filters__subheader">
-        <select class="filters__select" name="" id="">
-          <option class="filters__option" value="">Prix Croissant</option>
-          <option class="filters__option" value="">Prix Decroissant</option>
-        </select>
+        <!-- <select class="filters__select" name="" id="priceFilter">
+          <option class="filters__option" value="up">Prix Croissant</option>
+          <option class="filters__option" value="down">Prix Decroissant</option>
+        </select> -->
         <ul class="filters__list">
           <li class="filters__item">
-            <label class="filters__text">Type</label>
+            <p class="filters__text">Type</p>
           </li>
-          <li class="filters__item">
-            <label class="filters__text filters__text--favoris" data-type="favoris"><input class="filters__checkbox"
-                type="checkbox" />Favoris</label>
+          <li class="filters__item " data-type="favoris">
+            <input name="Favoris" class="filters__checkbox" type="checkbox" />
+            <label for="Favoris" class="filters__text ">Favoris</label>
+
           </li>
-          <li class="filters__item">
-            <label class="filters__text filters__text--menu" data-type="1"><input class="filters__checkbox"
-                type="checkbox" />Meal
-              Deals</label>
+          <li class="filters__item " data-type="1">
+            <input name="Meal" class="filters__checkbox" type="checkbox" />
+            <label for="Meal" class="filters__text ">Meal Deals</label>
+
           </li>
-          <li class="filters__item">
-            <label class="filters__text filters__text--plat" data-type="2"><input class="filters__checkbox"
-                type="checkbox" />Plat</label>
+          <li class="filters__item" data-type="2">
+            <input name="Plat" class="filters__checkbox" type="checkbox" />
+            <label for="Plat" class="filters__text ">Plat</label>
+
           </li>
-          <li class="filters__item">
-            <label class="filters__text filters__text--accompagnement" data-type="4"><input class="filters__checkbox"
-                type="checkbox" />Accompagnement</label>
+          <li class="filters__item " data-type="4">
+            <input name="Accompagnement" class="filters__checkbox" type="checkbox" />
+            <label for="Accompagnement" class="filters__text ">Accompagnement</label>
+
+
           </li>
-          <li class="filters__item">
-            <label class="filters__text filters__text--boisson" data-type="3"><input class="filters__checkbox"
-                type="checkbox" />Boisson</label>
+          <li class="filters__item " data-type="3">
+            <input name="Boisson" class="filters__checkbox" type="checkbox" />
+            <label for="Boisson" class="filters__text ">Boisson</label>
           </li>
         </ul>
       </div>

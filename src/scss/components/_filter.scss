@@ -35,8 +35,8 @@
     height: fit-content;
     display: flex;
     align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    justify-content: flex-start;
+    width: 100%;
   }
   &__item:nth-child(1) {
     font-size: var(--fs-300);
