@@ -19,6 +19,9 @@
 
     &__products{
         grid-area: 2 / 2 / 5 / 4 ;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5em;
     }
 
     &__cart{
