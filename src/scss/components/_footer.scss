@@ -6,6 +6,7 @@
   text-align: center;
   background-color: var(--color-neutral-100);
   padding: 1em;
+  max-width: 1966px;
   align-items: center;
   font-family: var(--ff-Montserrat);
   font-size: var(--fs-300);
@@ -28,7 +29,7 @@
       display: flex;
       justify-content: center;
       @include size(L) {
-      flex-direction: flex-start;
+        justify-content: flex-start;
       }
     }
   }
@@ -70,7 +71,8 @@
   }
 
   &__logo {
-    padding-bottom: 2rem;
+    display: flex;
+
     @include size(L) {
       max-width: 7em;
     }
