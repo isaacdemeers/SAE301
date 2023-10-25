@@ -20,8 +20,8 @@
       </ul>
     </li>
     <li class="product__image">
-      <img src="{{img__url}}" alt="" />
+      <img src="{{imgUrl}}" alt="" />
     </li>
   </ul>
-  <img class="product__bg" src="{{img__url}}" alt="" />
+  <img class="product__bg" src="{{imgUrl}}" alt="" />
 </article>
