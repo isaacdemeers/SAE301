@@ -1,6 +1,9 @@
 import { ProductCollection } from "./class/ProductCollection.js";
 import { productRenderer } from "./renderer/ProductRenderer.js";
 
+let filters = []
+
+
 let M = {
   productCollection: new ProductCollection(),
 };
@@ -31,13 +34,26 @@ C.clickHandler = function (e) {
   if (e.target.classList.contains("filters__text")) {
     let type = e.target.dataset.type;
     let target = e.target;
+    let targetClass = e.target.classList[1];
+
+
     if (target.classList.contains("filters__text--active")) {
+      target.classList.remove("filters__text--active");
+      filters.pop(type);
+
+    } else {
+      target.classList.add("filters__text--active");
+      filters.push(type);
+    }
+
+    if (filters.length != 0) {
+      V.render(M.productCollection.getProductsByCategory(filters));
 
     } else {
       V.render(M.productCollection.getProducts());
     }
 
-    e.target.classList.add("filters__text--active");
+
 
   }
 };

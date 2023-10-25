@@ -54,6 +54,18 @@ export class ProductCollection {
     );
   }
 
+  getProductsByCategory(categories) {
+    //category = ['1', '2', '3'];
+    let html = [];
+    categories.forEach(element => {
+      element = parseInt(element)
+      html.push(this.getProductByCategory(element));
+      
+    });
+    return html.flat();
+  
+  }
+
   getProductByStock(stock) {
     return this.#products.filter((product) => product.getStock() === stock);
   }
