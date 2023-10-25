@@ -25,7 +25,10 @@ let render = function (data) {
       html = html.replace("{{category}}", p.getCategory());
       html = html.replaceAll("{{imgUrl}}", "./assets/img/" + p.getImage());
       html = html.replace("{{price}}", p.getPrice() + " €");
-      html = html.replace("{{description}}", p.getDescription());
+      html = html.replace(
+        "{{description}}",
+        p.getDescription() ? p.getDescription().slice(0, 40) + "..." : ""
+      );
 
       all += html;
     }
