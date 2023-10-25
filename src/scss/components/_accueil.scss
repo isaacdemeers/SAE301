@@ -1,5 +1,12 @@
 @use "../abstract" as *;
 
+body{
+    background-color: var(--color-neutral-50);
+    font-family: var(--ff-Montserrat);
+    font-size: var(--fs-300);
+    color: var(--color-neutral-900);
+}
+
 .main{
     display: grid;
     grid-template-columns: repeat(1fr);

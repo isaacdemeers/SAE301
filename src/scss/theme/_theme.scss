@@ -3,6 +3,7 @@
 .theme {
 
     &--dark {
+            --color-neutral-50: var(--crl-neutral-950);
             --color-neutral-100: var(--crl-neutral-900);
             --color-neutral-200: var(--crl-neutral-700);
             --color-neutral-300: var(--crl-neutral-500);

@@ -2,6 +2,8 @@
 
 .navbar {
   width: auto;
+  border-bottom: 2px solid hsl(0deg 0% 98%);
+  ;
   &__icon {
     fill: var(--color-neutral-900);
   }

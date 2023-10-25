@@ -2,13 +2,17 @@
 // colors
 $colors: (
     "neutral":(
+        50: hsl(0deg 0% 99%),
         100: hsl(0deg 0% 98%),
+        
         200: hsl(0, 0%, 94%),
 
         300: hsl(0deg 0% 87%),
         500: hsl(0deg 0% 58%),
         700: hsl(0deg 0% 31%),
         900: hsl(0deg 0% 13%),
+        950: hsl(0deg 0% 5%),
+
     ),
     "red":(
         50: hsl(6deg 100% 98%),
@@ -106,6 +110,8 @@ $fw: (
     --color-neutral-500: var(--crl-neutral-500);
     --color-neutral-700: var(--crl-neutral-700);
     --color-neutral-900: var(--crl-neutral-900);
+    --color-neutral-950: var(--crl-neutral-950);
+
     --color-red-50: var(--crl-red-50);
     --color-red-100: var(--crl-red-100);
     --color-red-200: var(--crl-red-200);
