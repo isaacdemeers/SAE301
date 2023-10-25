@@ -1,4 +1,5 @@
 <article class="product">
+<span class="banner {{stock}}"></span>
     <div class="product__svg">
       <input class="product__svg-check" type="checkbox" id="heart{{id}}" />
       <label class="product__svg-label" for="heart{{id}}">
