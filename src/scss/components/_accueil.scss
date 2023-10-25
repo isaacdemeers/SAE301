@@ -6,6 +6,11 @@
     gap: 1.5em;
     margin: 2em 1em;
 
+    @include size(M){
+        grid-template-columns: repeat(3, 1fr);
+        margin: 2em 2em;
+    }
+
     @include size(L){
         grid-template-columns: repeat(4, 1fr);
         margin: 2em 10em;
@@ -16,6 +21,10 @@
 
         grid-area: 1 / 1 / 2 / 2;
 
+        @include size(M){
+            grid-area: 1 / 1 / 2 / 5;
+        }
+
         @include size(L){
             grid-area: 1 / 1 / 2 / 4;
         }
@@ -24,8 +33,12 @@
     &__filters{
         display: none;
 
-        @include size(L){
+        @include size(M){
             display: block;
+            grid-area: 2 / 1 / 5 / 2;
+        }
+
+        @include size(L){
             grid-area: 2 / 1 / 5 / 2;
         }
     }
@@ -35,6 +48,11 @@
         grid-template-columns: 1fr;
         gap: 1.5em;
 
+        @include size(M){
+            grid-area: 2 / 2 / 5 / 4;
+            grid-template-columns: 1fr 1fr;
+        }
+
         @include size(L){
             grid-template-columns: 1fr 1fr;
             grid-area: 2 / 2 / 5 / 4 ;  
@@ -43,6 +61,10 @@
 
     &__cart{
         display: none;
+
+        @include size(M){
+            display: none;
+        }
 
         @include size(L){
             display: block;
