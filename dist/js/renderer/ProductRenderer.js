@@ -22,6 +22,7 @@ let render = function (data) {
     if (p instanceof Product) {
       html = productTemplate.replace("{{id}}", p.getId());
       html = html.replace("{{name}}", p.getName());
+      html = html.replace("{{id}}", p.getId());
       html = html.replace("{{category}}", p.getCategory());
       html = html.replaceAll("{{imgUrl}}", "./assets/img/" + p.getImage());
       html = html.replace("{{price}}", p.getPrice() + " €");

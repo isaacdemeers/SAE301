@@ -21,16 +21,29 @@
     display: none;
     position: absolute;
     @include size(M) {
-      background-color:hsl(0deg 0% 98%);
       position: absolute;
+      top: 1rem;
+      right: 1rem;
+      display: flex;
+
+      &-check{
+        visibility: hidden;
+      }
+
+      &-check:checked + .product__svg-label{
+        fill: var(--color-red-400);
+      }
+
+      &-label{
+        background-color:hsl(0deg 0% 98%);
       width: 2.5rem;
       height: 2.5rem;
       padding: 0.3rem;
       border-radius: 3rem;
-      top: 1rem;
-      right: 1rem;
       display: flex;
       justify-content: center;
+      align-items: center;
+      }
     }
   }
   &__blur {
