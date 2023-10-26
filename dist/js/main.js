@@ -1,5 +1,6 @@
 import { ProductCollection } from "./class/ProductCollection.js";
 import { productRenderer } from "./renderer/ProductRenderer.js";
+import { selectRenderer } from "./renderer/SelectRenderer.js";
 
 let filters = []
 
@@ -13,7 +14,7 @@ await M.productCollection.loadProducts("http://localhost:8888/api/products");
 let V = {};
 
 V.init = function () {
-  document.body.addEventListener("click", C.filtersHandler);
+  document.querySelector('.main__filters').addEventListener("click", C.filtersHandler);
 }
 ;
 V.render = function (data) {
