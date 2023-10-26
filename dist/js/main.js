@@ -30,6 +30,7 @@ C.init = function () {
   
 };
 
+
 C.clickHandler = function (e) {
   if (e.target.classList.contains("filters__text")) {
     let type = e.target.dataset.type;
