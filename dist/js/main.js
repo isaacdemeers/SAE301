@@ -1,16 +1,19 @@
 import { ProductCollection } from "./class/ProductCollection.js";
 import { productRenderer } from "./renderer/ProductRenderer.js";
+import { productCart } from "./renderer/CartRenderer.js";
 
 let filters = [];
 
 let M = {
   productCollection: new ProductCollection(),
+  productCart: new ProductCollection(),
   productFavorites: new ProductCollection(),
 };
 
 let favBtn = document.querySelectorAll(".product__svg");
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
+await M.productCart.loadProducts("http://localhost:8888/api/products"); // À MODIFIER
 
 let V = {};
 
@@ -23,6 +26,7 @@ V.init = function () {
 };
 V.render = function (data) {
   document.querySelector("#Products").innerHTML = productRenderer(data);
+  document.querySelector(".cart__items").innerHTML = productCart(data);
 };
 
 let C = {};

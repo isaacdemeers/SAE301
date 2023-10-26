@@ -1,12 +1,12 @@
 import { Product } from "../class/Product.js";
 
-const templatePath = "./templates/card.html.inc";
+const cardtemplatePath = "./templates/card.html.inc";
 
 // get the content of the template templatePath and store it in productTemplate
-let productTemplate = "";
-fetch(templatePath)
+let cardproductTemplate = "";
+fetch(cardtemplatePath)
   .then((response) => response.text())
-  .then((data) => (productTemplate = data));
+  .then((data) => (cardproductTemplate = data));
 
 // data attend un tableau de Product
 let render = function (data) {
@@ -20,7 +20,7 @@ let render = function (data) {
   for (let p of data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
-      html = productTemplate;
+      html = cardproductTemplate;
       html = html.replace("{{name}}", p.getName());
       html = html.replaceAll("{{id}}", p.getId());
       html = html.replace("{{category}}", p.getCategory());
@@ -41,11 +41,11 @@ let render = function (data) {
           "{{stock}}",
           "banner--visible " + "banner--lowStock"
         );
-      } else {
-        html = html.replace("{{stock}}", "test");
       }
       all += html;
     }
   }
   return all;
 };
+
+export { render as productRenderer };
