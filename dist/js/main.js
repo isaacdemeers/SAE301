@@ -113,7 +113,7 @@ C.addToFavorites = function (e) {
   let id = e.currentTarget.getAttribute("data-id");
   let product = M.productCollection.getProductById(parseInt(id));
 
-  M.productFavorites.addProduct(id);
+  M.productFavorites.addProduct(product);
   console.log("Added", product);
 
   console.log(M.productFavorites);
