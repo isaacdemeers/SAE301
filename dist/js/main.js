@@ -25,6 +25,10 @@ V.init = function () {
   document.querySelectorAll(".product__button").forEach((btn) => {
     btn.addEventListener("click", C.productHandler);
   });
+
+  document.querySelectorAll(".filters__item").forEach((btn) => {
+    btn.addEventListener("click", C.filtersHandler);
+  });
 };
 
 V.renderProduct = function (data) {
@@ -49,8 +53,6 @@ V.togglePopUp = function () {
 
     // document.body.style.overflow = "hidden";
     
-    // scroll to top
-
   }
 };
 
@@ -101,21 +103,11 @@ C.itemHandler = function (e) {
 };
 
 C.filtersHandler = function (e) {
-  if (e.target.classList.contains("filters__text")) {
-    let type = e.target.dataset.type;
-    let target = e.target;
-    let targetClass = e.target.classList[1];
-
-    if (target.classList.contains("filters__text--active")) {
-      target.classList.remove("filters__text--active");
-      
-
-
-      filters.pop(type);
-    } else {
-      target.classList.add("filters__text--active");
-      filters.push(type);
-    }
+  if (e.currentTarget.classList.contains("filters__item")) {
+    let target = e.currentTarget;
+    let favType = target.dataset.fav;
+    console.log(favType);
+    
 
     if (filters.length != 0) {
       V.render(M.productCollection.getProductsByCategory(filters));
