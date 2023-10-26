@@ -70,6 +70,10 @@ export class Product {
     this.#selectedOption.push(option);
   }
 
+  delSelectedOptions() {
+    this.#selectedOption = [];
+  }
+
   delSelectedOption(id) {
     this.#selectedOption = this.#selectedOption.filter(option => option.id != id);
   }

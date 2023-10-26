@@ -40,6 +40,7 @@ V.togglePopUp = function () {
   if (target.classList.contains("popUp--visible")) {
     target.classList.remove("popUp--visible");
     target.innerHTML = "";
+    product.delSelectedOptions();
   } else {
     target.classList.add("popUp--visible");
   }
