@@ -20,6 +20,8 @@
   &__svg {
     display: none;
     position: absolute;
+    stroke: var(--color-neutral-900);
+    fill: none;
     @include size(M) {
       position: absolute;
       top: 1rem;
@@ -32,6 +34,7 @@
 
       &-check:checked + .product__svg-label{
         fill: var(--color-red-400);
+        stroke: var(--color-red-400);
       }
 
       &-label{
