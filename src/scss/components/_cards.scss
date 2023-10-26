@@ -39,13 +39,13 @@
 
       &-label{
         background-color:hsl(0deg 0% 98%);
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: 0.3rem;
-      border-radius: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        padding: 0.3rem;
+        border-radius: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -99,11 +99,13 @@
     width: 100%;
     backdrop-filter: blur(10px);
     border-radius: 1rem;
-    color: var(--color-neutral-10);
+    color: var(--color-neutral-900);
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     &-item:nth-child(1) {
       @include size(M) {
+        color: var(--color-neutral-10);
+        
         padding: 0 1rem;
         padding-top: 1rem;
       }
@@ -141,13 +143,19 @@
     font-family: var(--ff-Rakkas);
     font-size: var(--fs-500);
     font-weight: var(--fw-700);
-    color: hsl(0deg 0% 98%);
+    color: hsl(0deg 0% 13%);
+    @include size(M) {
+      color: hsl(0deg 0% 98%);
+    }
   }
   &__price {
     font-family: var(--ff-Montserrat);
     font-size: var(--fs-300);
     font-weight: var(--fw-400);
-    color: hsl(0deg 0% 98%);
+    color: hsl(0deg 0% 13%);
+    @include size(M) {
+      color: hsl(0deg 0% 98%);
+    }
 
   }
   &__description {
