@@ -124,14 +124,12 @@ C.filtersHandler = function (e) {
     if (filters.length != 0) {
       let products = M.productCollection.getProductsByCategory(filters);
       if (filters.includes("0")) {
-        console.log(M.productFavorites.getProducts());
         products.push(M.productFavorites.getProducts());
       }
       V.renderProduct(products.flat());
     } else {
       V.renderProduct(M.productCollection.getProducts());
     }
-    console.log(favType);
   }
   
 
@@ -142,9 +140,6 @@ C.addToFavorites = function (e) {
   let product = M.productCollection.getProductById(parseInt(id));
 
   M.productFavorites.addProduct(product);
-  console.log("Added", product);
-
-  console.log(M.productFavorites);
 };
 
 C.addToCart = function (e) {
