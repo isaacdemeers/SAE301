@@ -19,13 +19,20 @@ let cart = function (data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
       html = cartproductTemplate;
+      html = html.replaceAll("{{id}}", p.getId());
       html = html.replace("{{name}}", p.getName());
       html = html.replace("{{price}}", p.getPrice() + " €");
-      html = html.replace("{{description}}", p.getDescription());
-
+      html = html.replace(
+        "{{options}}",
+        p
+          .getOptions()
+          .map((option) => option.name)
+          .join(", ")
+      );
       all += html;
     }
   }
+
   return all;
 };
 export { cart as productCart };
