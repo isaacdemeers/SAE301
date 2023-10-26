@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<<<<<<< Updated upstream
     <nav class="navbar">
         <ul class="navbar__list">
             <li class="navbar__item">
@@ -63,9 +64,47 @@
                     </li>
                 </ul>
             </li>
+=======
+
+  <section class="popUp"></section>
+
+  <nav class="navbar">
+    <ul class="navbar__list">
+      <li class="navbar__item">
+        <a href="#" class="menu-button" id="menuButton">
+          <span class="burger-icon"></span>
+        </a>
+        <div class="burger__bg">
+          <ul class="burger__menu">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Notre Carte</a></li>
+            <li><a href="#">Découvrir</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="navbar__item">
+        <img src="./assets/img/icon.png" alt="Logo Pepechicken" class="navbar__logo" />
+      </li>
+      <li class="navbar__item">
+        <ul class="navbar__sublist navbar__sublist--large">
+          <li class="navbar__subitem">
+            <p class="navbar__text">Accueil</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">Notre Carte</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">Découvrir</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">FAQ</p>
+          </li>
+>>>>>>> Stashed changes
         </ul>
     </nav>
 
+<<<<<<< Updated upstream
     <main class="main">
         <article class="mainBanner main__banner">
             <img class="mainBanner__logo" src="./assets/img/logo.png" alt="Pepe Chicken" />
@@ -220,6 +259,111 @@
             </ul>
         </aside>
     </main>
+=======
+  <main class="main">
+    <article class="mainBanner main__banner">
+      <img class="mainBanner__logo" src="./assets/img/logo.png" alt="Pepe Chicken" />
+      <section class="mainBanner__section">
+        <h2 class="mainBanner__title">Pepe Chicken Limoges</h2>
+        <ul class="mainBanner__ul">
+          <li class="mainBanner__subtitle">Click & Collect</li>
+          <li class="mainBanner__button">Modifier le restaurant</li>
+        </ul>
+      </section>
+    </article>
+    <aside class="filters main__filters">
+      <div class="filters__header">
+        <h2 class="filters__title">Filtres</h2>
+      </div>
+      <div class="filters__subheader">
+        <select class="filters__select" name="" id="">
+          <option class="filters__option" value="">Prix Croissant</option>
+          <option class="filters__option" value="">Prix Decroissant</option>
+        </select>
+        <ul class="filters__list">
+          <li class="filters__item">
+            <label class="filters__text">Type</label>
+          </li>
+          <li class="filters__item">
+            <label class="filters__text filters__text--favoris" data-type="favoris"><input class="filters__checkbox"
+                type="checkbox" />Favoris</label>
+          </li>
+          <li class="filters__item">
+            <label class="filters__text filters__text--menu" data-type="1"><input class="filters__checkbox"
+                type="checkbox" />Meal
+              Deals</label>
+          </li>
+          <li class="filters__item">
+            <label class="filters__text filters__text--plat" data-type="2"><input class="filters__checkbox"
+                type="checkbox" />Plat</label>
+          </li>
+          <li class="filters__item">
+            <label class="filters__text filters__text--accompagnement" data-type="4"><input class="filters__checkbox"
+                type="checkbox" />Accompagnement</label>
+          </li>
+          <li class="filters__item">
+            <label class="filters__text filters__text--boisson" data-type="3"><input class="filters__checkbox"
+                type="checkbox" />Boisson</label>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <div id="Products" class="products main__products">
+
+    </div>
+    <aside class="cart main__cart">
+      <section class="cart__container">
+        <h3 class="cart__title">Votre panier</h3>
+        <ul class="cart__prices">
+          <li>Total TTC :</li>
+          <li>14,99€</li>
+        </ul>
+        <a class="cart__validate" href="">Valider mon panier</a>
+        <!-- cart__validate--disabled si le panier est vide -->
+      </section>
+      <ul class="cart__items">
+        <li class="cart__item">
+          <section class="cart__item--titlecontainer">
+            <h4 class="cart__item--title">The Hot One 🔥</h4>
+            <a class="cart__item--modify" href=""> Modifier </a>
+          </section>
+          <p class="cart__item--desc">Sauce Verte, Frites</p>
+          <section class="cart__item--container">
+            <ul class="cart__item--counter">
+              <li class="cart__item--counter-btn">
+                <img src="./assets/img/minus.svg" alt="minus" />
+              </li>
+              <li class="cart__item--counter-amount">1</li>
+              <li class="cart__item--counter-btn">
+                <img src="./assets/img/plus.svg" alt="plus" />
+              </li>
+            </ul>
+            <p class="cart__item--price">14,99€</p>
+          </section>
+        </li>
+        <li class="cart__item">
+          <section class="cart__item--titlecontainer">
+            <h4 class="cart__item--title">The Hot One 🔥</h4>
+            <a class="cart__item--modify" href=""> Modifier </a>
+          </section>
+          <p class="cart__item--desc">Sauce Verte, Frites</p>
+          <section class="cart__item--container">
+            <ul class="cart__item--counter">
+              <li class="cart__item--counter-btn">
+                <img src="./assets/img/minus.svg" alt="minus" />
+              </li>
+              <li class="cart__item--counter-amount">1</li>
+              <li class="cart__item--counter-btn">
+                <img src="./assets/img/plus.svg" alt="plus" />
+              </li>
+            </ul>
+            <p class="cart__item--price">14,99€</p>
+          </section>
+        </li>
+      </ul>
+    </aside>
+  </main>
+>>>>>>> Stashed changes
 
     <footer class="footer">
         <ul class="footer__container">

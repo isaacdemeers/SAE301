@@ -48,4 +48,9 @@ let render = function (data) {
   return all;
 };
 
+<<<<<<< Updated upstream
 export { render as productRenderer };
+=======
+
+export { render as productRenderer };
+>>>>>>> Stashed changes
