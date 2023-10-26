@@ -46,6 +46,17 @@
       &::after {
         content: "Presque épuisé";
       }
+
+      body {
+    
+        @include size(M) {
+            padding: 0;
+        }
+    
+        @include size(XL) {
+            padding: 0;
+        }
+    }
     }
 }
   
