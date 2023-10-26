@@ -31,15 +31,15 @@ let render = function (data) {
         p.getDescription() ? p.getDescription().slice(0, 40) + "..." : ""
       );
 
-      if (p.getStock() < 5) {
-        html = html.replace(
-          "{{stock}}",
-          "banner--visible " + "banner--lowStock"
-        );
-      } else if (p.getStock() <= 0) {
+      if (p.getStock() <= 0) {
         html = html.replace(
           "{{stock}}",
           "banner--visible " + "banner--noStock"
+        );
+      } else if (p.getStock() < 5) {
+        html = html.replace(
+          "{{stock}}",
+          "banner--visible " + "banner--lowStock"
         );
       } else {
         html = html.replace("{{stock}}", "test");
