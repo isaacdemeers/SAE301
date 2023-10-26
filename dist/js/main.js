@@ -106,15 +106,35 @@ C.filtersHandler = function (e) {
   if (e.currentTarget.classList.contains("filters__item")) {
     let target = e.currentTarget;
     let favType = target.dataset.fav;
-    console.log(favType);
+
+    if (target.classList.contains("filters__item--selected")) {
+      target.classList.remove("filters__item--selected");
+      target.querySelector(".filters__checkbox").checked = false;
+      filters = filters.filter((item) => item !== favType);
+    } else {
+      target.classList.add("filters__item--selected");
+      target.querySelector(".filters__checkbox").checked = true;
+      filters.push(favType);
+
+    }
+
+    console.log(filters);
     
 
     if (filters.length != 0) {
-      V.render(M.productCollection.getProductsByCategory(filters));
+      let products = M.productCollection.getProductsByCategory(filters);
+      if (filters.includes("0")) {
+        console.log(M.productFavorites.getProducts());
+        products.push(M.productFavorites.getProducts());
+      }
+      V.renderProduct(products.flat());
     } else {
-      V.render(M.productCollection.getProducts());
+      V.renderProduct(M.productCollection.getProducts());
     }
+    console.log(favType);
   }
+  
+
 };
 
 C.addToFavorites = function (e) {

@@ -44,7 +44,6 @@ fetch(templateItemPath)
   selectTemplate = selectTemplate.replace("{{orderHandlerContent}}", optionHtml);
   target.innerHTML = selectTemplate;
 
-  return product;
 };
 
 export { render as selectRenderer };
