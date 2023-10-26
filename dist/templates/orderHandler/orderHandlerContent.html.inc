@@ -9,9 +9,9 @@
   </figure>
 
   <figcaption class="orderHandler__infos">
-    <i class="orderHandler__icons orderHandler__icons--back material-icons"
+    <!-- <i class="orderHandler__icons orderHandler__icons--back material-icons"
       >chevron_left</i
-    >
+    > -->
     <h2 class="orderHandler__infos__title orderHandler__infos__title--center">
       {{mealName}}
     </h2>

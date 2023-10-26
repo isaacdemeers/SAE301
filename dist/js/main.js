@@ -66,10 +66,13 @@ C.init = function () {
 C.productHandler = function (e) {
   let id = e.target.dataset.id;
 
+  
+
   product = M.productCollection.getProductById(parseInt(id));
   V.togglePopUp();
 
-  selectRenderer(product);
+
+  console.log(selectRenderer(product))
   document
     .querySelectorAll(".orderHandler__content__item")
     .forEach((element) => {
