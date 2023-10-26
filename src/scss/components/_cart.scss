@@ -58,6 +58,8 @@
     flex-direction: column;
     padding: 2em;
     gap: 3.5em;
+    max-height: 30em;
+    overflow-y: hidden;
   }
 
   &__item {
