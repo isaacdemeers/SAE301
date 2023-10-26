@@ -13,7 +13,7 @@ await M.productCollection.loadProducts("http://localhost:8888/api/products");
 let V = {};
 
 V.init = function () {
-  document.body.addEventListener("click", C.clickHandler);
+  document.body.addEventListener("click", C.filtersHandler);
 }
 ;
 V.render = function (data) {
@@ -31,7 +31,7 @@ C.init = function () {
 };
 
 
-C.clickHandler = function (e) {
+C.filtersHandler = function (e) {
   if (e.target.classList.contains("filters__text")) {
     let type = e.target.dataset.type;
     let target = e.target;
@@ -53,9 +53,6 @@ C.clickHandler = function (e) {
     } else {
       V.render(M.productCollection.getProducts());
     }
-
-
-
   }
 };
 
