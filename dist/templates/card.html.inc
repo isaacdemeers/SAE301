@@ -2,7 +2,7 @@
 <span class="banner {{stock}}"></span>
     <div data-id="{{id}}" class="product__svg">
       <input class="product__svg-check" type="checkbox" id="heart{{id}}" />
-      <label class="product__svg-label" for="heart{{id}}">
+      <label data-id="{{id}}" class="product__svg-label" for="heart{{id}}">
         <svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.2044 3.45508C15.2315 -2.53856 30.4921 6.19497 11.2044 18.3534C-8.08333 6.19497 7.1773 -2.53856 11.2044 3.45508Z" stroke-width="2"/>
         </svg>

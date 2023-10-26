@@ -49,3 +49,4 @@ let render = function (data) {
   }
   return all;
 };
+export { render as productRenderer };
