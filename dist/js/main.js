@@ -113,9 +113,9 @@ C.addToFavorites = function (e) {
   let product = M.productCollection.getProductById(parseInt(id));
 
   M.productFavorites.addProduct(id);
-  console.log("Removed product from favorites: ", product);
+  console.log("Added", product);
 
-  console.log(M.productFavorites.getProducts());
+  console.log(M.productFavorites);
 };
 
 C.init();
