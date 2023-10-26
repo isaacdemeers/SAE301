@@ -28,17 +28,17 @@
       right: 1rem;
       display: flex;
 
-      &-check{
+      &-check {
         visibility: hidden;
       }
 
-      &-check:checked + .product__svg-label{
+      &-check:checked + .product__svg-label {
         fill: var(--color-red-400);
         stroke: var(--color-red-400);
       }
 
-      &-label{
-        background-color:hsl(0deg 0% 98%);
+      &-label {
+        background-color: hsl(0deg 0% 98%);
         width: 2.5rem;
         height: 2.5rem;
         padding: 0.3rem;
@@ -105,7 +105,7 @@
     &-item:nth-child(1) {
       @include size(M) {
         color: var(--color-neutral-10);
-        
+
         padding: 0 1rem;
         padding-top: 1rem;
       }
@@ -156,7 +156,6 @@
     @include size(M) {
       color: hsl(0deg 0% 98%);
     }
-
   }
   &__description {
     font-family: var(--ff-Montserrat);
@@ -174,16 +173,15 @@
     @include size(M) {
       display: block;
       position: relative;
-      input {
-        cursor: pointer;
-        padding: 0.4rem 0.8rem;
-        font-family: var(--ff-Montserrat);
-        font-size: var(--fs-300);
-        background-color: var(--color-red-400);
-        border: none;
-        border-radius: 0.7rem;
-        color: hsl(0deg 0% 98%);
-      }
+
+      cursor: pointer;
+      padding: 0.4rem 0.8rem;
+      font-family: var(--ff-Montserrat);
+      font-size: var(--fs-300);
+      background-color: var(--color-red-400);
+      border: none;
+      border-radius: 0.7rem;
+      color: hsl(0deg 0% 98%);
     }
   }
   &__bg {

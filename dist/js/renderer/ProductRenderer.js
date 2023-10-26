@@ -20,9 +20,9 @@ let render = function (data) {
   for (let p of data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
-      html = productTemplate.replace("{{id}}", p.getId());
+      html = productTemplate;
       html = html.replace("{{name}}", p.getName());
-      html = html.replace("{{id}}", p.getId());
+      html = html.replaceAll("{{id}}", p.getId());
       html = html.replace("{{category}}", p.getCategory());
       html = html.replaceAll("{{imgUrl}}", "./assets/img/" + p.getImage());
       html = html.replace("{{price}}", p.getPrice() + " €");
@@ -49,5 +49,3 @@ let render = function (data) {
   }
   return all;
 };
-
-export { render as productRenderer };
