@@ -1,6 +1,6 @@
 <article class="product">
 <span class="banner {{stock}}"></span>
-    <div class="product__svg">
+    <div data-id="{{id}}" class="product__svg">
       <input class="product__svg-check" type="checkbox" id="heart{{id}}" />
       <label class="product__svg-label" for="heart{{id}}">
         <svg width="22" height="20" viewBox="0 0 22 20" xmlns="http://www.w3.org/2000/svg">
@@ -14,7 +14,7 @@
             <h2 class="product__name">{{name}}</h2>
           </li>
           <li class="product__info-item">
-            <a class="product__button" href=""><input type="button" name="" id="" value="Ajouter" /></a>
+            <button data-id="{{id}}" class="product__button">Ajouter</button>
             <p class="product__price">{{price}}</p>
           </li>
           <li class="product__info-item">
