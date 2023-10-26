@@ -59,3 +59,9 @@ pay__selector--item--selected si l'item est selectionné
 theme
 
 --dark = couleur de fond sombre
+
+
+
+orderHandler__content__item
+
+--option = pas d'image juste le texte 

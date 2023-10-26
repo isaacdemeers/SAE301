@@ -150,3 +150,14 @@ $fw: (
         transform: translateX(0);
     }
 }
+
+@keyframes scaleUp {
+    from {
+        scale: 0.2;
+
+    }
+
+    to {
+        scale: 1;
+    }
+}

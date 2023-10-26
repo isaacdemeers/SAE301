@@ -7,6 +7,8 @@ export class Product {
   #image;
   #stock;
   #option;
+  #selectedOption;
+
 
   constructor(id, name, category, price, description, image, stock, option) {
     this.#id = id;
@@ -17,6 +19,7 @@ export class Product {
     this.#image = image;
     this.#stock = stock;
     this.#option = option;
+    this.#selectedOption = [];
   }
 
   getId() {
@@ -53,5 +56,21 @@ export class Product {
 
   getOptions() {
     return this.#option;
+  }
+
+  getOptionById(id) {
+    return this.#option.find((option) => option.id === id);
+  }
+
+  getSelectedOption() {
+    return this.#selectedOption;
+  }
+
+  setSelectedOption(option) {
+    this.#selectedOption.push(option);
+  }
+
+  delSelectedOption(id) {
+    this.#selectedOption = this.#selectedOption.filter(option => option.id != id);
   }
 }
