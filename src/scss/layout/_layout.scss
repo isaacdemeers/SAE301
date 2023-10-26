@@ -61,12 +61,20 @@ body{
 
         @include size(M){
             grid-area: 2 / 2 / 5 / 4;
+            grid-template-columns: 1fr;
+        }
+
+        @include size(MM){
             grid-template-columns: 1fr 1fr;
         }
 
         @include size(L){
             grid-template-columns: 1fr 1fr;
             grid-area: 2 / 2 / 5 / 4 ;  
+        }
+
+        @include size(XL){
+            grid-template-columns: 1fr 1fr 1fr;
         }
     }
 

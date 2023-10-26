@@ -9,13 +9,24 @@
   }
 
   @if $breakpoint == M {
-    @media only screen and (min-width: 550px) {
+    @media only screen and (min-width: 620px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == MM {
+    @media only screen and (min-width: 870px) {
       @content;
     }
   }
  
   @if $breakpoint == L {
     @media only screen and (min-width: 1350px) {
+      @content;
+    }
+  }
+  @if $breakpoint == XL {
+    @media only screen and (min-width: 1800px) {
       @content;
     }
   }
