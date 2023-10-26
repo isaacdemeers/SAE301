@@ -40,6 +40,13 @@ export class ProductCollection {
     if (product instanceof Product === true) this.#products.push(product);
   }
 
+  removeProduct(product) {
+    if (product instanceof Product === true) {
+      let index = this.#products.indexOf(product);
+      this.#products.splice(index, 1);
+    }
+  }
+
   getProductById(id) {
     return this.#products.find((product) => product.getId() === id);
   }
@@ -57,13 +64,11 @@ export class ProductCollection {
   getProductsByCategory(categories) {
     //category = ['1', '2', '3'];
     let html = [];
-    categories.forEach(element => {
-      element = parseInt(element)
+    categories.forEach((element) => {
+      element = parseInt(element);
       html.push(this.getProductByCategory(element));
-      
     });
     return html.flat();
-  
   }
 
   getProductByStock(stock) {

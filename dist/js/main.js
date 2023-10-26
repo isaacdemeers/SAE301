@@ -10,8 +10,6 @@ let M = {
   productFavorites: new ProductCollection(),
 };
 
-let favBtn = document.querySelectorAll(".product__svg");
-
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 await M.productCart.loadProducts("http://localhost:8888/api/products"); // À MODIFIER
 
@@ -20,7 +18,7 @@ let V = {};
 V.init = function () {
   // document.body.addEventListener("click", C.clickHandler);
 
-  document.querySelectorAll(".product__svg").forEach((btn) => {
+  document.querySelectorAll(".product__svg-label").forEach((btn) => {
     btn.addEventListener("click", C.addToFavorites);
   });
 };
@@ -60,13 +58,12 @@ C.clickHandler = function (e) {
 
 C.addToFavorites = function (e) {
   let id = e.currentTarget.getAttribute("data-id");
-  console.log("Clicked product id: " + id);
+  let product = M.productCollection.getProductById(parseInt(id));
 
-  let product = M.productCollection.getProductById(id);
-  console.log("Retrieved product: ", product);
+  M.productFavorites.addProduct(id);
+  console.log("Removed product from favorites: ", product);
 
-  M.productFavorites.addProduct(product);
-  console.log(M.productFavorites);
+  console.log(M.productFavorites.getProducts());
 };
 
 C.init();
