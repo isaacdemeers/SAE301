@@ -2,7 +2,6 @@ import { ProductCollection } from "./class/ProductCollection.js";
 import { productRenderer } from "./renderer/ProductRenderer.js";
 import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
-
 import { productCart } from "./renderer/CartRenderer.js";
 
 let filters = [];
@@ -15,7 +14,6 @@ let M = {
 };
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
-
 
 let V = {};
 
@@ -30,6 +28,12 @@ V.init = function () {
 
   document.querySelectorAll(".filters__item").forEach((btn) => {
     btn.addEventListener("click", C.filtersHandler);
+  });
+};
+
+V.updateCart = function (data) {
+  document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
+    btn.addEventListener("click", C.updateCart);
   });
 };
 
@@ -53,9 +57,7 @@ V.togglePopUp = function () {
     target.classList.add("popUp--visible");
     window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
-
   }
-
 };
 
 let C = {};
@@ -65,28 +67,24 @@ C.init = function () {
   V.renderCart(M.productCart.getProducts());
 
   V.init();
+  C.emptyCart();
 };
 
 C.productHandler = function (e) {
   let id = e.target.dataset.id;
-
-
 
   product = M.productCollection.getProductById(parseInt(id));
   V.togglePopUp();
 
   if (product.getStock() > 0) {
     selectRenderer(product);
-
-  }
-  else {
+  } else {
     errorRenderer(product);
   }
 
-  document
-    .querySelectorAll(".btn--close").forEach((element) => {
-      element.addEventListener("click", V.togglePopUp)
-    });
+  document.querySelectorAll(".btn--close").forEach((element) => {
+    element.addEventListener("click", V.togglePopUp);
+  });
 
   document
     .querySelectorAll(".orderHandler__content__item")
@@ -94,7 +92,9 @@ C.productHandler = function (e) {
       element.addEventListener("click", C.itemHandler);
     });
 
-  document.querySelector(".orderHandler__button").addEventListener("click", C.addToCart);
+  document
+    .querySelector(".orderHandler__button")
+    .addEventListener("click", C.addToCart);
 };
 
 C.itemHandler = function (e) {
@@ -123,7 +123,6 @@ C.filtersHandler = function (e) {
       target.classList.add("filters__item--selected");
       target.querySelector(".filters__checkbox").checked = true;
       filters.push(favType);
-
     }
 
     if (filters.length != 0) {
@@ -136,8 +135,6 @@ C.filtersHandler = function (e) {
       V.renderProduct(M.productCollection.getProducts());
     }
   }
-
-
 };
 
 C.addToFavorites = function (e) {
@@ -150,6 +147,58 @@ C.addToFavorites = function (e) {
 C.addToCart = function (e) {
   M.productCart.addProduct(product);
   V.renderCart(M.productCart.getProducts());
-}
+  C.emptyCart(); // Permet de remettre le bouton valider le panier en mode normal
+  V.updateCart(); // Permet de récuperer les bouton plus et moins
+};
+
+C.emptyCart = function (e) {
+  if (M.productCart.getProducts().length == 0) {
+    document
+      .querySelector(".cart__validate")
+      .classList.add("cart__validate--disabled");
+  } else if (M.productCart.getProducts().length > 0) {
+    document
+      .querySelector(".cart__validate")
+      .classList.remove("cart__validate--disabled");
+  }
+};
+
+C.updateCart = function (e) {
+  let id = e.currentTarget.getAttribute("data-id");
+  let value = e.currentTarget.getAttribute("data-value");
+  let product = M.productCart.getProductById(parseInt(id));
+  let stock = product.getStock();
+  console.log(stock);
+  let userstock = document.querySelector(
+    `li[data-id="${id}"].cart__item--counter-amount`
+  );
+  let userstockint = parseInt(userstock.innerHTML);
+  console.log(userstockint);
+  // get product by his id and update his quantity
+  if (value == "plus") {
+    if (userstockint < stock) {
+      let intuserstock = parseInt(userstock.innerHTML);
+      intuserstock++;
+      // convert intuserstock to string
+      userstock.innerHTML = intuserstock.toString();
+      V.updateCart();
+    }
+  } else if (value == "minus") {
+    if (userstockint > 1) {
+      let intuserstock = parseInt(userstock.innerHTML);
+      intuserstock--;
+      // convert intuserstock to string
+      userstock.innerHTML = intuserstock.toString();
+      V.updateCart();
+    }
+  }
+  if (value == "minus" && userstockint == 1) {
+    let intuserstock = parseInt(userstock.innerHTML);
+    intuserstock--;
+    M.productCart.removeProduct(product);
+    V.renderCart(M.productCart.getProducts());
+    V.updateCart();
+  }
+};
 
 C.init();
