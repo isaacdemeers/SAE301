@@ -33,6 +33,7 @@ V.init = function () {
 
 V.renderProduct = function (data) {
   document.querySelector("#Products").innerHTML = productRenderer(data);
+  V.init();
 };
 
 V.renderCart = function (data) {
@@ -74,7 +75,6 @@ C.productHandler = function (e) {
   V.togglePopUp();
 
 
-  console.log(selectRenderer(product))
   document
     .querySelectorAll(".orderHandler__content__item")
     .forEach((element) => {
