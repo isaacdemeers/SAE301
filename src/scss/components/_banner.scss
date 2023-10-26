@@ -5,14 +5,14 @@
   position: absolute;
   display: none;
   width: fit-content;
-  padding: 0 1rem;
-  height: 50px;
-  line-height: 50px;
+  padding: 0 .5rem;
+  height: 25px;
+  line-height: 20px;
   margin-left: -15px;
   margin-right: -10px;
   background: var(--color-red-500);
   top: 25%;
-  left: 0;
+  right: 1rem;
   border-radius: 12px;
   box-shadow: 0 1rem 1rem -0.8rem rgba(0, 0, 0, 0.56);
 
@@ -28,11 +28,13 @@
     border-top: 19px solid var(--color-red-800);
     border-left: 15px solid transparent;
     z-index: -1;
+    visibility: hidden;
+
   }
 
   &::after {
     font-family: var(--ff-Rakkas);
-    font-size: var(--fs-400);
+    font-size: var(--fs-200);
     color: var(--color-yellow-300);
   }
 
@@ -54,9 +56,47 @@
 
   }
 
-  @include size(S) {
-    background-color: aliceblue;
+  @include size(M) {
+    left: 0;
+
+    padding: 0 1rem;
+    height: 50px;
+    line-height: 50px;
+
+
+    &::before {
+      visibility: visible;
+    }
+
+    &::after {
+      font-family: var(--ff-Rakkas);
+      font-size: var(--fs-400);
+      color: var(--color-yellow-300);
+    }
   }
+
+  @include size(L) {
+    left: 0;
+
+    padding: 0 1rem;
+    height: 50px;
+    line-height: 50px;
+
+
+    &::before {
+      visibility: visible;
+    }
+
+    &::after {
+      font-family: var(--ff-Rakkas);
+      font-size: var(--fs-400);
+      color: var(--color-yellow-300);
+    }
+
+
+  }
+
+
 
 
 }
