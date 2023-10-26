@@ -13,7 +13,7 @@ let M = {
 };
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
-await M.productCart.loadProducts("http://localhost:8888/api/products"); // À MODIFIER
+
 
 let V = {};
 
@@ -39,10 +39,18 @@ V.togglePopUp = function () {
   let target = document.querySelector(".popUp");
   if (target.classList.contains("popUp--visible")) {
     target.classList.remove("popUp--visible");
+    document.body.style.overflow = "auto";
+
     target.innerHTML = "";
     product.delSelectedOptions();
   } else {
     target.classList.add("popUp--visible");
+    
+
+    // document.body.style.overflow = "hidden";
+    
+    // scroll to top
+
   }
 };
 
@@ -71,6 +79,8 @@ C.productHandler = function (e) {
   document
     .querySelector(".orderHandler__icons--close")
     .addEventListener("click", V.togglePopUp);
+
+    document.querySelector(".orderHandler__button").addEventListener("click", C.addToCart);
 };
 
 C.itemHandler = function (e) {
@@ -95,6 +105,9 @@ C.filtersHandler = function (e) {
 
     if (target.classList.contains("filters__text--active")) {
       target.classList.remove("filters__text--active");
+      
+
+
       filters.pop(type);
     } else {
       target.classList.add("filters__text--active");
@@ -118,5 +131,12 @@ C.addToFavorites = function (e) {
 
   console.log(M.productFavorites);
 };
+
+C.addToCart = function (e) {
+  M.productCart.addProduct(product);
+  V.renderCart(M.productCart.getProducts());
+  console.log(M.productCart.getProducts());
+  V.togglePopUp();
+}
 
 C.init();
