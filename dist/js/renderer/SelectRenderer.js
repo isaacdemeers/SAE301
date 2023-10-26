@@ -1,10 +1,28 @@
 import { Product } from "../class/Product.js";
-import { ProductCollection } from "./class/ProductCollection.js";
 
-const templatePath = "./templates/card.html.inc";
+const templatePath = "./templates/orderHandler/orderHandlerContent.html.inc";
+const templateItemPath = "./templates/orderHandler/orderHandlerItem.html.inc";
 
-// get the content of the template templatePath and store it in productTemplate
-let productTemplate = "";
+
+let selectTemplate = "";
+let itemTemplate = "";
+
 fetch(templatePath)
   .then((response) => response.text())
-  .then((data) => (productTemplate = data));
+  .then((data) => (selectTemplate = data));
+
+
+fetch(templateItemPath)
+  .then((response) => response.text())
+  .then((data) => (itemTemplate = data));
+
+
+let render = function (data) {
+  console.log(itemTemplate);
+  console.log(selectTemplate);
+
+};
+
+export { render as selectRenderer };
+
+

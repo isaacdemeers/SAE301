@@ -27,6 +27,8 @@ C.init = function () {
   V.init();
   V.render(M.productCollection.getProducts());
 
+  selectRenderer();
+
 
   
 };
