@@ -1,6 +1,8 @@
 import { ProductCollection } from "./class/ProductCollection.js";
 import { productRenderer } from "./renderer/ProductRenderer.js";
 import { selectRenderer } from "./renderer/SelectRenderer.js";
+import { errorRenderer } from "./renderer/ErrorRenderer.js";
+
 import { productCart } from "./renderer/CartRenderer.js";
 
 let filters = [];
@@ -45,16 +47,15 @@ V.togglePopUp = function () {
   if (target.classList.contains("popUp--visible")) {
     target.classList.remove("popUp--visible");
     document.body.style.overflow = "auto";
-
     target.innerHTML = "";
     product.delSelectedOptions();
   } else {
     target.classList.add("popUp--visible");
-    
+    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden";
 
-    // document.body.style.overflow = "hidden";
-    
   }
+
 };
 
 let C = {};
@@ -69,11 +70,23 @@ C.init = function () {
 C.productHandler = function (e) {
   let id = e.target.dataset.id;
 
-  
+
 
   product = M.productCollection.getProductById(parseInt(id));
   V.togglePopUp();
 
+  if (product.getStock() > 0) {
+    selectRenderer(product);
+
+  }
+  else {
+    errorRenderer(product);
+  }
+
+  document
+    .querySelectorAll(".btn--close").forEach((element) => {
+      element.addEventListener("click", V.togglePopUp)
+    });
 
   document
     .querySelectorAll(".orderHandler__content__item")
@@ -81,16 +94,11 @@ C.productHandler = function (e) {
       element.addEventListener("click", C.itemHandler);
     });
 
-  document
-    .querySelector(".orderHandler__icons--close")
-    .addEventListener("click", V.togglePopUp);
-
-    document.querySelector(".orderHandler__button").addEventListener("click", C.addToCart);
+  document.querySelector(".orderHandler__button").addEventListener("click", C.addToCart);
 };
 
 C.itemHandler = function (e) {
   let target = e.currentTarget;
-  console.log(product);
   let optionId = parseInt(target.dataset.id);
 
   if (target.classList.contains("orderHandler__content__item--selected")) {
@@ -118,9 +126,6 @@ C.filtersHandler = function (e) {
 
     }
 
-    console.log(filters);
-    
-
     if (filters.length != 0) {
       let products = M.productCollection.getProductsByCategory(filters);
       if (filters.includes("0")) {
@@ -131,7 +136,7 @@ C.filtersHandler = function (e) {
       V.renderProduct(M.productCollection.getProducts());
     }
   }
-  
+
 
 };
 
@@ -145,8 +150,6 @@ C.addToFavorites = function (e) {
 C.addToCart = function (e) {
   M.productCart.addProduct(product);
   V.renderCart(M.productCart.getProducts());
-  console.log(M.productCart.getProducts());
-  V.togglePopUp();
 }
 
 C.init();

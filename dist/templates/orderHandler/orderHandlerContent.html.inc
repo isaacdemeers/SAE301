@@ -1,5 +1,5 @@
 <section class="orderHandler">
-  <i class="orderHandler__icons orderHandler__icons--close material-icons"
+  <i class="orderHandler__icons btn--close orderHandler__icons--close material-icons"
     >close</i
   >
   
@@ -50,7 +50,7 @@
       </ul>
     </section>
 
-    <button class="button button--confirm orderHandler__button">
+    <button class="button button--confirm orderHandler__button btn--close">
       Continuer
     </button>
   </figcaption>
