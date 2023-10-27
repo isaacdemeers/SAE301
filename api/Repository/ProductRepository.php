@@ -2,7 +2,6 @@
 
 require_once("Repository/EntityRepository.php");
 require_once("Class/Product.php");
-// require_once("Class/Options.php");
 
 
 /**
