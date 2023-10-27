@@ -196,7 +196,6 @@ C.updateCart = function (e) {
       intuserstock++;
       // convert intuserstock to string
       userstock.innerHTML = intuserstock.toString();
-      V.updateCart();
     }
   } else if (value == "minus") {
     if (userstockint > 1) {
@@ -204,7 +203,6 @@ C.updateCart = function (e) {
       intuserstock--;
       // convert intuserstock to string
       userstock.innerHTML = intuserstock.toString();
-      V.updateCart();
     }
   }
   if (value == "minus" && userstockint == 1) {
@@ -215,9 +213,10 @@ C.updateCart = function (e) {
     M.productCart.removeProduct(prod);
     V.renderCart(M.productCart.getProducts());
     C.emptyCart();
-    V.updateCart();
 
   }
+  V.updateCart();
+
 };
 
 C.delCartItem = function (e) {
