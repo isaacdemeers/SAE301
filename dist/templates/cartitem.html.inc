@@ -15,7 +15,7 @@
       </li>
     </ul>
   </section>
-  <p class="cart__item--price">{{price}}</p>
+  <p data-id="{{id}}" class="cart__item--price">{{price}}</p>
 
   <a class="cart__item--modify" data-id="{{id}}" href="#"> Supprimer </a>
 </li>

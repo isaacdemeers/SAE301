@@ -9,7 +9,6 @@ fetch(cardtemplatePath)
   .then((data) => (cardproductTemplate = data));
 
 function findProductsWithMostStock(data) {
-
   let maxStock = 0;
   let productsWithMaxStock = [];
 
@@ -40,7 +39,6 @@ let render = function (data) {
 
   let highStock = findProductsWithMostStock(data);
 
-
   for (let p of data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
@@ -66,15 +64,18 @@ let render = function (data) {
         );
       }
       // si le p est dans highStock
-
       else if (highStock.includes(p)) {
-        html = html.replace("{{price}}", (p.getPrice() * 0.8).toFixed(2) + " €");
+        html = html.replace(
+          "{{price}}",
+          (p.getPrice() * 0.8).toFixed(2) + " €"
+        );
 
         html = html.replace(
           "{{stock}}",
           "banner--visible " + "banner--highStock"
         );
       }
+
       html = html.replace("{{price}}", p.getPrice() + " €");
 
       all += html;
@@ -82,6 +83,5 @@ let render = function (data) {
   }
   return all;
 };
-
 
 export { render as productRenderer };

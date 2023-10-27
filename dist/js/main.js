@@ -25,9 +25,6 @@ let M = {
   orderCollection: new OrderCollection(),
 };
 
-
-
-
 // You can now process the form data or submit it to a server.
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
@@ -63,7 +60,7 @@ V.delCartItem = function () {
 
 V.cartHideControl = function () {
   document.querySelector(".cart").classList.add("cart--disabled");
-}
+};
 
 V.cartListner = function () {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
@@ -299,6 +296,11 @@ C.updateCart = function (e) {
       let intuserstock = parseInt(userstock.innerHTML);
       intuserstock++;
       // convert intuserstock to string
+      let price = prod.getPrice() * intuserstock;
+      console.log(price);
+      document.querySelector(
+        `li[data-id="${id}"] .cart__item--price`
+      ).innerHTML = price.toFixed(2).toString() + " €";
       userstock.innerHTML = intuserstock.toString();
       V.cartTotalPrice(intuserstock);
     }
@@ -307,6 +309,12 @@ C.updateCart = function (e) {
       let intuserstock = parseInt(userstock.innerHTML);
       intuserstock--;
       // convert intuserstock to string
+      let price = prod.getPrice() * intuserstock;
+      console.log(price);
+      document.querySelector(
+        `li[data-id="${id}"] .cart__item--price`
+      ).innerHTML = price.toFixed(2).toString() + " €";
+
       userstock.innerHTML = intuserstock.toString();
       V.cartTotalPrice(intuserstock);
     }
