@@ -85,6 +85,7 @@ V.checkOut = function () {
   V.renderCart(M.productCart.getProducts());
   V.getPaymentInfos();
   V.cartHideControl();
+  V.cartTotalPrice();
 };
 
 V.renderProduct = function (data) {
