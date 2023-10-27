@@ -30,31 +30,33 @@ M.paymentInfos = {};
 const form = document.querySelector(".pay");
 const validate = document.querySelector(".pay__validate");
 
-validate.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent the form from submitting
+V.getPayemntInfos = function () {
+  validate.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent the form from submitting
 
-  // Retrieve values from the form elements
-  const firstName = form.querySelector('input[placeholder="Prénom"]').value;
-  const lastName = form.querySelector('input[placeholder="Nom"]').value;
-  const phoneNumber = form.querySelector(
-    'input[placeholder="Numéro de Tel"]'
-  ).value;
-  const email = form.querySelector('input[placeholder="Email"]').value;
-  const coupon = form.querySelector(".pay__coupon--input").value;
-  const acceptCheckbox = form.querySelector("#checkbox").checked;
+    // Retrieve values from the form elements
+    const firstName = form.querySelector('input[placeholder="Prénom"]').value;
+    const lastName = form.querySelector('input[placeholder="Nom"]').value;
+    const phoneNumber = form.querySelector(
+      'input[placeholder="Numéro de Tel"]'
+    ).value;
+    const email = form.querySelector('input[placeholder="Email"]').value;
+    const coupon = form.querySelector(".pay__coupon--input").value;
+    const acceptCheckbox = form.querySelector("#checkbox").checked;
 
-  // add all the information to M.paymentInfos = {};
-  M.paymentInfos.firstName = firstName;
-  M.paymentInfos.lastName = lastName;
-  M.paymentInfos.phoneNumber = phoneNumber;
-  M.paymentInfos.email = email;
-  M.paymentInfos.coupon = coupon;
-  M.paymentInfos.acceptCheckbox = acceptCheckbox;
+    // add all the information to M.paymentInfos = {};
+    M.paymentInfos.firstName = firstName;
+    M.paymentInfos.lastName = lastName;
+    M.paymentInfos.phoneNumber = phoneNumber;
+    M.paymentInfos.email = email;
+    M.paymentInfos.coupon = coupon;
+    M.paymentInfos.acceptCheckbox = acceptCheckbox;
 
-  console.log(M.paymentInfos);
+    console.log(M.paymentInfos);
 
-  // You can now process the form data or submit it to a server.
-});
+    // You can now process the form data or submit it to a server.
+  });
+};
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
@@ -106,6 +108,7 @@ V.checkOut = function () {
   let order = new Order(createId(), M.productCart.getProducts());
   M.orderCollection.addOrder(order);
   console.log(M.orderCollection.getOrders());
+  V.getPayemntInfos();
 };
 
 V.renderProduct = function (data) {
