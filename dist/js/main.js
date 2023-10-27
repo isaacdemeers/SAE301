@@ -7,6 +7,8 @@ import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
 import { checkoutRenderer } from "./renderer/CheckoutRenderer.js";
+import { pageRenderer } from "./renderer/pageRenderer.js";
+
 
 let filters = [];
 let product = null;
@@ -29,6 +31,9 @@ await M.productCollection.loadProducts("http://localhost:8888/api/products");
 let V = {};
 
 V.init = function () {
+
+
+
   document.querySelectorAll(".product__svg-label").forEach((btn) => {
     btn.addEventListener("click", C.addToFavorites);
   });
@@ -42,6 +47,9 @@ V.init = function () {
   });
 };
 
+V.renderPage = function (data) {
+  pageRenderer();
+};
 V.delCartItem = function () {
   document.querySelectorAll(".cart__item--modify").forEach((btn) => {
     btn.addEventListener("click", C.delCartItem);
@@ -105,6 +113,7 @@ V.togglePopUp = function () {
 let C = {};
 
 C.init = function () {
+  V.renderPage();
   V.renderProduct(M.productCollection.getProducts());
   V.renderCart(M.productCart.getProducts());
 
