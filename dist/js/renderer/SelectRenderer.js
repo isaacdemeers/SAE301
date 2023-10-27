@@ -19,14 +19,6 @@ fetch(templateItemPath)
 
 let render = function (product) {
 
-  fetch(templatePath)
-  .then((response) => response.text())
-  .then((data) => (selectTemplate = data));
-
-
-fetch(templateItemPath)
-  .then((response) => response.text())
-  .then((data) => (itemTemplate = data));
 
   let target = document.querySelector('.popUp')
 
