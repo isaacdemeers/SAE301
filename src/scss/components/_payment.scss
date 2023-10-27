@@ -9,6 +9,27 @@
     border-radius: 1em;
     color: var(--color-neutral-900);
 
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+        &-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.3em; 
+        }
+
+        &-item{
+            border: 2px solid var(--color-red-400);
+            padding: .8em 1em;
+            border-radius: .5em;
+            font-family: var(--ff-Montserrat);
+            width: 100%;
+        }
+
+    }
+
     &__error{
         display: flex;
         justify-content: center;
@@ -29,6 +50,7 @@
         gap: 1em;
         border-bottom: 1px solid var(--color-neutral-500);
         padding: .5em 0;
+        margin-bottom: 1em;
         color: var(--color-neutral-900);
 
         &--title{
