@@ -3,6 +3,11 @@ import { productRenderer } from "./renderer/ProductRenderer.js";
 import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
+import { cartDotRenderer } from "./renderer/cartDotRenderer.js";
+
+
+
+
 
 let filters = [];
 let product = null;
@@ -12,6 +17,7 @@ let M = {
   productCart: new ProductCollection(),
   productFavorites: new ProductCollection(),
 };
+
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
@@ -37,7 +43,7 @@ V.delCartItem = function () {
   });
 };
 
-V.updateCart = function (data) {
+V.cartListner = function (data) {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
     btn.addEventListener("click", C.updateCart);
   });
@@ -163,7 +169,7 @@ C.addToCart = function (e) {
   M.productCart.addProduct(product);
   V.renderCart(M.productCart.getProducts());
   C.emptyCart(); // Permet de remettre le bouton valider le panier en mode normal
-  V.updateCart(); // Permet de récuperer les bouton plus et moins
+  V.cartListner(); // Permet de récuperer les bouton plus et moins
 };
 
 C.emptyCart = function (e) {
@@ -215,7 +221,7 @@ C.updateCart = function (e) {
     C.emptyCart();
 
   }
-  V.updateCart();
+  V.cartListner();
 
 };
 
@@ -228,7 +234,7 @@ C.delCartItem = function (e) {
   M.productCart.removeProduct(product);
   V.renderCart(M.productCart.getProducts());
   C.emptyCart();
-  V.updateCart();
+  V.cartListner();
 
   errorRenderer(prod, " a été retiré du panier.");
   V.togglePopUp();
