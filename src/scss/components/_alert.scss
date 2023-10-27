@@ -13,7 +13,7 @@
     align-items: center;
     justify-content: center;
 
-    
+
 
     &--onlyConfirm .button--cancel {
         display: none;
@@ -29,7 +29,7 @@
         padding: 3rem;
 
         animation: scaleUp .4s forwards cubic-bezier(0.34, 1.56, 0.64, 1);
-    transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
 
 
         &__close {
@@ -39,10 +39,19 @@
             cursor: pointer;
             z-index: 120;
         }
-    
+
         &__title {
             @include boxTitle(--fs-300);
         }
+
+        &__text {
+            text-align: center;
+            user-select: text;
+
+        }
+
+
+
         &__buttons {
             height: fit-content;
             display: flex;
@@ -54,21 +63,25 @@
 
         @include size(M) {
             padding: 3rem;
+
             &__title {
                 font-size: var(--fs-400);
             }
+
             &__close {
                 top: 1.5rem;
                 right: 1.5rem;
             }
 
         }
-    
+
         @include size(L) {
             padding: 4rem;
+
             &__title {
                 font-size: var(--fs-500);
             }
+
             &__close {
                 top: 2rem;
                 right: 2rem;
@@ -76,7 +89,7 @@
 
         }
 
-        
+
     }
 
 }

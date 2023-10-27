@@ -1,4 +1,4 @@
-export class Order {
+class Order {
   #id;
   #json;
 
@@ -14,4 +14,12 @@ export class Order {
   getJson() {
     return this.#json;
   }
+
+  setJson(json) {
+    this.#json = json;
+  }
+
+
 }
+
+export { Order };

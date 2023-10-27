@@ -1,4 +1,4 @@
-import { Product } from "./Order.js";
+import { Order } from "./Order.js";
 
 export class OrderCollection {
   #uri;

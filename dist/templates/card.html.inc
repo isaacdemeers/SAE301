@@ -20,6 +20,7 @@
           <li class="product__info-item">
             <button data-id="{{id}}" class="product__button">Ajouter</button>
             <p class="product__price">{{price}}</p>
+            
           </li>
           <li class="product__info-item">
             <p class="product__description">{{description}}</p>

@@ -49,7 +49,6 @@ let render = function (data) {
       html = html.replaceAll("{{id}}", p.getId());
       html = html.replace("{{category}}", p.getCategory());
       html = html.replaceAll("{{imgUrl}}", "./assets/img/" + p.getImage());
-      html = html.replace("{{price}}", p.getPrice() + " €");
       html = html.replace(
         "{{description}}",
         p.getDescription() ? p.getDescription().slice(0, 40) + "..." : ""
@@ -69,11 +68,15 @@ let render = function (data) {
       // si le p est dans highStock
 
       else if (highStock.includes(p)) {
+        html = html.replace("{{price}}", (p.getPrice() * 0.8).toFixed(2) + " €");
+
         html = html.replace(
           "{{stock}}",
           "banner--visible " + "banner--highStock"
         );
       }
+      html = html.replace("{{price}}", p.getPrice() + " €");
+
       all += html;
     }
   }

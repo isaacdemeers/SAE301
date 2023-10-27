@@ -43,11 +43,17 @@ V.delCartItem = function () {
   });
 };
 
-V.cartListner = function (data) {
+V.cartListner = function () {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
     btn.addEventListener("click", C.updateCart);
   });
+  document.querySelector('.cart__validate--active').addEventListener('click', V.checkOut);
 };
+
+V.checkOut = function () {
+  errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
+  V.togglePopUp();
+}
 
 
 V.renderProduct = function (data) {
@@ -104,7 +110,7 @@ C.productHandler = function (e) {
   if (product.getStock() > 0) {
     selectRenderer(product);
   } else {
-    errorRenderer(product, " est temporairement indisponible.");
+    errorRenderer(product, " est temporairement indisponible.", "");
   }
 
   V.closeListener();
@@ -175,14 +181,17 @@ C.addToCart = function (e) {
 };
 
 C.emptyCart = function (e) {
+  let target = document.querySelector(".cart__validate");
   if (M.productCart.getProducts().length == 0) {
-    document
-      .querySelector(".cart__validate")
-      .classList.add("cart__validate--disabled");
+    target.classList.add("cart__validate--disabled");
+    target.classList.add("cart__validate--active");
+
+
   } else if (M.productCart.getProducts().length > 0) {
-    document
-      .querySelector(".cart__validate")
-      .classList.remove("cart__validate--disabled");
+    target.classList.remove("cart__validate--disabled");
+    target.classList.add("cart__validate--active");
+
+
   }
 };
 
@@ -214,7 +223,7 @@ C.updateCart = function (e) {
     }
   }
   if (value == "minus" && userstockint == 1) {
-    errorRenderer(prod, " a été retiré du panier.");
+    errorRenderer(prod, " a été retiré du panier.", "");
     V.togglePopUp();
     let intuserstock = parseInt(userstock.innerHTML);
     intuserstock--;
@@ -237,7 +246,7 @@ C.delCartItem = function (e) {
   C.emptyCart();
   V.cartListner();
 
-  errorRenderer(prod, " a été retiré du panier.");
+  errorRenderer(prod, " a été retiré du panier.", "");
   V.togglePopUp();
 };
 
