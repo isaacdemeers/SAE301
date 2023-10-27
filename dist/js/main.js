@@ -35,7 +35,7 @@ V.delCartItem = function () {
   document.querySelectorAll(".cart__item--modify").forEach((btn) => {
     btn.addEventListener("click", C.delCartItem);
   });
-}
+};
 
 V.updateCart = function (data) {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
@@ -118,8 +118,6 @@ C.itemHandler = function (e) {
     target.classList.add("orderHandler__content__item--selected");
     product.setSelectedOption(product.getOptionById(optionId));
   }
-
-
 };
 
 C.filtersHandler = function (e) {
@@ -161,7 +159,6 @@ C.addToCart = function (e) {
   V.renderCart(M.productCart.getProducts());
   C.emptyCart(); // Permet de remettre le bouton valider le panier en mode normal
   V.updateCart(); // Permet de récuperer les bouton plus et moins
-
 };
 
 C.emptyCart = function (e) {
@@ -210,12 +207,12 @@ C.updateCart = function (e) {
     intuserstock--;
     M.productCart.removeProduct(product);
     V.renderCart(M.productCart.getProducts());
+    C.emptyCart();
     V.updateCart();
   }
 };
 
 C.delCartItem = function (e) {
-
   let id = e.currentTarget.dataset.id;
   console.log(id);
   let product = M.productCart.getProductById(parseInt(id));
@@ -223,7 +220,6 @@ C.delCartItem = function (e) {
   M.productCart.removeProduct(product);
   V.renderCart(M.productCart.getProducts());
   V.updateCart();
-}
-
+};
 
 C.init();
