@@ -20,7 +20,7 @@ body{
     }
 
     @include size(L){
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(8, 1fr);
         margin: 2em 10em;
     }
 
@@ -34,12 +34,13 @@ body{
         }
 
         @include size(L){
-            grid-area: 1 / 1 / 2 / 4;
+            grid-area: 1 / 1 / 2 / 7;
         }
     }
 
     &__filters{
         display: none;
+        height: fit-content;
 
         @include size(M){
             display: block;
@@ -50,6 +51,7 @@ body{
         @include size(L){
             display: block;
             position: sticky;
+            grid-area: 2 / 1 / 5 / 3;
             top: 9em;
         }
     }
@@ -70,7 +72,7 @@ body{
 
         @include size(L){
             grid-template-columns: 1fr 1fr;
-            grid-area: 2 / 2 / 5 / 4 ;  
+            grid-area: 2 / 3 / 5 / 7;  
         }
 
         @include size(XL){
@@ -89,7 +91,7 @@ body{
             display: block;
             position: sticky;
             top: 9em;
-            grid-area: 1 / 4 / 5 / 5;
+            grid-area: 1 / 7 / 5 / 9;
         }
     }
 }
