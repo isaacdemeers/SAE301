@@ -52,8 +52,12 @@
     &::after {
       content: "Presque épuisé";
     }
+  }
 
-
+  &--highStock {
+    &::after {
+      content: "-20%";
+    }
   }
 
   @include size(M) {

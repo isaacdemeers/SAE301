@@ -8,6 +8,26 @@ fetch(cardtemplatePath)
   .then((response) => response.text())
   .then((data) => (cardproductTemplate = data));
 
+function findProductsWithMostStock(data) {
+
+  let maxStock = 0;
+  let productsWithMaxStock = [];
+
+  for (let p of data) {
+    // on vérifie que p est bien un Product
+    if (p instanceof Product) {
+      if (p.getStock() > maxStock) {
+        maxStock = p.getStock();
+        productsWithMaxStock = [p];
+      } else if (p.getStock() === maxStock) {
+        productsWithMaxStock.push(p);
+      }
+    }
+  }
+
+  return productsWithMaxStock;
+}
+
 // data attend un tableau de Product
 let render = function (data) {
   let html = "";
@@ -17,6 +37,10 @@ let render = function (data) {
     console.error("data has to be an array of Products");
     return all;
   }
+
+  let highStock = findProductsWithMostStock(data);
+
+
   for (let p of data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
@@ -42,10 +66,19 @@ let render = function (data) {
           "banner--visible " + "banner--lowStock"
         );
       }
+      // si le p est dans highStock
+
+      else if (highStock.includes(p)) {
+        html = html.replace(
+          "{{stock}}",
+          "banner--visible " + "banner--highStock"
+        );
+      }
       all += html;
     }
   }
   return all;
 };
+
 
 export { render as productRenderer };
