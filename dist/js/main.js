@@ -52,12 +52,15 @@ V.togglePopUp = function () {
     target.classList.remove("popUp--visible");
     document.body.style.overflow = "auto";
     target.innerHTML = "";
-    product.delSelectedOptions();
   } else {
     target.classList.add("popUp--visible");
+    product.delSelectedOptions();
+
     window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
   }
+
+  console.log(product);
 };
 
 let C = {};
@@ -108,6 +111,8 @@ C.itemHandler = function (e) {
     target.classList.add("orderHandler__content__item--selected");
     product.setSelectedOption(product.getOptionById(optionId));
   }
+
+
 };
 
 C.filtersHandler = function (e) {
@@ -149,6 +154,7 @@ C.addToCart = function (e) {
   V.renderCart(M.productCart.getProducts());
   C.emptyCart(); // Permet de remettre le bouton valider le panier en mode normal
   V.updateCart(); // Permet de récuperer les bouton plus et moins
+
 };
 
 C.emptyCart = function (e) {

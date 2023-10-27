@@ -25,7 +25,7 @@ let cart = function (data) {
       html = html.replace(
         "{{options}}",
         p
-          .getOptions()
+          .getSelectedOption()
           .map((option) => option.name)
           .join(", ")
       );
