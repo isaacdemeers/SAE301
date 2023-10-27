@@ -7,6 +7,16 @@
   font-family: var(--ff-Montserrat);
   height: fit-content;
 
+  &--disabled {
+
+    .cart__item--counter-btn,
+    .cart__item--modify,
+    .cart__item--counter-amount {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -102,6 +112,7 @@
         width: 2em;
         height: 2em;
         cursor: pointer;
+
 
         &:hover {
           background-color: var(--color-red-600);
