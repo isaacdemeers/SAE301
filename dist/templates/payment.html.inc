@@ -1,4 +1,4 @@
-<form class="pay">
+<form class="pay main__form">
   <section class="pay__error">
     <h4>Erreur de Payment</h4>
   </section>
@@ -126,7 +126,7 @@
   <input class="pay__validate" type="submit" value="Pay 59,99€" />
 </form>
 
-<article class="cart">
+<article class="cart main__checkoutCart">
   <section class="cart__container">
     <h3 class="cart__title">Votre panier</h3>
     <ul class="cart__prices">
