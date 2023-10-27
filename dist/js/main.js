@@ -50,6 +50,7 @@ V.renderProduct = function (data) {
 
 V.renderCart = function (data) {
   document.querySelector(".cart__items").innerHTML = productCart(data);
+  V.delCartItem();
 };
 
 V.togglePopUp = function () {
@@ -215,7 +216,8 @@ C.updateCart = function (e) {
 
 C.delCartItem = function (e) {
 
-  let id = e.currentTarget.getAttribute("data-id");
+  let id = e.currentTarget.dataset.id;
+  console.log(id);
   let product = M.productCart.getProductById(parseInt(id));
 
   M.productCart.removeProduct(product);
