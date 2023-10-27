@@ -60,11 +60,14 @@ V.cartListner = function () {
 };
 
 V.checkOut = function () {
-  errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
-  V.togglePopUp();
   let order = new Order(createId(), M.productCart.getProducts());
   M.orderCollection.addOrder(order);
   console.log(M.orderCollection.getOrders());
+  M.productCart.removeProducts();
+  errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
+  V.togglePopUp();
+  V.renderCart(M.productCart.getProducts());
+  C.emptyCart();
 }
 
 
@@ -99,7 +102,6 @@ V.togglePopUp = function () {
     document.body.style.overflow = "hidden";
   }
 
-  console.log(product);
 };
 
 let C = {};
@@ -196,7 +198,7 @@ C.emptyCart = function (e) {
   let target = document.querySelector(".cart__validate");
   if (M.productCart.getProducts().length == 0) {
     target.classList.add("cart__validate--disabled");
-    target.classList.add("cart__validate--active");
+    target.classList.remove("cart__validate--active");
 
 
   } else if (M.productCart.getProducts().length > 0) {
@@ -205,6 +207,7 @@ C.emptyCart = function (e) {
 
 
   }
+
 };
 
 C.updateCart = function (e) {

@@ -46,6 +46,10 @@ export class ProductCollection {
       this.#products.splice(index, 1);
     }
   }
+  removeProducts() {
+    this.#products = [];
+  }
+
 
   getProductById(id) {
     return this.#products.find((product) => product.getId() === id);

@@ -8,6 +8,11 @@ fetch(carttemplatePath)
   .then((data) => (cartproductTemplate = data));
 
 let cart = function (data) {
+
+  fetch(carttemplatePath)
+    .then((response) => response.text())
+    .then((data) => (cartproductTemplate = data));
+
   let html = "";
   let all = "";
 
