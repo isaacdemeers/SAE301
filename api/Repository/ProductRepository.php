@@ -2,6 +2,7 @@
 
 require_once("Repository/EntityRepository.php");
 require_once("Class/Product.php");
+require_once("Class/Order.php");
 
 
 /**
@@ -16,14 +17,17 @@ require_once("Class/Product.php");
  *  c'est utile !
  *  
  */
-class ProductRepository extends EntityRepository {
+class ProductRepository extends EntityRepository
+{
 
-    public function __construct(){
+    public function __construct()
+    {
         // appel au constructeur de la classe mère (va ouvrir la connexion à la bdd)
         parent::__construct();
     }
 
-    public function find($id): ?Product{
+    public function find($id): ?Product
+    {
         /*
             La façon de faire une requête SQL ci-dessous est "meilleur" que celle vue
             au précédent semestre (cnx->query). Notamment l'utilisation de bindParam
@@ -34,9 +38,9 @@ class ProductRepository extends EntityRepository {
         $requete->bindParam(':value', $id); // fait le lien entre le "tag" :value et la valeur de $id
         $requete->execute(); // execute la requête
         $answer = $requete->fetch(PDO::FETCH_OBJ);
-        
-        if ($answer==false) return null; // may be false if the sql request failed (wrong $id value for example)
-        
+
+        if ($answer == false) return null; // may be false if the sql request failed (wrong $id value for example)
+
         $p = new Product($answer->id);
         $p->setName($answer->name);
         $p->setIdcategory($answer->category);
@@ -49,16 +53,17 @@ class ProductRepository extends EntityRepository {
         return $p;
     }
 
-    public function findAll(): array {
+    public function findAll(): array
+    {
         $requete = $this->cnx->prepare("select * from Product");
         $requete->execute();
         $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
-        if ($answer==false) return null; // may be false if the sql request failed (wrong $id value for example)
+        if ($answer == false) return null; // may be false if the sql request failed (wrong $id value for example)
 
 
         $res = [];
-        foreach($answer as $obj){
+        foreach ($answer as $obj) {
             $p = new Product($obj->id);
             $p->setName($obj->name);
             $p->setIdcategory($obj->category);
@@ -71,70 +76,69 @@ class ProductRepository extends EntityRepository {
 
             $p->setOption($this->getOptions($option));
 
-            
+
 
             array_push($res, $p);
-
-            
         }
-        
-       
+
+
         return $res;
     }
 
-    public function getOptions($idOptions) {
-        $requete = $this->cnx->prepare("select * from Options where category=:value"); 
-            $requete->bindParam(':value', $idOptions);
-            $requete->execute(); 
-            $answer = $requete->fetchAll(PDO::FETCH_OBJ);
+    public function getOptions($idOptions)
+    {
+        $requete = $this->cnx->prepare("select * from Options where category=:value");
+        $requete->bindParam(':value', $idOptions);
+        $requete->execute();
+        $answer = $requete->fetchAll(PDO::FETCH_OBJ);
 
-            if ($answer==true) {
-                $options = [];
-                foreach($answer as $obj){
-                    array_push($options, $obj);
-                } 
+        if ($answer == true) {
+            $options = [];
+            foreach ($answer as $obj) {
+                array_push($options, $obj);
             }
-            return $options;
+        }
+        return $options;
     }
 
-    public function save($product){
+    public function save($product)
+    {
         $requete = $this->cnx->prepare("insert into Product (name, category) values (:name, :idcategory)");
         $name = $product->getName();
         $idcat = $product->getIdcategory();
-        $requete->bindParam(':name', $name );
+        $requete->bindParam(':name', $name);
         $requete->bindParam(':idcategory', $idcat);
         $answer = $requete->execute(); // an insert query returns true or false. $answer is a boolean.
 
-        if ($answer){
+        if ($answer) {
             $id = $this->cnx->lastInsertId(); // retrieve the id of the last insert query
             $product->setId($id); // set the product id to its real value.
             return true;
         }
-          
+
         return false;
     }
 
-    public function delete($id){
-        
-        $requete = $this->cnx->prepare("delete from Product where id=:id");
-        $requete->bindParam(':id', $id);
-        $answer = $requete->execute(); 
-        return $answer;
-    }
+    public function delete($id)
+    {
 
-    public function update($product){
-        
-        $requete = $this->cnx->prepare("update Product set name=:name, category=:idcategory where id=:id");
-        $name = $product->getName();
-        $idcat = $product->getIdcategory();
-        $id = $product->getId();
-        $requete->bindParam(':name', $name );
-        $requete->bindParam(':idcategory', $idcat);
+        $requete = $this->cnx->prepare("delete from Product where id=:id");
         $requete->bindParam(':id', $id);
         $answer = $requete->execute();
         return $answer;
     }
 
-   
-    
+    public function update($product)
+    {
+
+        $requete = $this->cnx->prepare("update Product set name=:name, category=:idcategory where id=:id");
+        $name = $product->getName();
+        $idcat = $product->getIdcategory();
+        $id = $product->getId();
+        $requete->bindParam(':name', $name);
+        $requete->bindParam(':idcategory', $idcat);
+        $requete->bindParam(':id', $id);
+        $answer = $requete->execute();
+        return $answer;
+    }
 }
