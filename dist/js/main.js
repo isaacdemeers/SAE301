@@ -6,10 +6,7 @@ import { productRenderer } from "./renderer/ProductRenderer.js";
 import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
-
-
-
-
+import { checkoutRenderer } from "./renderer/CheckoutRenderer.js";
 
 let filters = [];
 let product = null;
@@ -26,7 +23,6 @@ let M = {
   productFavorites: new ProductCollection(),
   orderCollection: new OrderCollection(),
 };
-
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
@@ -56,17 +52,22 @@ V.cartListner = function () {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
     btn.addEventListener("click", C.updateCart);
   });
-  document.querySelector('.cart__validate--active').addEventListener('click', V.checkOut);
+  document
+    .querySelector(".cart__validate--active")
+    .addEventListener("click", V.checkOut);
 };
 
 V.checkOut = function () {
-  errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
+  errorRenderer(
+    "",
+    "Panier validé !",
+    "Nouveau ? Voici un code promo de 10% : BIENVENUE10"
+  );
   V.togglePopUp();
   let order = new Order(createId(), M.productCart.getProducts());
   M.orderCollection.addOrder(order);
   console.log(M.orderCollection.getOrders());
-}
-
+};
 
 V.renderProduct = function (data) {
   document.querySelector("#Products").innerHTML = productRenderer(data);
@@ -110,7 +111,6 @@ C.init = function () {
 
   V.init();
   C.emptyCart();
-
 };
 
 C.productHandler = function (e) {
@@ -197,13 +197,9 @@ C.emptyCart = function (e) {
   if (M.productCart.getProducts().length == 0) {
     target.classList.add("cart__validate--disabled");
     target.classList.add("cart__validate--active");
-
-
   } else if (M.productCart.getProducts().length > 0) {
     target.classList.remove("cart__validate--disabled");
     target.classList.add("cart__validate--active");
-
-
   }
 };
 
@@ -242,13 +238,11 @@ C.updateCart = function (e) {
     M.productCart.removeProduct(prod);
     V.renderCart(M.productCart.getProducts());
     C.emptyCart();
-
   }
   V.cartListner();
 };
 
 C.delCartItem = function (e) {
-
   let id = e.currentTarget.dataset.id;
   console.log(id);
   let prod = M.productCart.getProductById(parseInt(id));

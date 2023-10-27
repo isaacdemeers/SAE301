@@ -8,6 +8,16 @@
     <p class="pay__banner--desc">Click and Collect</p>
   </section>
 
+  <h2 class="pay__selector--title">Information Perso</h2>
+  <section class="pay__info">
+    <div class="pay__info-container">
+      <input class="pay__info-item" type="text" placeholder="Prénom" />
+      <input class="pay__info-item" type="text" placeholder="Nom" />
+    </div>
+    <input class="pay__info-item" type="text" placeholder="Numéro de Tel" />
+    <input class="pay__info-item" type="text" placeholder="Email" />
+  </section>
+
   <section class="pay__selector">
     <h2 class="pay__selector--title">Options Click and Collect</h2>
     <ul class="pay__selector--items">
