@@ -1,4 +1,4 @@
-<aside class="cart">
+<aside class="cart cart--disabled">
   <section class="cart__container">
     <h3 class="cart__title">Votre panier</h3>
     <ul class="cart__prices">
