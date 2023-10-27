@@ -36,6 +36,7 @@
     width: 100%;
     text-align: center;
     padding: 0.8em;
+    margin-top: .8rem;
 
     &:hover {
       background-color: var(--color-red-600);
@@ -50,6 +51,11 @@
       width: 100%;
       text-align: center;
       padding: 0.8em;
+      cursor: default;
+    }
+
+    &--disabled:hover {
+      background-color: transparent;
     }
   }
 
