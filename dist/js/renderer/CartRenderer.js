@@ -9,9 +9,6 @@ fetch(carttemplatePath)
 
 let cart = function (data) {
 
-  fetch(carttemplatePath)
-    .then((response) => response.text())
-    .then((data) => (cartproductTemplate = data));
 
   let html = "";
   let all = "";
@@ -23,21 +20,26 @@ let cart = function (data) {
   for (let p of data) {
     // on vérifie que p est bien un Product
     if (p instanceof Product) {
-      html = cartproductTemplate;
-      html = html.replaceAll("{{id}}", p.getId());
-      html = html.replace("{{name}}", p.getName());
-      html = html.replace("{{price}}", p.getPrice() + " €");
-      html = html.replace(
-        "{{options}}",
-        p
-          .getSelectedOption()
-          .map((option) => option.name)
-          .join(", ")
-      );
-      all += html;
+      try {
+
+        html = cartproductTemplate;
+        html = html.replaceAll("{{id}}", p.getId());
+        html = html.replace("{{name}}", p.getName());
+        html = html.replace("{{price}}", p.getPrice() + " €");
+        html = html.replace(
+          "{{options}}",
+          p
+            .getSelectedOption()
+            .map((option) => option.name)
+            .join(", ")
+        );
+        all += html;
+      } catch (e) {
+        console.error(e);
+
+      }
     }
   }
-
   return all;
 };
 export { cart as productCart };

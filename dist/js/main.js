@@ -25,34 +25,8 @@ let M = {
   orderCollection: new OrderCollection(),
 };
 
-M.paymentInfos = {};
 
-const form = document.querySelector(".pay");
-const validate = document.querySelector(".pay__validate");
 
-/*
-validate.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent the form from submitting
-
-// Retrieve values from the form elements
-const firstName = form.querySelector('input[placeholder="Prénom"]').value;
-const lastName = form.querySelector('input[placeholder="Nom"]').value;
-const phoneNumber = form.querySelector(
-  'input[placeholder="Numéro de Tel"]'
-).value;
-const email = form.querySelector('input[placeholder="Email"]').value;
-const coupon = form.querySelector(".pay__coupon--input").value;
-const acceptCheckbox = form.querySelector("#checkbox").checked;
-
-// add all the information to M.paymentInfos = {};
-M.paymentInfos.firstName = firstName;
-M.paymentInfos.lastName = lastName;
-M.paymentInfos.phoneNumber = phoneNumber;
-M.paymentInfos.email = email;
-M.paymentInfos.coupon = coupon;
-M.paymentInfos.acceptCheckbox = acceptCheckbox;
-*/
-console.log(M.paymentInfos);
 
 // You can now process the form data or submit it to a server.
 
@@ -87,6 +61,10 @@ V.delCartItem = function () {
   });
 };
 
+V.cartHideControl = function () {
+  document.querySelector(".cart").classList.add("cart--disabled");
+}
+
 V.cartListner = function () {
   document.querySelectorAll(".cart__item--counter-btn").forEach((btn) => {
     btn.addEventListener("click", C.updateCart);
@@ -106,6 +84,10 @@ V.checkOut = function () {
   let order = new Order(createId(), M.productCart.getProducts());
   M.orderCollection.addOrder(order);
   console.log(M.orderCollection.getOrders());
+  V.renderPage("checkout");
+  V.renderCart(M.productCart.getProducts());
+  V.getPaymentInfos();
+  V.cartHideControl();
 };
 
 V.renderProduct = function (data) {
@@ -147,7 +129,37 @@ V.cartTotalPrice = function (data) {
     total += element.getPrice() * data;
   });
   let replacetotal = document.getElementById("totalprice");
-  replacetotal.innerHTML = total + " €";
+  replacetotal.innerHTML = total.toFixed(2) + " €";
+};
+
+V.getPaymentInfos = function () {
+  M.paymentInfos = {};
+
+  const form = document.querySelector(".pay");
+  const validate = document.querySelector(".pay__validate");
+  validate.addEventListener("click", (e) => {
+    e.preventDefault(); // Prevent the form from submitting
+
+    // Retrieve values from the form elements
+    const firstName = form.querySelector('input[placeholder="Prénom"]').value;
+    const lastName = form.querySelector('input[placeholder="Nom"]').value;
+    const phoneNumber = form.querySelector(
+      'input[placeholder="Numéro de Tel"]'
+    ).value;
+    const email = form.querySelector('input[placeholder="Email"]').value;
+    const coupon = form.querySelector(".pay__coupon--input").value;
+    const acceptCheckbox = form.querySelector("#checkbox").checked;
+
+    // add all the information to M.paymentInfos = {};
+    M.paymentInfos.firstName = firstName;
+    M.paymentInfos.lastName = lastName;
+    M.paymentInfos.phoneNumber = phoneNumber;
+    M.paymentInfos.email = email;
+    M.paymentInfos.coupon = coupon;
+    M.paymentInfos.acceptCheckbox = acceptCheckbox;
+
+    console.log(M.paymentInfos);
+  });
 };
 
 let C = {};

@@ -13,10 +13,6 @@ let selectTemplate = "";
 
 let render = function (product, message, subMessage) {
 
-  fetch(templatePath)
-    .then((response) => response.text())
-    .then((data) => (selectTemplate = data));
-
   let target = document.querySelector('.popUp')
 
   if (product instanceof Product) {
