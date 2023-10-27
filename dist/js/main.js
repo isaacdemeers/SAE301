@@ -85,7 +85,15 @@ V.checkOut = function () {
   V.renderCart(M.productCart.getProducts());
   V.getPaymentInfos();
   V.cartHideControl();
-  V.cartTotalPrice();
+
+  let id = product.getId();
+  let userstock = document.querySelector(
+    `li[data-id="${id}"].cart__item--counter-amount`
+  );
+
+  let intuserstock = parseInt(userstock.innerHTML);
+  userstock.innerHTML = intuserstock.toString();
+  V.cartTotalPrice(intuserstock);
 };
 
 V.renderProduct = function (data) {
