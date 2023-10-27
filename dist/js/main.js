@@ -30,31 +30,31 @@ M.paymentInfos = {};
 const form = document.querySelector(".pay");
 const validate = document.querySelector(".pay__validate");
 
+/*
 validate.addEventListener("click", (e) => {
   e.preventDefault(); // Prevent the form from submitting
 
-  // Retrieve values from the form elements
-  const firstName = form.querySelector('input[placeholder="Prénom"]').value;
-  const lastName = form.querySelector('input[placeholder="Nom"]').value;
-  const phoneNumber = form.querySelector(
-    'input[placeholder="Numéro de Tel"]'
-  ).value;
-  const email = form.querySelector('input[placeholder="Email"]').value;
-  const coupon = form.querySelector(".pay__coupon--input").value;
-  const acceptCheckbox = form.querySelector("#checkbox").checked;
+// Retrieve values from the form elements
+const firstName = form.querySelector('input[placeholder="Prénom"]').value;
+const lastName = form.querySelector('input[placeholder="Nom"]').value;
+const phoneNumber = form.querySelector(
+  'input[placeholder="Numéro de Tel"]'
+).value;
+const email = form.querySelector('input[placeholder="Email"]').value;
+const coupon = form.querySelector(".pay__coupon--input").value;
+const acceptCheckbox = form.querySelector("#checkbox").checked;
 
-  // add all the information to M.paymentInfos = {};
-  M.paymentInfos.firstName = firstName;
-  M.paymentInfos.lastName = lastName;
-  M.paymentInfos.phoneNumber = phoneNumber;
-  M.paymentInfos.email = email;
-  M.paymentInfos.coupon = coupon;
-  M.paymentInfos.acceptCheckbox = acceptCheckbox;
+// add all the information to M.paymentInfos = {};
+M.paymentInfos.firstName = firstName;
+M.paymentInfos.lastName = lastName;
+M.paymentInfos.phoneNumber = phoneNumber;
+M.paymentInfos.email = email;
+M.paymentInfos.coupon = coupon;
+M.paymentInfos.acceptCheckbox = acceptCheckbox;
+*/
+console.log(M.paymentInfos);
 
-  console.log(M.paymentInfos);
-
-  // You can now process the form data or submit it to a server.
-});
+// You can now process the form data or submit it to a server.
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
@@ -140,12 +140,23 @@ V.togglePopUp = function () {
   }
 };
 
+V.cartTotalPrice = function (data) {
+  let cart = M.productCart.getProducts();
+  let total = 0;
+  cart.forEach((element) => {
+    total += element.getPrice() * data;
+  });
+  let replacetotal = document.getElementById("totalprice");
+  replacetotal.innerHTML = total + " €";
+};
+
 let C = {};
 
 C.init = function () {
   V.renderPage("accueil");
   V.renderProduct(M.productCollection.getProducts());
   V.renderCart(M.productCart.getProducts());
+  V.cartTotalPrice(1);
 
   V.init();
   C.emptyCart();
@@ -223,11 +234,27 @@ C.addToFavorites = function (e) {
   M.productFavorites.addProduct(product);
 };
 
-C.addToCart = function (e) {
-  M.productCart.addProduct(product);
-  V.renderCart(M.productCart.getProducts());
-  C.emptyCart(); // Permet de remettre le bouton valider le panier en mode normal
-  V.cartListner(); // Permet de récuperer les bouton plus et moins
+C.addToCart = function () {
+  // Récupérer l'ID du produit que vous souhaitez ajouter
+  let id = product.getId();
+  // Rechercher l'élément HTML qui représente la quantité en stock du produit
+  let userstock = document.querySelector(
+    `li[data-id="${id}"].cart__item--counter-amount`
+  );
+  if (userstock !== null) {
+    let intuserstock = parseInt(userstock.innerHTML);
+    intuserstock++;
+    // convert intuserstock to string
+    userstock.innerHTML = intuserstock.toString();
+    console.log(userstock.innerHTML);
+    V.cartTotalPrice(intuserstock);
+  } else {
+    M.productCart.addProduct(product);
+    V.renderCart(M.productCart.getProducts());
+    V.cartTotalPrice(1);
+  }
+  C.emptyCart();
+  V.cartListner();
 };
 
 C.emptyCart = function (e) {
@@ -250,8 +277,10 @@ C.updateCart = function (e) {
   let userstock = document.querySelector(
     `li[data-id="${id}"].cart__item--counter-amount`
   );
+
   let userstockint = parseInt(userstock.innerHTML);
   console.log(userstockint);
+
   // get product by his id and update his quantity
   if (value == "plus") {
     if (userstockint < stock) {
@@ -259,6 +288,7 @@ C.updateCart = function (e) {
       intuserstock++;
       // convert intuserstock to string
       userstock.innerHTML = intuserstock.toString();
+      V.cartTotalPrice(intuserstock);
     }
   } else if (value == "minus") {
     if (userstockint > 1) {
@@ -266,16 +296,18 @@ C.updateCart = function (e) {
       intuserstock--;
       // convert intuserstock to string
       userstock.innerHTML = intuserstock.toString();
+      V.cartTotalPrice(intuserstock);
     }
   }
   if (value == "minus" && userstockint == 1) {
-    errorRenderer(prod, " a été retiré du panier.", "");
+    errorRenderer(prod, " a été retiré du panier.");
     V.togglePopUp();
     let intuserstock = parseInt(userstock.innerHTML);
     intuserstock--;
     M.productCart.removeProduct(prod);
     V.renderCart(M.productCart.getProducts());
     C.emptyCart();
+    V.cartTotalPrice(intuserstock);
   }
   V.cartListner();
 };
