@@ -12,6 +12,7 @@
   backdrop-filter: blur(10px);
   justify-content: center;
   align-items: center;
+
   &--visible {
     visibility: visible;
   }
@@ -149,6 +150,7 @@
         .orderHandler__statut__dot {
           background-color: var(--color-red-500);
         }
+
         .orderHandler__statut__text {
           color: var(--color-red-500);
         }
@@ -163,6 +165,7 @@
       border-radius: 50%;
       z-index: 100;
     }
+
     &__text {
       color: var(--color-neutral-500);
       font-family: var(--ff-Montserrat);
@@ -186,6 +189,7 @@
       align-items: flex-start;
       justify-content: space-between;
       overflow: scroll;
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -254,7 +258,7 @@
       height: 100%;
 
       &__title {
-        @include boxTitle(--fs-400);
+        @include boxTitle(--fs-800);
 
         &--center {
           margin: auto;
