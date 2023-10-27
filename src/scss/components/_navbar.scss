@@ -7,12 +7,15 @@
   background-color: var(--color-neutral-50);
   width: auto;
   border-bottom: 2px solid hsl(0deg 0% 98%);
+
   &__icon {
     fill: var(--color-neutral-900);
   }
+
   &__text {
     color: var(--color-neutral-900);
   }
+
   &__list {
     // Utilisation de BEM pour le bloc 'list'
     display: flex;
@@ -21,23 +24,28 @@
     align-items: center;
     padding: 1em;
     box-shadow: 0px 12px 11px 0px rgba(0, 0, 0, 0.1);
+
     @include size(L) {
       justify-content: space-between;
       gap: 4rem;
       padding: 1em 10em;
     }
   }
+
   &__item {
     // Utilisation de BEM pour les éléments 'item'
     display: flex;
     text-align: center;
     width: 33%;
     cursor: pointer;
+
     @include size(L) {
       width: auto;
     }
+
     &:first-child {
       justify-content: left;
+
       @include size(L) {
         width: 0;
         position: absolute;
@@ -46,23 +54,27 @@
 
     &:nth-child(2) {
       justify-content: center;
+
       @include size(L) {
         justify-content: center;
       }
     }
+
     &:nth-child(3) {
       position: absolute;
+
       @include size(L) {
         position: static;
       }
     }
 
-    &:last-child{
+    &:last-child {
       justify-content: flex-end;
-      @include size(L) {
-      }
+
+      @include size(L) {}
     }
   }
+
   &__sublist {
     // Utilisation de BEM pour la sous-liste 'sublist'
     width: auto;
@@ -72,8 +84,10 @@
     justify-content: flex-end;
     text-align: center;
     box-shadow: none;
+
     &--large {
       display: none;
+
       @include size(L) {
         display: flex;
         gap: 4rem;
@@ -81,13 +95,18 @@
       }
     }
   }
+
   &__subitem {
     // Utilisation de BEM pour les éléments de sous-liste 'subitem'
     width: auto;
+    position: relative;
+
+
     p {
       font-size: var(--fs-200);
       font-weight: var(--fw-500);
       font-family: var(--ff-Montserrat);
+
       @include size(L) {
         font-size: var(--fs-300);
       }
@@ -107,23 +126,25 @@
   left: -100%; // Commencez par positionner la div en dehors de la vue à gauche
   width: 100%;
   height: 100%;
-  background: var(
-    --color-neutral-100
-  ); // Arrière-plan semi-transparent en blanc
+  background: var(--color-neutral-100); // Arrière-plan semi-transparent en blanc
   z-index: 999; // Pour s'assurer que la div s'affiche au-dessus de tout le reste
   transition: left 0.3s ease; // Ajoutez une transition pour animer l'ouverture depuis la gauche
   display: flex;
-  align-items: center; /* Ajoutez cette ligne pour centrer verticalement */
+  align-items: center;
+  /* Ajoutez cette ligne pour centrer verticalement */
 
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
-    width: 100%; /* Ajoutez cette ligne pour occuper toute la largeur de la div */
+    width: 100%;
+    /* Ajoutez cette ligne pour occuper toute la largeur de la div */
     display: flex;
-    flex-direction: column; /* Ajoutez cette ligne pour afficher les éléments verticalement */
-    align-items: center; /* Ajoutez cette ligne pour centrer horizontalement */
+    flex-direction: column;
+    /* Ajoutez cette ligne pour afficher les éléments verticalement */
+    align-items: center;
+    /* Ajoutez cette ligne pour centrer horizontalement */
 
     li {
       margin: 1rem 0;

@@ -49,6 +49,7 @@ V.cartListner = function (data) {
   });
 };
 
+
 V.renderProduct = function (data) {
   document.querySelector("#Products").innerHTML = productRenderer(data);
   V.init();
@@ -91,6 +92,7 @@ C.init = function () {
 
   V.init();
   C.emptyCart();
+
 };
 
 C.productHandler = function (e) {
@@ -222,7 +224,6 @@ C.updateCart = function (e) {
 
   }
   V.cartListner();
-
 };
 
 C.delCartItem = function (e) {

@@ -74,4 +74,8 @@ export class ProductCollection {
   getProductByStock(stock) {
     return this.#products.filter((product) => product.getStock() === stock);
   }
+
+  getLength() {
+    return this.#products.length;
+  }
 }
