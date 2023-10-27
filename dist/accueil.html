@@ -17,6 +17,7 @@
 
 <body>
 
+
   <form class="pay">
     <section class="pay__error">
       <h4>Erreur de Payment</h4>
@@ -32,6 +33,100 @@
       <div class="pay__info-container">
         <input class="pay__info-item" type="text" placeholder="Prénom">
         <input class="pay__info-item" type="text" placeholder="Nom">
+
+  <section class="popUp"></section>
+  <nav class="navbar">
+    <ul class="navbar__list">
+      <li class="navbar__item">
+        <a href="#" class="menu-button" id="menuButton">
+          <span class="burger-icon"></span>
+        </a>
+        <div class="burger__bg">
+          <ul class="burger__menu">
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Notre Carte</a></li>
+            <li><a href="#">Découvrir</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="navbar__item">
+        <img src="./assets/img/icon.png" alt="Logo Pepechicken" class="navbar__logo" />
+      </li>
+      <li class="navbar__item">
+        <ul class="navbar__sublist navbar__sublist--large">
+          <li class="navbar__subitem">
+            <p class="navbar__text">Accueil</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">Notre Carte</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">Découvrir</p>
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text">FAQ</p>
+          </li>
+        </ul>
+      </li>
+      <li class="navbar__item">
+        <ul class="navbar__sublist">
+          <li class="navbar__subitem navbar__subitem--cart">
+            <img src="./assets/img/shopping_cart.svg" alt="Panier" class="navbar__icon" />
+          </li>
+          <li class="navbar__subitem">
+            <p class="navbar__text"></p>
+          </li>
+          <li class="navbar__subitem">
+            <img src="./assets/img/account_circle.svg" alt="Compte" class="navbar__icon" />
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <main class="main">
+    <article class="mainBanner main__banner">
+      <img class="mainBanner__logo" src="./assets/img/logo.png" alt="Pepe Chicken" />
+      <section class="mainBanner__section">
+        <h2 class="mainBanner__title">Pepe Chicken Limoges</h2>
+        <ul class="mainBanner__ul">
+          <li class="mainBanner__subtitle">Click & Collect</li>
+          <li class="mainBanner__button">Modifier le restaurant</li>
+        </ul>
+      </section>
+    </article>
+    <aside class="filters main__filters">
+      <div class="filters__header">
+        <h2 class="filters__title">Filtres</h2>
+      </div>
+      <div class="filters__subheader">
+        <ul class="filters__list">
+          <li class="filters__item">
+            <label class="filters__text">Type</label>
+          </li>
+          <li class="filters__item" data-fav="0">
+            <input class="filters__checkbox" type="checkbox" id="Favoris" type="text">
+            <label class="filters__text" for="">Favoris</label>
+          </li>
+          <li class="filters__item" data-fav="1">
+            <input class="filters__checkbox" type="checkbox" id="Menu" type="text">
+            <label class="filters__text" for="">Menu</label>
+          </li>
+          <li class="filters__item" data-fav="2">
+            <input class="filters__checkbox" type="checkbox" id="Plat" type="text">
+            <label class="filters__text" for="">Plat</label>
+          </li>
+          <li class="filters__item" data-fav="4">
+            <input class="filters__checkbox" type="checkbox" id="Accompagnement" type="text">
+            <label class="filters__text" for="">Accompagnement</label>
+          </li>
+          <li class="filters__item" data-fav="3">
+            <input class="filters__checkbox" type="checkbox" id="Boisson" type="text">
+            <label class="filters__text" for="">Boisson</label>
+          </li>
+        </ul>
+
       </div>
       <input class="pay__info-item" type="text" placeholder="Numéro de Tel">
       <input class="pay__info-item" type="text" placeholder="Email">
