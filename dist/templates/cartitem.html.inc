@@ -1,7 +1,7 @@
 <li data-id="{{id}}" class="cart__item">
   <section class="cart__item--titlecontainer">
     <h4 class="cart__item--title">{{name}}</h4>
-    <a class="cart__item--modify" href=""> Modifier </a>
+    <a class="cart__item--modify" data-id="{{id}}" href="#"> Supprimer </a>
   </section>
   <p class="cart__item--desc">{{options}}</p>
   <section class="cart__item--container">
