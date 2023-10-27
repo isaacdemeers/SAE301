@@ -48,7 +48,7 @@ V.init = function () {
 };
 
 V.renderPage = function (data) {
-  pageRenderer();
+  pageRenderer(data);
 };
 V.delCartItem = function () {
   document.querySelectorAll(".cart__item--modify").forEach((btn) => {
@@ -113,7 +113,7 @@ V.togglePopUp = function () {
 let C = {};
 
 C.init = function () {
-  V.renderPage();
+  V.renderPage('accueil');
   V.renderProduct(M.productCollection.getProducts());
   V.renderCart(M.productCart.getProducts());
 

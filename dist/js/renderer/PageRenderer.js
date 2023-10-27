@@ -1,16 +1,14 @@
 
-const templatePath = "./templates/accueil.html.inc";
 
-
-fetch(templatePath)
-    .then((response) => response.text())
-    .then((data) => (selectTemplate = data));
 
 let selectTemplate = "";
 
 
 
-let render = function () {
+let render = function (template) {
+
+    let templatePath = "./templates/" + template + ".html.inc";
+
 
     fetch(templatePath)
         .then((response) => response.text())
