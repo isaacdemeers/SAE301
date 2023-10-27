@@ -25,16 +25,36 @@ let M = {
   orderCollection: new OrderCollection(),
 };
 
-// M.paymentInfos = {};
+M.paymentInfos = {};
 
-// const form = document.querySelector(".pay");
+const form = document.querySelector(".pay");
+const validate = document.querySelector(".pay__validate");
 
-// form.addEventListener("submit", (e) => {
-//   // add "done" to M.paymentInfos
-//   M.paymentInfos = {};
+validate.addEventListener("click", (e) => {
+  e.preventDefault(); // Prevent the form from submitting
 
-//   console.log(M.paymentInfos);
-// });
+  // Retrieve values from the form elements
+  const firstName = form.querySelector('input[placeholder="Prénom"]').value;
+  const lastName = form.querySelector('input[placeholder="Nom"]').value;
+  const phoneNumber = form.querySelector(
+    'input[placeholder="Numéro de Tel"]'
+  ).value;
+  const email = form.querySelector('input[placeholder="Email"]').value;
+  const coupon = form.querySelector(".pay__coupon--input").value;
+  const acceptCheckbox = form.querySelector("#checkbox").checked;
+
+  // add all the information to M.paymentInfos = {};
+  M.paymentInfos.firstName = firstName;
+  M.paymentInfos.lastName = lastName;
+  M.paymentInfos.phoneNumber = phoneNumber;
+  M.paymentInfos.email = email;
+  M.paymentInfos.coupon = coupon;
+  M.paymentInfos.acceptCheckbox = acceptCheckbox;
+
+  console.log(M.paymentInfos);
+
+  // You can now process the form data or submit it to a server.
+});
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
