@@ -9,7 +9,6 @@ import { productCart } from "./renderer/CartRenderer.js";
 import { checkoutRenderer } from "./renderer/CheckoutRenderer.js";
 import { renderAccueil, renderCheckout } from "./renderer/pageRenderer.js";
 
-
 let filters = [];
 let product = null;
 
@@ -26,14 +25,22 @@ let M = {
   orderCollection: new OrderCollection(),
 };
 
+M.paymentInfos = {};
+
+const form = document.querySelector(".pay");
+
+form.addEventListener("submit", (e) => {
+  // add "done" to M.paymentInfos
+  M.paymentInfos = {};
+
+  console.log(M.paymentInfos);
+});
+
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
 let V = {};
 
 V.init = function () {
-
-
-
   document.querySelectorAll(".product__svg-label").forEach((btn) => {
     btn.addEventListener("click", C.addToFavorites);
   });
@@ -48,12 +55,9 @@ V.init = function () {
 };
 
 V.renderPage = function (template) {
-
-  if (template == 'checkout') {
+  if (template == "checkout") {
     renderCheckout();
-  }
-
-  else {
+  } else {
     renderAccueil();
   }
 };
@@ -114,13 +118,12 @@ V.togglePopUp = function () {
     window.scrollTo(0, 0);
     document.body.style.overflow = "hidden";
   }
-
 };
 
 let C = {};
 
 C.init = function () {
-  V.renderPage('accueil');
+  V.renderPage("accueil");
   V.renderProduct(M.productCollection.getProducts());
   V.renderCart(M.productCart.getProducts());
 
@@ -216,7 +219,6 @@ C.emptyCart = function (e) {
     target.classList.remove("cart__validate--disabled");
     target.classList.add("cart__validate--active");
   }
-
 };
 
 C.updateCart = function (e) {
