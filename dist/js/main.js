@@ -25,16 +25,16 @@ let M = {
   orderCollection: new OrderCollection(),
 };
 
-M.paymentInfos = {};
+// M.paymentInfos = {};
 
-const form = document.querySelector(".pay");
+// const form = document.querySelector(".pay");
 
-form.addEventListener("submit", (e) => {
-  // add "done" to M.paymentInfos
-  M.paymentInfos = {};
+// form.addEventListener("submit", (e) => {
+//   // add "done" to M.paymentInfos
+//   M.paymentInfos = {};
 
-  console.log(M.paymentInfos);
-});
+//   console.log(M.paymentInfos);
+// });
 
 await M.productCollection.loadProducts("http://localhost:8888/api/products");
 
