@@ -53,7 +53,14 @@ V.renderCart = function (data) {
   V.delCartItem();
 };
 
+V.closeListener = function () {
+  document.querySelectorAll(".btn--close").forEach((element) => {
+    element.addEventListener("click", V.togglePopUp);
+  });
+};
+
 V.togglePopUp = function () {
+  V.closeListener();
   let target = document.querySelector(".popUp");
   if (target.classList.contains("popUp--visible")) {
     target.classList.remove("popUp--visible");
@@ -89,12 +96,10 @@ C.productHandler = function (e) {
   if (product.getStock() > 0) {
     selectRenderer(product);
   } else {
-    errorRenderer(product);
+    errorRenderer(product, " est temporairement indisponible.");
   }
 
-  document.querySelectorAll(".btn--close").forEach((element) => {
-    element.addEventListener("click", V.togglePopUp);
-  });
+  V.closeListener();
 
   document
     .querySelectorAll(".orderHandler__content__item")
@@ -176,8 +181,8 @@ C.emptyCart = function (e) {
 C.updateCart = function (e) {
   let id = e.currentTarget.getAttribute("data-id");
   let value = e.currentTarget.getAttribute("data-value");
-  let product = M.productCart.getProductById(parseInt(id));
-  let stock = product.getStock();
+  let prod = M.productCart.getProductById(parseInt(id));
+  let stock = prod.getStock();
   console.log(stock);
   let userstock = document.querySelector(
     `li[data-id="${id}"].cart__item--counter-amount`
@@ -203,23 +208,31 @@ C.updateCart = function (e) {
     }
   }
   if (value == "minus" && userstockint == 1) {
+    errorRenderer(prod, " a été retiré du panier.");
+    V.togglePopUp();
     let intuserstock = parseInt(userstock.innerHTML);
     intuserstock--;
-    M.productCart.removeProduct(product);
+    M.productCart.removeProduct(prod);
     V.renderCart(M.productCart.getProducts());
     C.emptyCart();
     V.updateCart();
+
   }
 };
 
 C.delCartItem = function (e) {
+
   let id = e.currentTarget.dataset.id;
   console.log(id);
-  let product = M.productCart.getProductById(parseInt(id));
+  let prod = M.productCart.getProductById(parseInt(id));
 
   M.productCart.removeProduct(product);
   V.renderCart(M.productCart.getProducts());
+  C.emptyCart();
   V.updateCart();
+
+  errorRenderer(prod, " a été retiré du panier.");
+  V.togglePopUp();
 };
 
 C.init();

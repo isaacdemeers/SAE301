@@ -11,16 +11,16 @@ let selectTemplate = "";
 
 
 
-let render = function (product) {
+let render = function (product, message) {
 
   fetch(templatePath)
-  .then((response) => response.text())
-  .then((data) => (selectTemplate = data));
+    .then((response) => response.text())
+    .then((data) => (selectTemplate = data));
 
   let target = document.querySelector('.popUp')
 
 
-  selectTemplate = selectTemplate.replace("{{alertMessage}}", product.getName() +  " est temporairement indisponible.");
+  selectTemplate = selectTemplate.replace("{{alertMessage}}", product.getName() + message);
   target.innerHTML = selectTemplate;
 
 };
