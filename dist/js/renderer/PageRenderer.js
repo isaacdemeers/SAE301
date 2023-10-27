@@ -1,27 +1,32 @@
 
+let templateAccueil = "./templates/accueil.html.inc";
+let templateCheckout = "./templates/payment.html.inc";
 
+let htmlAccueil = "";
+let htmlCheckout = "";
 
-let selectTemplate = "";
-
-
-
-let render = function (template) {
-
-    let templatePath = "./templates/" + template + ".html.inc";
-
-
-    fetch(templatePath)
-        .then((response) => response.text())
-        .then((data) => (selectTemplate = data));
-
-    let target = document.querySelector('.main')
+let target = document.querySelector('.main')
 
 
 
-    target.innerHTML = selectTemplate;
+fetch(templateAccueil)
+    .then((response) => response.text())
+    .then((data) => (htmlAccueil = data));
 
+
+fetch(templateCheckout)
+    .then((response) => response.text())
+    .then((data) => (htmlCheckout = data));
+
+let renderAccueil = function () {
+    target.innerHTML = htmlAccueil;
 };
 
-export { render as pageRenderer };
+let renderCheckout = function () {
+    target.innerHTML = htmlCheckout;
+};
+
+
+export { renderAccueil, renderCheckout };
 
 

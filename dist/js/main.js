@@ -7,7 +7,7 @@ import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
 import { checkoutRenderer } from "./renderer/CheckoutRenderer.js";
-import { pageRenderer } from "./renderer/pageRenderer.js";
+import { renderAccueil, renderCheckout } from "./renderer/pageRenderer.js";
 
 
 let filters = [];
@@ -47,8 +47,15 @@ V.init = function () {
   });
 };
 
-V.renderPage = function (data) {
-  pageRenderer(data);
+V.renderPage = function (template) {
+
+  if (template == 'checkout') {
+    renderCheckout();
+  }
+
+  else {
+    renderAccueil();
+  }
 };
 V.delCartItem = function () {
   document.querySelectorAll(".cart__item--modify").forEach((btn) => {
