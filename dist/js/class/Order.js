@@ -1,25 +1,25 @@
-class Order {
+export class Order {
   #id;
-  #json;
+  #product;
+  #status;
 
-  constructor(id, json) {
+  constructor(id, product) {
     this.#id = id;
-    this.#json = json;
+    this.#product = product;
+    this.#status = 0;
   }
 
   getId() {
     return this.#id;
   }
 
-  getJson() {
-    return this.#json;
+  getProduct() {
+    return this.#product;
   }
 
-  setJson(json) {
-    this.#json = json;
+  setProduct(product) {
+    this.#product = product;
   }
 
 
 }
-
-export { Order };

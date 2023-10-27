@@ -1,9 +1,11 @@
 import { ProductCollection } from "./class/ProductCollection.js";
+import { OrderCollection } from "./class/OrderCollection.js";
+import { Order } from "./class/Order.js";
+
 import { productRenderer } from "./renderer/ProductRenderer.js";
 import { selectRenderer } from "./renderer/SelectRenderer.js";
 import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
-import { cartDotRenderer } from "./renderer/cartDotRenderer.js";
 
 
 
@@ -12,10 +14,17 @@ import { cartDotRenderer } from "./renderer/cartDotRenderer.js";
 let filters = [];
 let product = null;
 
+// creer un id unique
+let id = 0;
+function createId() {
+  return id++;
+}
+
 let M = {
   productCollection: new ProductCollection(),
   productCart: new ProductCollection(),
   productFavorites: new ProductCollection(),
+  orderCollection: new OrderCollection(),
 };
 
 
@@ -53,6 +62,9 @@ V.cartListner = function () {
 V.checkOut = function () {
   errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
   V.togglePopUp();
+  let order = new Order(createId(), M.productCart.getProducts());
+  M.orderCollection.addOrder(order);
+  console.log(M.orderCollection.getOrders());
 }
 
 
