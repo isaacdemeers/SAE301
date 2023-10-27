@@ -58,7 +58,6 @@ V.cartListner = function () {
 };
 
 V.checkOut = function () {
-<<<<<<< HEAD
   errorRenderer(
     "",
     "Panier validé !",
@@ -69,18 +68,6 @@ V.checkOut = function () {
   M.orderCollection.addOrder(order);
   console.log(M.orderCollection.getOrders());
 };
-=======
-  let order = new Order(createId(), M.productCart.getProducts());
-  M.orderCollection.addOrder(order);
-  console.log(M.orderCollection.getOrders());
-  M.productCart.removeProducts();
-  errorRenderer("", "Panier validé !", "Nouveau ? Voici un code promo de 10% : BIENVENUE10");
-  V.togglePopUp();
-  V.renderCart(M.productCart.getProducts());
-  C.emptyCart();
-}
-
->>>>>>> 0698550c8db9475894d09427ed90780c5b26c9e7
 
 V.renderProduct = function (data) {
   document.querySelector("#Products").innerHTML = productRenderer(data);
@@ -208,13 +195,7 @@ C.emptyCart = function (e) {
   let target = document.querySelector(".cart__validate");
   if (M.productCart.getProducts().length == 0) {
     target.classList.add("cart__validate--disabled");
-<<<<<<< HEAD
     target.classList.add("cart__validate--active");
-=======
-    target.classList.remove("cart__validate--active");
-
-
->>>>>>> 0698550c8db9475894d09427ed90780c5b26c9e7
   } else if (M.productCart.getProducts().length > 0) {
     target.classList.remove("cart__validate--disabled");
     target.classList.add("cart__validate--active");
