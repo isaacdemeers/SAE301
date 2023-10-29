@@ -8,9 +8,12 @@ import { errorRenderer } from "./renderer/ErrorRenderer.js";
 import { productCart } from "./renderer/CartRenderer.js";
 import { checkoutRenderer } from "./renderer/CheckoutRenderer.js";
 import { renderAccueil, renderCheckout } from "./renderer/pageRenderer.js";
+import { burger } from "./burger.js";
 
 let filters = [];
 let product = null;
+
+burger();
 
 // creer un id unique
 let id = 0;
