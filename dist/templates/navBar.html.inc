@@ -6,10 +6,14 @@
       </a>
       <div class="burger__bg">
         <ul class="burger__menu">
-          <li><a href="#">Accueil</a></li>
-          <li><a href="#">Notre Carte</a></li>
-          <li><a href="#">Découvrir</a></li>
-          <li><a href="#">FAQ</a></li>
+          <li><a href="https://www.pepechicken.fr/">Accueil</a></li>
+          <li>
+            <a href="https://www.pepechicken.fr/produits/">Notre Carte</a>
+          </li>
+          <li>
+            <a href="https://www.pepechicken.fr/decouvrir/">Découvrir</a>
+          </li>
+          <li><a href="https://www.pepechicken.fr/faq/">FAQ</a></li>
         </ul>
       </div>
     </li>
@@ -23,16 +27,24 @@
     <li class="navbar__item">
       <ul class="navbar__sublist navbar__sublist--large">
         <li class="navbar__subitem">
-          <p class="navbar__text">Accueil</p>
+          <a href="https://www.pepechicken.fr/"
+            ><p class="navbar__text">Accueil</p></a
+          >
         </li>
         <li class="navbar__subitem">
-          <p class="navbar__text">Notre Carte</p>
+          <a href="https://www.pepechicken.fr/produits/"
+            ><p class="navbar__text">Notre Carte</p></a
+          >
         </li>
         <li class="navbar__subitem">
-          <p class="navbar__text">Découvrir</p>
+          <a href="https://www.pepechicken.fr/decouvrir/"
+            ><p class="navbar__text">Découvrir</p></a
+          >
         </li>
         <li class="navbar__subitem">
-          <p class="navbar__text">FAQ</p>
+          <a href="https://www.pepechicken.fr/faq/"
+            ><p class="navbar__text">FAQ</p></a
+          >
         </li>
       </ul>
     </li>
